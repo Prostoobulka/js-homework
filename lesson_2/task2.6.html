@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2.6</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Додаткові Завдання</h1>
+				<h2 class="result__title">Задача №6</h2>
+				<p>
+					Скласти алгоритм, який обчислює цілу і дробову частину даного числа х.
+					Наприклад: число 23,56 => ціла: 23, дробова: 0,56.
+				</p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<script>
+
+					// Вводимо число Х 
+					let x = parseFloat(prompt("Введіть число х =", ""))
+					// Визначаємо цілу та дробову частину 
+					let wholePart = Math.floor(x)
+					let fractionPart = parseFloat((x % 1).toFixed(2))
+					// Виводимо в документ
+					document.write(`<p>Число = ${x}</p>`)
+					document.write(`<p>Ціла частина = ${wholePart}</p>`)
+					document.write(`<p>Дробова частина = ${fractionPart}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

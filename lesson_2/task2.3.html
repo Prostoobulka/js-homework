@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2.0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Додаткові Завдання</h1>
+				<h2 class="result__title">Задача №4</h2>
+				<p>
+					З клавіатури вводиться вік дитини. Вивести на екран через скільки років вона буде відвідувати садочок,
+					піде у школу, закінчить школу, вступить і закінчить
+				</p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<script>
+					// Вводимо константи та вік дитини
+					let ageChild = parseFloat(prompt("Введіть вік дитини:", ""))
+					const kinderGarden = 3
+					const schoolBegin = 6
+					const schoolEnd = 18
+
+					// Обчислюємо коли дитина піде кудись
+					let resultWhenGarden = Math.max(0, (kinderGarden - ageChild))
+					let resultWhenSchoolBegin = Math.max(0, (schoolBegin - ageChild))
+					let resultWhenSchoolEnd = Math.max(0, (schoolEnd - ageChild))
+					// Виводимо в документ
+					document.write(`<p>Дитині - ${ageChild} р. </p>`)
+					document.write(`<p>Дитині піде в садочок через ${resultWhenGarden} р. </p>`)
+					document.write(`<p>Дитині піде в школу через ${resultWhenSchoolBegin} р.</p>`)
+					document.write(`<p>Дитині закінчить через ${resultWhenSchoolEnd} р. </p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
