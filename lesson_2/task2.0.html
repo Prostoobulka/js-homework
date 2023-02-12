@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2.0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Додаткові Завдання</h1>
+				<h2 class="result__title">Задача №1</h2>
+				<p>Дано ширину екрана та кількість елементів, які повинні бути відображені у рядку. Визначити ширину
+					елементів, які повинні бути відображені у цьому рядку. </p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<script>
+					// Вводимо ширину та кількість елементів 
+					let widthScreen = parseFloat(prompt("Введіть ширину екрана:", ""))
+					let numberElements = parseFloat(prompt("Введіть кількість елементів:", ""))
+
+					// Обчислюємо
+					let widthElement = widthScreen / numberElements
+
+					// Виводимо в таблицю
+					document.write(`<p>Ширина елемента = ${widthElement}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

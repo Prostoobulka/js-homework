@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №2</h1>
+				<p>Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
+				</p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<h2>Програма без використання (new Date())</h2>
+
+				<script>
+					// Вводимо дійсний рік та поточний
+
+					let birthYear = parseInt(prompt("Введіть рік народження =", ""))
+					let currentyYear = parseInt(prompt("Введіть поточний рік =", ""))
+
+					// Обчислюємо
+
+					let result = currentyYear - birthYear
+
+					// Виводимо в таблицю
+					document.write(`<p>Кількість років - ${result}</p>`)
+				</script>
+
+				<h2>Програма з використанням (new Date())</h2>
+
+				<script>
+					// Вводимо дійсний рік та поточний
+
+					// let birthYear = parseFloat(prompt("Введіть рік народження =", ""))
+					let currentyYear2 = new Date().getFullYear();
+
+					// Обчислюємо
+
+					let result2 = currentyYear2 - birthYear
+
+					// Виводимо в таблицю
+					document.write(`<p>Кількість років - ${result2}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
