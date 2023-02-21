@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS Tasks</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		.wrapper {
+			position: relative;
+			min-height: 100%;
+			overflow: hidden;
+			color: #fff;
+			font-size: 20px;
+			background: #16b566;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 500;
+		}
+
+		.container {
+			max-width: 1230px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+
+		.task>*:not(:last-child) {
+			margin-bottom: 25px;
+		}
+
+		.task__title {
+			padding-top: 20px;
+			font-size: 38px;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.task__body>*:not(:last-child) {
+			margin-bottom: 15px;
+		}
+
+		.task__body p {
+			font-size: 30px;
+			line-height: 1.2;
+			letter-spacing: 1px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="task">
+				<h1 class="task__title">Task 1</h1>
+				<div class="task__body">
+					<p>
+						Знайти найбільше серед 2 чисел замінити на 0
+					</p>
+					<script>
+						// 0. num1 num2 result 
+						// 1. Вводимо
+						let num1 = parseInt(prompt("Введіть 1-ше число:"))
+						let num2 = parseInt(prompt("Введіть 2-ге число:"))
+						let result
+						// якщо перше число більше то = 0 /// інакше перше число менше то друге = 0	
+						if (num1 > num2)
+							result = num1 = 0
+						else if (num1 < num2)
+							result = num2 = 0
+
+
+						document.write(`num1 = ${num1}, num2 = ${num2}`)
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

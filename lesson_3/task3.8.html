@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JS Tasks</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		.wrapper {
+			position: relative;
+			min-height: 100%;
+			overflow: hidden;
+			color: #fff;
+			font-size: 20px;
+			background: #16b566;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 500;
+		}
+
+		.container {
+			max-width: 1230px;
+			margin: 0 auto;
+			padding: 0 15px;
+		}
+
+		.task>*:not(:last-child) {
+			margin-bottom: 25px;
+		}
+
+		.task__title {
+			padding-top: 20px;
+			font-size: 38px;
+			font-weight: 700;
+			text-align: center;
+		}
+
+		.task__body>*:not(:last-child) {
+			margin-bottom: 15px;
+		}
+
+		.task__body p {
+			font-size: 30px;
+			line-height: 1.2;
+			letter-spacing: 1px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="task">
+				<h1 class="task__title">Task 1</h1>
+				<div class="task__body">
+					<p>
+						Комп’ютер випадковим чином вибирає початок
+						і кінець проміжку (проміжок повинен знаходитися в межах від
+						1 до 100).
+						Користувач вводить число і виграє,
+						якщо число знаходиться у цьому проміжку, або розташоване
+						від нього (від лівого або правого краю) не більше ніж на 10
+					</p>
+					<script>
+						// Опис minValue maxValue userNumber
+						// 1. Вводимо
+						alert("Ввести число і якщо число знаходиться у цьому проміжку то (win)")
+						let userNumber = parseFloat(prompt("Введіть число від 1 до 100 щоб вгадати проміжок", ""))
+						const min = Math.floor(Math.random() * 90) + 1
+						const max = min + Math.floor(Math.random() * 17) + 1
+						let result
+						// 2.  userNumber <= randomInterval && userNumber >= randomInterval            
+						if (userNumber >= min && userNumber <= max)
+							result = `Ви виграли, ваше значення ${userNumber}, відрізок знаходиться від ${min} до ${max}`
+						else if (userNumber >= min - 10 && userNumber <= min || userNumber >= max && userNumber <= max + 10)
+							result = `Ви виграли, ваше значення ${userNumber}, відрізок знаходиться від ${min} до ${max}, але розташовано від нього не більше ніж на 10`
+						else
+							result = `Ви програли, ваше значення ${userNumber}, відрізок знаходиться від ${min} до ${max}`
+						document.write(`<p>${result}</p>`)						
+					</script>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
