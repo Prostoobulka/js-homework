@@ -37,8 +37,51 @@
 							// Виводимо
 							document.write("<p>Пропонуємо Вам --- Купити лотерею за 4 грн.</p>")
 					}
+					document.write(`<br>`)
+					let result, proposal
+					const ticket = 4
+					// Оптимізація 
+					if (priceItem === 0 && numberMoney === 0) {
+						// Виводимо
+						result = `Відмова у покупці!!! - По нулях`
+					}
+					else {
+						// коли грошей немає і лотерею не запропонуєш
+						if (priceItem > numberMoney && numberMoney === 0)
+							result = `Нехватає грошей!!!`
+						// коли гроші потрачено на товар повністю (не пропонуємо) або коли залишилося 4 і більше то пропонуємо
+						else if (priceItem <= numberMoney) {
+							result = `Ви купили товар за ${priceItem}!!!`
+							numberMoney = numberMoney - priceItem
+							if (numberMoney >= ticket) {
+								proposal = confirm(`У вас залишилося ${numberMoney} Ви бажаєте купити лотерею за 4 грн`)
+								if (proposal) {
+									numberMoney = numberMoney - ticket
+									document.write(`<p>Ви купили лотерею</p>`)
+								}
+							}
+						}
+						// коли товар дорожче а гроші є то пропонуємо
+						else if (priceItem > numberMoney && numberMoney >= ticket) {
+							result = `Нехватає грошей на товар.`
+							proposal = confirm(`Нехватає грошей!!! У вас ${numberMoney} грн а потрібно ${priceItem}. Ви бажаєте купити лотерею за 4 грн`)
+							if (proposal) {
+								numberMoney = numberMoney - ticket
+								document.write(`<p>Ви купили лотерею</p>`)
+							}
+						}
+						// коли купили і якщо залишаються то пропонуємо
+						// else if (priceItem < numberMoney && numberMoney >= ticket) {
+						// 	result = `Ви купили товар за ${priceItem}!!!`
+						// 	proposal = confirm(`У вас залишилося ${numberMoney = numberMoney - priceItem} Ви бажаєте купити лотерею за 4 грн`)
+						// 	if (proposal) {
+						// 		numberMoney = numberMoney - ticket
+						// 		document.write(`<p>Ви купили лотерею</p>`)
+						// 	}
+						// }
 
-
+					}
+					document.write(`<p>${result}, залишилось грошей = ${numberMoney}</p>`)
 
 				</script>
 			</div>

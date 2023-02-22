@@ -78,8 +78,6 @@
 						let firstBoneUser2 = minValueBones + Math.floor(Math.random() * (maxValueBones - minValueBones + 1))
 						let secondBoneUser2 = minValueBones + Math.floor(Math.random() * (maxValueBones - minValueBones + 1))
 						let trySecondUser2 = confirm(`Ваш кидок такий 1 кость отримала ${firstBoneUser2}, 2 кость ${secondBoneUser2}, чи спробуєте снову Спроба №2`)
-						console.log(firstBoneUser1)
-						console.log(secondBoneUser2)
 						// Чи кидати 2 раза --- якщо так то true, якщо ні то false
 						if (trySecondUser1) {
 							firstBoneUser1 = minValueBones + Math.floor(Math.random() * (maxValueBones - minValueBones + 1))
@@ -91,31 +89,37 @@
 							secondBoneUser2 = minValueBones + Math.floor(Math.random() * (maxValueBones - minValueBones + 1))
 							alert(`Друга спроба другого користувача така 1 кость = ${firstBoneUser2}, 2 кость = ${secondBoneUser2}`)
 						}
-
+						console.log(firstBoneUser1)
+						console.log(secondBoneUser1)
+						console.log(firstBoneUser2)
+						console.log(secondBoneUser2)
+						let scoreFirstBoneUser1, scoreSecondBoneUser1, scoreFirstBoneUser2, scoreSecondBoneUser2
 						// якщо (firstBoneUser1 % 2 === 0) firstBoneUser1 + firstBoneUser1
 						// інакше (firstBoneUser1 % 2 !== 0) firstBoneUser1 - firstBoneUser1
 						// Кость №1.1
-						if (firstBoneUser1 % 2 === 0) firstBoneUser1 + firstBoneUser1
-						else if (firstBoneUser1 % 2 !== 0) firstBoneUser1 - firstBoneUser1
+						if (firstBoneUser1 % 2 === 0) scoreFirstBoneUser1 = firstBoneUser1 + firstBoneUser1
+						else if (firstBoneUser1 % 2 !== 0) scoreFirstBoneUser1 = firstBoneUser1 - firstBoneUser1
 						// Кость №1.2
-						if (secondBoneUser1 % 2 === 0) secondBoneUser1 + secondBoneUser1
-						else if (secondBoneUser1 % 2 !== 0) secondBoneUser1 - secondBoneUser1
+						if (secondBoneUser1 % 2 === 0) scoreSecondBoneUser1 = secondBoneUser1 + secondBoneUser1
+						else if (secondBoneUser1 % 2 !== 0) scoreSecondBoneUser1 = secondBoneUser1 - secondBoneUser1
 						// Кость №2.1
-						if (firstBoneUser2 % 2 === 0) firstBoneUser2 + firstBoneUser2
-						else if (firstBoneUser2 % 2 !== 0) firstBoneUser2 - firstBoneUser2
+						if (firstBoneUser2 % 2 === 0) scoreFirstBoneUser2 = firstBoneUser2 + firstBoneUser2
+						else if (firstBoneUser2 % 2 !== 0) scoreFirstBoneUser2 = firstBoneUser2 - firstBoneUser2
 						// Кость №2.2
-						if (secondBoneUser2 % 2 === 0) secondBoneUser2 + secondBoneUser2
-						else if (secondBoneUser2 % 2 !== 0) secondBoneUser2 - secondBoneUser2
-
+						if (secondBoneUser2 % 2 === 0) scoreSecondBoneUser2 = secondBoneUser2 + secondBoneUser2
+						else if (secondBoneUser2 % 2 !== 0) scoreSecondBoneUser2 = secondBoneUser2 - secondBoneUser2
 
 						// сумуємо
-						let user1 = firstBoneUser1 + secondBoneUser1
-						let user2 = firstBoneUser2 + secondBoneUser2
+						let user1 = scoreFirstBoneUser1 + scoreSecondBoneUser1
+						let user2 = scoreFirstBoneUser2 + scoreSecondBoneUser2
 						// хто виграв ?
 						if (user1 > user2) document.write(`<p>Виграв перший користувач ${user1} > ${user2}</p>`)
 						else if (user1 < user2) document.write(`<p>Виграв другий користувач ${user2} > ${user1}</p>`)
-						document.write(`<p>В першого користувача така кількість балів ${firstBoneUser1} і ${secondBoneUser1}</p>`)
-						document.write(`<p>В другого користувача така кількість балів ${firstBoneUser2} і ${secondBoneUser2}</p>`)
+						else document.write(`<p>нічия</p>`)
+						document.write(`<p>scoreUser1 = ${scoreFirstBoneUser1}, ${scoreSecondBoneUser1}</p>`)
+						document.write(`<p>scoreUser2 = ${scoreFirstBoneUser2}, ${scoreSecondBoneUser2}</p>`)
+						document.write(`<p>В першого користувача така кількість балів ${user1}</p>`)
+						document.write(`<p>В другого користувача така кількість балів ${user2}</p>`)
 						//
 					</script>
 				</div>

@@ -48,6 +48,20 @@
 					} else if (userAge > 90) {
 						document.write("<p>Помер</p>")
 					}
+
+					// Варіант спрощений 
+					let result
+					if (userAge < pupil)
+						result = `Дитина`
+					else if (userAge < student)
+						result = `Учень`
+					else if (userAge < employee)
+						result = `Студент`
+					else if (userAge < pensioner)
+						result = `Робітник`
+					else if (userAge <= 100)
+						result = `Пенсіонер`
+					console.log(result);
 				</script>
 			</div>
 		</div>
