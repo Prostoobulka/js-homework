@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 8</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №8</h1>
+				<p>
+					Користувач загадує число. За 3 спроби комп’ютер намагається вгадати число користувача (використати
+					confirm)
+				</p>
+				<script>
+					// Позначення 
+					// userNum, computerNum 
+					// confirm - якщо ваше число 3 якщо так то комп вгадав, якщо ні то ще 2 спроби
+					// Введення 
+					const userNum = parseInt(prompt(`Введіть число яке бажаєте загадати комп`))
+					let computerNum
+					let i = 1
+					// Цикл 3 спроби
+					for (; i <= 3; i++) {
+
+						computerNum = 1 + Math.floor(Math.random() * userNum)
+						const guessNum = confirm(`Ваше число ${computerNum}?`)
+
+
+						// Якщо так то комп вгадав інакше після 3 спроб комп не вгадав 
+						if (guessNum && (computerNum === userNum)) {
+							alert('Комп вгадав')
+							break
+							// якщо користувач нажме ні але комп вгадав тоді буде повідомлення 
+						} else if (!guessNum && (computerNum === userNum)) {
+							alert(`Ні ваше число ${computerNum}!!!`)
+							break
+						}
+						// якщо спроби закінчились
+						else if (i === 3) {
+							alert('Комп не вгадав за 3 спроби')
+						}
+					}
+					document.write(`<p>Користувач загадав число - ${userNum}</p>`)
+					document.write(`<p>Комп'ютер зі ${i} спроби загадав - ${computerNum}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

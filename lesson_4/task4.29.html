@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 4</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №4 СР</h1>
+				<p>
+					<!-- Знайти найбільший спільний дільник двох чисел A і B. -->
+				</p>
+				<script>
+					// let a = parseInt(prompt("Введіть число А"))
+					// let b = parseInt(prompt("Введіть число B"))
+					// while (b !== 0) {
+					// 	let temp = b
+					// 	b = a % b
+					// 	a = temp
+					// }
+					// console.l	og(`НСД = ${a}`);
+					// Напишіть цикл, який визначить, чи є задане число простим. 
+					// Просте число - це число, яке ділиться лише на 1 і на саме себе.
+					let num = parseInt(prompt("Введіть число"));
+					let isPrime = true;
+					let i = 2;
+					while (isPrime && i < num) {
+						if (num % i === 0) {
+							isPrime = false;
+						}
+						i++;
+					}
+					if (isPrime) {
+						alert('Це просте число');
+					} else {
+						alert('Це складене число');
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

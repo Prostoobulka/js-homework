@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 3</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №3 Вчитель</h1>
+				<p>
+					Вивести усі трицифрові числа, де друга цифра завжди є меншою або рівною за першу,
+					а третя є меншою або рівною за другу.
+				</p>
+				<script>
+					for (let c1 = 1; c1 <= 9; c1++) {
+						for (let c2 = 0; c2 <= c1; c2++) {
+							for (let c3 = 0; c3 <= c2; c3++) {
+								console.log(`${c1} ${c2} ${c3}`);
+							}
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
