@@ -25,14 +25,14 @@
 					const maxValue = 100
 					let user1 = parseInt(prompt("Введіть кількість випадкових чисел ="))
 					// цикл з випадковими числами маркирований список 
+					document.write(`<ul>`)
 					for (let i = 0; i < user1; i++) {
 						const randomValue = minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
 						document.write(`
-						<ul>
 							<li>${randomValue}</li>
-						</ul>
 						`)
 					}
+					document.write(`</ul>`)
 				</script>
 			</div>
 		</div>
