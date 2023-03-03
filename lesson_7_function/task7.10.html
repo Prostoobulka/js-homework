@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 10</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №10</h1>
+				<p>
+					Дано покази температур (довільна кількість). Розробити функцію, яка дозволить підрахувати кількість
+					від’ємних показів температури.
+				</p>
+				<script>
+					// Вводимо
+					const K = parseInt(prompt('Введіть кількість показників', "3"))
+
+					// Підраховуємо кількість відємних показників і виводимо
+					// function getNumberNegativeTemperatures(quantityShowTemperatures) {
+					// 	let counterNegative = 0
+					// 	for (let i = 0; i < quantityShowTemperatures; i++) {
+					// 		let temperatures = parseFloat(prompt('Введіть покази температури', "-2"))
+					// 		if (temperatures < 0) counterNegative++
+					// 	}
+					// 	return counterNegative
+					// }
+
+					// отримуємо елементи температури та обраховуємо 
+					function getNumberElementsTemperatures(quantityShowTemperatures) {
+						let countNegative = 0
+						for (let i = 0; i < quantityShowTemperatures; i++) {
+							const temperatures = parseFloat(prompt('Введіть покази температури', "-2"))
+							const elementTemperatures = isNegativeTemperatures(temperatures)
+							if (elementTemperatures) countNegative++
+						}
+						return countNegative
+					}
+					// Перевіряємо чи температура є відємною
+					function isNegativeTemperatures(degree) {
+						return degree < 0
+					}
+
+					let result = getNumberElementsTemperatures(K)
+					document.write(`Кількість від'ємних показників = ${result}`)
+
+
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

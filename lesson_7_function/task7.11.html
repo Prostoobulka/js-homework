@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 11</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №11</h1>
+				<p>
+					Дано покази температур (довільна кількість). Розробити функцію, яка дозволить знайти середнє
+					значення для додатних показів температури.
+				</p>
+				<script>
+					// Вводимо
+					const K = parseInt(prompt('Введіть кількість показників', "3"))
+
+					// Отримуємо суму 
+					function getSumTemperaturesPositive(quantityTemp) {
+						let totalSumTemp = 0
+						for (let i = 0; i < quantityTemp; i++) {
+							const temperatures = parseFloat(prompt('Введіть показник температури', '2'))
+							if (temperatures > 0) totalSumTemp += temperatures
+						}
+						return totalSumTemp
+					}
+					// Середнє значення
+					function getAverageTemp(quantityTemp, sum) {
+						return sum / quantityTemp
+					}
+					// Виклик і виводимо
+					const resultSum = getSumTemperaturesPositive(K)
+					const resultAverage = getAverageTemp(K, resultSum)
+
+					document.write(`<p>Середнє значення = ${resultAverage}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

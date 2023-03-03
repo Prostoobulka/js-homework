@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 5</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №5</h1>
+				<p>
+					Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів:
+					кількість парних, кількість додатних, кількість більших за 100.
+				</p>
+
+
+				<script>
+					// Позначення 120 130 150  с1 % 2 === 0 парний = 1 с2 = 2,  с3 !== 0 то не парний
+					// function getDifferentValueNum(c1, c2, c3) {
+					// 	let counterEven = 0
+					// 	let counterPositive = 0
+					// 	let counterGreaterThan100 = 0
+
+					// 	if (c1 > 0) counterPositive++
+					// 	if (c1 % 2 === 0) counterEven++
+					// 	if (c1 > 100) counterGreaterThan100++
+
+					// 	if (c2 > 0) counterPositive++
+					// 	if (c2 % 2 === 0) counterEven++
+					// 	if (c2 > 100) counterGreaterThan100++
+
+					// 	if (c3 > 0) counterPositive++
+					// 	if (c3 % 2 === 0) counterEven++
+					// 	if (c3 > 100) counterGreaterThan100++
+
+					// 	return document.write(`<p>Кількість парних = ${counterEven} <br> Кількість додатніх = ${counterPositive} <br> Кількість більше за 100 = ${counterGreaterThan100}</p>`)
+
+					// }
+
+					// // Вводимо
+					// const a = parseFloat(prompt('Введіть 1 число'))
+					// const b = parseFloat(prompt('Введіть 2 число'))
+					// const c = parseFloat(prompt('Введіть 3 число'))
+
+
+					// // Виклик функціїї 
+					// const resultProperty = getDifferentValueNum(a, b, c)
+
+
+					// Вводимо 
+					let counterEven = 0
+					let counterPositive = 0
+					let counterOver100 = 0
+
+					// перебираємо три числа 
+					for (let i = 1; i <= 3; i++) {
+						const number = parseFloat(prompt(`Введіть ${i} число`))
+						const evenNum = getEvenNum(number)
+						const positiveNum = getPositiveNum(number)
+						const numOver100 = getNumOver100(number)
+					}
+
+					function getEvenNum(c1) {
+						// парнe 
+						if (c1 % 2 === 0) counterEven++
+					}
+
+					function getPositiveNum(c1) {
+						// додатнє
+						if (c1 > 0) counterPositive++
+					}
+					function getNumOver100(c1) {
+						// більше за 100 
+						if (c1 > 100) counterOver100++
+					}
+
+					// виводимо
+					document.write(`<p>Кількість парних = ${counterEven} <br> Кількість додатніх = ${counterPositive} <br> Кількість більше за 100 = ${counterOver100}</p>`)
+
+
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

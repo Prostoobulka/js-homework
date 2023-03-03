@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tasks</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+		@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,");
+
+		body {
+			font-family: "Roboto", sans-serif;
+			background: #656565;
+			font-size: 20px;
+			font-weight: 500;
+			color: #fff;
+		}
+
+		h2 {
+			color: #168db5;
+		}
+
+		.wrapper {
+			min-height: 100%;
+			overflow: hidden;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+
+		.wrapper__item:not(:last-child) {
+			margin-bottom: 30px;
+		}
+
+		.wrapper__title {
+			font-size: 40px;
+		}
+
+		.wrapper__title:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		.task {}
+
+		.task__body {
+			border: 1px solid #fff;
+			padding: 15px;
+		}
+
+		.task__body:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		.task__body>*:not(:last-child) {
+			margin-bottom: 10px;
+		}
+
+		.task__title {
+			font-size: 30px;
+		}
+
+		.task__descr {
+			font-size: 25px;
+		}
+
+		.task__link {
+			color: #1528ff;
+		}
+
+		.task__link:hover {
+			color: #7dfd67;
+		}
+
+		.task__link:visited {
+			color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<h1 class="wrapper__title">Lesson 7. Функції. Обов'язкові задачі</h1>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №1</div>
+				<div class="task__descr"> Створити функцію, яка за номером місяця повертає пору року, до якої відноситься
+					цей місяць.
+				</div>
+				<a href="task7.1.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №2</div>
+				<div class="task__descr"> Створити функцію, яка за номером місяця повертає його назву.
+				</div>
+				<a href="task7.2.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №3</div>
+				<div class="task__descr">Створити функцію, яка за номером дня дозволяє з’ясувати чи є цей день робочим.
+				</div>
+				<a href="task7.3.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №4</div>
+				<div class="task__descr"> Створити окремі функції, які для 4 чисел знаходять:
+					<br>
+					1)суму;
+					<br>
+					2)добуток;
+					<br>
+					3)середнє арифметичне;
+					<br>
+					4)мінімальне значення.
+				</div>
+				<a href="task7.4.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №5</div>
+				<div class="task__descr"> Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька
+					результатів:
+					кількість парних, кількість додатних, кількість більших за 100.
+				</div>
+				<a href="task7.5.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №6</div>
+				<div class="task__descr"> Створити окремі функції, які переводять:
+					<br>
+					Сантиметри у дюйми;
+					<br>
+					Кілограми у фунти;
+					<br>
+					Кілометри у милі.
+				</div>
+				<a href="task7.6.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №7</div>
+				<div class="task__descr"> Створити функцію, яка створює таблицю з вказаною кількістю рядків і стовпців
+					(таблиця заповнюється
+					заданим фіксованим повідомленням).
+				</div>
+				<a href="task7.7.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №8</div>
+				<div class="task__descr"> Створити функцію, яка випадковим чином виводить на екран одне із 4 зображень
+					(шляхи до зображень
+					передаються у функцію)
+				</div>
+				<a href="task7.8.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №9</div>
+				<div class="task__descr"> Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок
+					та
+					посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега a)
+				</div>
+				<a href="task7.9.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №10</div>
+				<div class="task__descr"> Дано покази температур (довільна кількість). Розробити функцію, яка дозволить
+					підрахувати кількість
+					від’ємних показів температури.
+				</div>
+				<a href="task7.10.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+		<div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №11</div>
+				<div class="task__descr"> Дано покази температур (довільна кількість). Розробити функцію, яка дозволить
+					знайти середнє
+					значення для додатних показів температури.
+				</div>
+				<a href="task7.11.html" class="task__link">Перейти</a>
+			</div>
+		</div>
+	</div>
+	<h2 class="wrapper__title">Додаткові задачі</h2>
+	<!-- <div class="wrapper__item task">
+			<div class="task__body">
+				<div class="task__title">Задача №1</div>
+				<div class="task__descr">З клавіатури вводиться орендна плата за місяць.
+						Визначити на скільки повних місяців вистачить вказаної суми грошей, а також кількість повних років
+				</div>
+				<a href="task4.1.html" class="task__link">Перейти</a>
+			</div>
+		</div> -->
+	</div>
+	</div>
+
+</body>
+
+</html>

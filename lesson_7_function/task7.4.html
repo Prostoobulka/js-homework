@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 4</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №4</h1>
+				<p>
+					Створити окремі функції, які для 4 чисел знаходять:
+					<br>
+					1)суму;
+					<br>
+					2)добуток;
+					<br>
+					3)середнє арифметичне;
+					<br>
+					4)мінімальне значення.
+
+				</p>
+
+
+				<script>
+					// Позначення 
+					// Опис функцій
+					// сума
+					function getSumNum(c1, c2, c3, c4) {
+						return c1 + c2 + c3 + c4
+					}
+					// добуток
+					function getMultiNum(c1, c2, c3, c4) {
+						return c1 * c2 * c3 * c4
+					}
+					// середнє арифметичне
+					function getAverageNum(c1, c2, c3, c4) {
+						return (c1 + c2 + c3 + c4) / 4
+					}
+					// мінімальне значення 
+					function getMinNum(c1, c2, c3, c4) {
+						let min = +Infinity
+						if (c1 < min) min = c1
+						if (c2 < min) min = c2
+						if (c3 < min) min = c3
+						if (c4 < min) min = c4
+						return min
+					}
+
+					// Вводимо 
+					const a = parseFloat(prompt(`Введіть 1 число`))
+					const b = parseFloat(prompt(`Введіть 2 число`))
+					const c = parseFloat(prompt(`Введіть 3 число`))
+					const d = parseFloat(prompt(`Введіть 4 число`))
+
+					// Виклик функцій 
+					const sum = getSumNum(a, b, c, d)
+					const multi = getMultiNum(a, b, c, d)
+					const average = getAverageNum(a, b, c, d)
+					const minNum = getMinNum(a, b, c, d)
+
+					// Виводимо
+					document.write(`<p>Сума = ${sum}, Добуток = ${multi}, Середнє = ${average}, Мінімальне = ${minNum}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

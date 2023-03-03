@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 6</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №6</h1>
+				<p>
+					Створити окремі функції, які переводять:
+					<br>
+					Сантиметри у дюйми;
+					<br>
+					Кілограми у фунти;
+					<br>
+					Кілометри у милі.
+				</p>
+
+
+				<script>
+					// Позначення 
+					//1 дюйм = 2.54 см, 1 кілограм = 2.20462, 1 кілометр = 0.621371
+					const cm = parseFloat(prompt("Введіть сантиментри"))
+					const kg = parseFloat(prompt("Введіть кілограми"))
+					const km = parseFloat(prompt("Введіть кілометр"))
+
+
+					// перводимо значення
+					function getInch(a) {
+						const inch = 2.54
+						return a / inch
+					}
+					function getPound(a) {
+						const pound = 2.20462
+						return a * pound
+					}
+					function getMiles(a) {
+						const miles = 0.621371
+						return a * miles
+					}
+					// Викликаємо функцію
+					const resultInch = getInch(cm)
+					const resultPound = getPound(kg)
+					const resultMiles = getMiles(km)
+					// Виводимо
+					document.write(`<p>Дюйми = ${resultInch},<br> Фунти = ${resultPound},<br> Миль = ${resultMiles}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

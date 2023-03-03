@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 9</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №9</h1>
+				<p>
+					Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та
+					посилання, куди переходимо при кліку на зображення (тег img повине знаходитись у середині тега a:
+					<!-- <a><img src=”шлях”> </a> -->
+				</p>
+				<!-- <img src="img/fruits/01.svg" width="100" alt="Fruit"> -->
+				<script>
+					// Вводимо 
+					const userImg = parseInt(prompt('Є в наявності 4 картинки. Виберіть одну із них', "2"))
+					const userTitle = prompt('Заговолок банера', "Banner")
+					const userLink = prompt('Шлях до куди буде вести посилання', "https://www.google.com.ua")
+
+					// Отримуємо банер
+					function getBanner(numImg, contentTitle, pathLink) {
+						document.write(`
+						<h1 style = "font-size: 28px;">${contentTitle}</h1>
+						<a href="${pathLink}" target = "_blank"><img src="img/fruits/0${numImg}.svg" width="100" alt="Fruit"></a>
+						`)
+					}
+					// Виклик
+					getBanner(userImg, userTitle, userLink)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
