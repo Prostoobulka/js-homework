@@ -30,13 +30,14 @@
 					let avarageTemp
 					let sum = 0
 					let counter = 0
+					let temperature
 					// до тих пір поки користувач не нажме відміну 
 					do {
-						let temperature = parseFloat(prompt('Введіть показник температури', '5 градусів'))
+						temperature = parseFloat(prompt('Введіть показник температури', '5 градусів'))
 						if (!isFinite(temperature)) break
 						sum = sum + temperature
 						counter++
-					} while (true)
+					} while (temperature)
 					avarageTemp = sum / counter
 					document.write(`Cереднє значення температури сягає - ${avarageTemp}°С`)
 				</script>
