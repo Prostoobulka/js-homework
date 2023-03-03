@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №3.2</h1>
+				<p>
+					Цвях довжиною L см. забивають в дошку.
+					За один удар цвях заглиблюється в дерево на K мм.
+					За скільки ударів цвях забють в дошку?
+				</p>
+				<script>
+					// 0. Вводимо довжину цвяха, і довжину за один удар
+					let lengthNail = parseFloat(prompt("Довжина цвяха cм. =", ""))
+					let forOnePunchDeep = parseFloat(prompt("За один удар cм. =", ""))
+					// 1. Визначити за скільки ударів забють 
+					let howMuchPunches = Math.ceil(lengthNail / forOnePunchDeep)
+					// 2. Виводимо
+					document.write(`<p>За таку кількість ударів забють - ${howMuchPunches}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
