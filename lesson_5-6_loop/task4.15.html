@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 15</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №15</h1>
+				<p>
+					Користувача поступово вводить показники температури протягом року. Знайти середню температуру.
+				</p>
+
+
+
+				<script>
+					// Позначення 
+					// avarageTemp, temperature, sum, counter 
+					// сума = сума + temperature
+					// середнє = сума / кількість
+					// Вводимо 
+					let avarageTemp
+					let sum = 0
+					let counter = 0
+					// до тих пір поки користувач не нажме відміну 
+					do {
+						let temperature = parseFloat(prompt('Введіть показник температури', '5 градусів'))
+						if (!isFinite(temperature)) break
+						sum = sum + temperature
+						counter++
+					} while (true)
+					avarageTemp = sum / counter
+					document.write(`Cереднє значення температури сягає - ${avarageTemp}°С`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

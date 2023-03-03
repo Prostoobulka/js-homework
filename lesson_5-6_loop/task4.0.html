@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №1</h1>
+				<p>
+					Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових
+					чисел вводиться користувачем.
+				</p>
+				<script>
+					// let pass = 0
+					// while (pass < 3 && pass !== "123") {
+					// 	pass = prompt("Пароль")
+					// }
+					// console.log(pass)
+
+					// let num = 0
+					// while (num < 5) {
+					// 	console.log(`Hello ${num}`)
+					// 	num++
+					// }
+					// console.log(num);
+
+					// let priceGoods, totalPrice = 0, num = 1
+					// while (num <= 7) {
+					// 	priceGoods = parseInt(prompt(`Введіть вартість ${num} товару = `))
+					// 	totalPrice += priceGoods
+					// 	num++
+					// 	console.log(`Вартість ${num}-го = ${totalPrice} грн`)
+					// }
+
+					// num = 0
+					// for (num = 0; num < 5; num++) {
+					// 	console.log(num);
+					// }
+
+					// for (i = 0; i < 5; i++) {
+					// 	let sum, mult
+
+					// let firstNum = parseInt(prompt(`Введіть число 1 =`))
+					// let secondNum = parseInt(prompt(`Введіть число 2 =`))
+					// if (firstNum === secondNum) {
+					// 	sum = firstNum + secondNum
+					// 	console.log(`Sum = ${sum}`);
+					// } else {
+					// 	mult = firstNum * secondNum
+					// 	console.log(` Mult = ${mult}`);
+					// }
+
+					// let guess = 0
+					// for (let i = 0; i < 6; i++) {
+					// 	let randomValue = 1 + Math.floor(Math.random() * 2)
+					// 	let user = parseInt(prompt("Вгадати число від 1 до 10"))
+					// 	if (user === randomValue)
+					// 		guess = guess + 1
+					// }
+					// console.log(`guessNumber = ${guess}`);
+
+
+					// for (let i = 1; i <= 3; i++) {
+					// 	for (let j = 1; j <= 3; j++) {
+					// 		let isCorrect = parseInt(prompt(`${i} + ${j}`))
+					// 		if (isCorrect === i + j)
+					// 			alert("OK")
+					// 		else
+					// 			alert("Error")
+
+					// 	}
+					// }
+
+					/*
+					let n = parseInt(prompt("Введіть N-число = "))
+					let m = parseInt(prompt("Введіть N-число = "))
+
+					// while (n < m) {
+					// 	document.write(`${n} - ${m}<br>`)
+					// 	n++
+					// 	m--
+					// }
+
+					for (; n < m; n++, m--) {
+						document.write(`${n} - ${m}<br>`)
+					}
+					*/
+
+					// const costPhone = 10000
+					// let money = 0, minPayment = 1, maxPayment = 200, counter = 0
+					// do {
+					// 	let randomMoney = minPayment + Math.floor(Math.random() * (maxPayment - minPayment + 1))
+					// 	money = money + randomMoney
+					// 	counter = counter + 1
+					// 	document.write(`Кількість спроб = ${counter}, кількість грошей = ${money}<br>`)
+					// } while (money < costPhone)
+
+					// const costPhone = 10000
+					// let m = parseInt(prompt("Введіть кількість грошей")), minPayment = 1, maxPayment = 200, counter = 0
+
+					// while (m < costPhone) {
+					// 	let randomMoney = minPayment + Math.floor(Math.random() * (maxPayment - minPayment + 1))
+					// 	m = m + randomMoney
+					// 	counter = counter + 1
+					// }
+					// document.write(`<p>Кількість спроб = ${counter}, ${m}</p>`)
+
+					// let numberRolls = parseInt(prompt("Введіть кількість булочок = "))
+					// while (numberRolls > 0) {
+					// 	// numberRolls = parseInt(prompt("Введіть кількість булочок = "))
+					// 	if (numberRolls > 0)
+					// 		console.log(`То така кількість є ${numberRolls}`)
+					// 	else
+					// 		console.log(`То такої кількості немає`)
+					// }
+
+					// let sum = 0
+					// for (let i = 1; i <= 10; i++) {
+					// 	let num = parseInt(prompt(`Введіть ${i} цілих чисел =`))
+					// 	if (!isFinite(num))
+					// 		continue
+					// 	sum = sum + num
+					// 	console.log(`Cума = ${sum}, Ціле число = ${num}`)
+
+					// }
+					let guessNumber = 0
+					const minValue = 1
+					const maxValue = 2
+					mainLoop: for (let i = 0; i < 3; i++) {
+						const randomValue = minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+						for (let j = 0; j < 4; j++) {
+							let user = parseInt(prompt(`Відгадайте число`))
+							if (user === randomValue) {
+								console.log('Вгадали')
+								guessNumber++
+								continue mainLoop
+							} else {
+								console.log('Не вгадали')
+							}
+						}
+					}
+					console.log(`Кількість вгаданих = ${guessNumber}`)
+
+
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

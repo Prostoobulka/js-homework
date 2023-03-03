@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 13</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №13</h1>
+				<p>
+					Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M.
+					Маючи К снарядів
+					користувач намагається потопити корабель.
+				</p>
+
+
+
+				<script>
+					// Позначення 
+					// columnField, rowField, enemyShip, numberAmmo 
+					// Вводимо
+					let columnField = parseInt(prompt('Скільки колонок потрібно для ігри', '2'))
+					let rowField = parseInt(prompt('Скільки рядків потрібно для ігри', '2'))
+					let numberAmmo = parseInt(prompt('Скільки снарядів', '3'))
+					let counterTry = 0
+					let resultShoot
+					// цикл до кількості снарядів numberAmmo
+
+					// userShoot - вистріл користувача 
+					let userShootColumn = parseInt(prompt('Введіть колонку корабля противника', '2'))
+					let userShootRow = parseInt(prompt('Введіть рядок корабля противника', '2'))
+
+					// розташування противника 
+					let enemyShipColumn = 1 + Math.floor(Math.random() * columnField)
+					let enemyShipRow = 1 + Math.floor(Math.random() * rowField)
+
+					for (let i = 1; i <= numberAmmo; i++) {
+						counterTry++
+						// якщо користувач влучив то закінчити цикл інакше запитаємо снову у користувача рядок і колонку
+						if (userShootColumn === enemyShipColumn && userShootRow === enemyShipRow) {
+							resultShoot = '<p>Користувач потопив корабль!</p>'
+							alert('Ви потопили корабль!!!')
+							break
+						}
+						else {
+							resultShoot = '<p>Користувач не потопив корабль!</p>'
+							alert('Ви не влучили!!! Cпробуйте ще раз')
+							// якщо остання спроба невдала то пропустити те що запитуємо у користувача
+							if (i === numberAmmo) {
+								alert('Ви зовсім не влучили. Спробуйте заново')
+								continue
+							}
+						}
+						userShootColumn = parseInt(prompt('Введіть корабля противника', '2'))
+						userShootRow = parseInt(prompt('Введіть корабля противника', '2'))
+					}
+					document.write(`<p>Поле з розміром ${rowField}X${columnField}</p>`)
+					document.write(`<p>Користувач використав ${counterTry} снарядів із ${numberAmmo}</p>`)
+					document.write(resultShoot)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

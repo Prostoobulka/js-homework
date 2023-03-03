@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 11</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №11</h1>
+				<p>
+					Знайти суму 5 непарних чисел, що знаходяться між заданими користувачем числами.
+				</p>
+				<script>
+					// Позначення 
+					// startInterval, endInterval, sumOdd 
+					let startInterval = parseInt(prompt("Введіть початкове число:", "10"))
+					let endInterval = parseInt(prompt("Введіть кінцеве число:", "20"))
+					let sumOdd = 0
+					let counterFiveOddNum = 0
+					// цикл до заданого кінцевого значення 
+					for (let i = startInterval; i <= endInterval; i++) {
+						// Наприклад --- непарне число від 10 до 20 = 11 + 13 + 15 + 17 + 19
+						// якщо число не буде ділитися націло на 2 то непарне 
+						if (i % 2 !== 0) {
+							sumOdd = sumOdd + i
+							document.write(`<p>${i},</p>`)
+							counterFiveOddNum++
+						} else if (counterFiveOddNum === 5) {
+							break
+						}
+					}
+					document.write(`<p>Cума непарних чисел = ${sumOdd}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>

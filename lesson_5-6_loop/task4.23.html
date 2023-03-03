@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 4</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №4 Вчитель</h1>
+				<p>
+					Тільки позитивні емоції. З клавіатури вводять M - максимальна кількість смайликів, які можна
+					вивести. Комп випадково вибирає якесь із 4 наперед заданих. Серед них є сумний смайл.
+					<br>
+					1) Якщо знаходимо сумний зупинити
+					<br>
+					2) Якщо знаходимо сумний пропустити
+					<br>
+					3) Якщо знаходимо сумний вибрати наступний
+				</p>
+				<script>
+					// // Позначення sadSmile M ranSmile 
+					// // Вводимо
+					// const M = parseInt(prompt("Введіть кількість смайликів"))
+					// const sadSmile = 4
+					// for (let i = 1; i <= M; i++) {
+					// 	// Випадково генерує смайл 1-4 
+					// 	const ranSmile = 1 + Math.floor(Math.random() * 4)
+					// 	// Якщо сумний зупинити цикл 
+					// 	if (ranSmile === sadSmile) break
+					// 	// Виводимо () ІНТЕРПОЛЯЦІЯ - буде виводити рандомні картинки від 1 - 4  
+					// 	document.write(`
+					// 		<img src="img/0${ranSmile}.png" width="50" alt="Smile">
+					// 	`)
+					// }
+
+
+					// Позначення sadSmile M ranSmile 
+					// Вводимо
+					const M = parseInt(prompt("Введіть кількість смайликів"))
+					const sadSmile = 4
+					for (let i = 1; i <= M; i++) {
+						// Випадково генерує смайл 1-4 
+						let ranSmile = 1 + Math.floor(Math.random() * 4)
+						// Якщо сумний зупинити зупинити 
+						if (ranSmile === sadSmile)
+							// continue
+
+							ranSmile = (ranSmile % 4) + 1
+						// Виводимо () ІНТЕРПОЛЯЦІЯ - буде виводити рандомні картинки від 1 - 4  
+						document.write(`
+							<img src="img/0${ranSmile}.png" width="50" alt="Smile">
+						`)
+					}
+
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
