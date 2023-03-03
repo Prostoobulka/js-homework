@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2.5</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Додаткові Завдання</h1>
+				<h2 class="result__title">Задача №6</h2>
+				<p>
+					Дано три дійсні змінні a, b і c. Скласти алгоритм, який міняє місцями значення цих змінних наступним
+					чином: змінна a набуває значення змінної b, змінна b набуває значення змінної c, а змінна c – попереднє
+					значення змінної a.
+				</p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<script>
+
+					// Вводимо три дійсний числа a b c
+					let a = parseFloat(prompt("Введіть 1 число:", ""))
+					let b = parseFloat(prompt("Введіть 2 число:", ""))
+					let c = parseFloat(prompt("Введіть 3 число:", ""))
+
+					// вивід чисел без алгоритма
+					document.write(`<p>Числа без алгоритма</p>`)
+					document.write(`<p>Перше a число = ${a}</p>`)
+					document.write(`<p>Перше b число = ${b}</p>`)
+					document.write(`<p>Перше c число = ${c}</p>`)
+
+					// Алгоритми зміни місцями a=b b=c c=a \
+					let d0 = a
+					let d = a = b
+					let d2 = b = c
+					let d3 = c = d0
+
+					// Виводимо в документ
+					document.write(`<p>Числа з алгоритмом</p>`)
+					document.write(`<p>Перше a число = ${d}</p>`)
+					document.write(`<p>Перше a число = ${d2}</p>`)
+					document.write(`<p>Перше a число = ${d3}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

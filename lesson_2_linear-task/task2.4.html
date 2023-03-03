@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 2.0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Додаткові Завдання</h1>
+				<h2 class="result__title">Задача №5</h2>
+				<p>
+					Визначити, яку платню одержить на фірмі сумісник за виконану роботу, якщо йому нараховано S грн., а
+					податок становить 20%.
+				</p>
+				<!-- <ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul> -->
+
+				<script>
+					// Вводимо S грн за виконану роботу та податок
+					let salaryMonth = parseFloat(prompt("Введіть заробітну плату", ""))
+					const tax = 0.20;
+					// Визначаємо податок від ЗП
+					let taxSalary = parseFloat((salaryMonth * tax).toFixed(2))
+					// Обчислюємо грн з урахуванням податку
+					let salaryMonthWithoutTax = salaryMonth - taxSalary
+					// Виводимо
+					console.log(taxSalary);
+					console.log(salaryMonthWithoutTax);
+					document.write(`<p>Заробітна плата = ${salaryMonth}</p>`)
+					document.write(`<p>ПДВ 20% = ${taxSalary}</p>`)
+					document.write(`<p>Заробітна плата + ПДВ 20% = ${salaryMonthWithoutTax}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

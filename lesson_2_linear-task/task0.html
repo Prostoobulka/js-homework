@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>task 0</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="wrapper">
+		<div class="result">
+			<div class="result__body">
+				<h1 class="result__title">Задача №0</h1>
+				<p>Обчислити значення виразів</p>
+				<ul class="result__list list">
+					<li class="list__item"><img src="img/01.png" alt="Tasks"></li>
+				</ul>
+				<script>
+					// Вводимо числа а та в 
+
+					let a = parseFloat(prompt("Введіть число а =", ""))
+					let b = parseFloat(prompt("Введіть число b =", ""))
+					let c = parseFloat(prompt("Введіть число c =", ""))
+
+					// Обчислюємо по формулі
+
+					let result = a + 12 + b
+					let result2 = Math.sqrt((a + b) / (2 * a))
+					let result3 = Math.cbrt((a + b) * c)
+					let result4 = Math.sin(a / (-b))
+					// Виводимо в документ
+					document.write(`<p>S1 = ${result}</p>`)
+					document.write(`<p>S2 = ${result2}</p>`)
+					document.write(`<p>S3 = ${result3}</p>`)
+					document.write(`<p>S4 = ${result4}</p>`)
+				</script>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
