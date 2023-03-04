@@ -34,7 +34,7 @@
 					// }
 
 					// отримуємо елементи температури та обраховуємо 
-					function getNumberElementsTemperatures(quantityShowTemperatures) {
+					function getNumberElementsNegativeTemp(quantityShowTemperatures) {
 						let countNegative = 0
 						for (let i = 0; i < quantityShowTemperatures; i++) {
 							const temperatures = parseFloat(prompt('Введіть покази температури', "-2"))
@@ -48,8 +48,8 @@
 						return degree < 0
 					}
 
-					let result = getNumberElementsTemperatures(K)
-					document.write(`Кількість від'ємних показників = ${result}`)
+					let result = getNumberElementsNegativeTemp(K)
+					document.write(`Кількість від'ємних показників температури = ${result}`)
 
 
 				</script>
