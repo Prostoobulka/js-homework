@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 9</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №9</h1>
+               <p>
+                  Морський бій. Користувач вводить кількість клітинок одновимірного масиву та
+                  кількість одиночних кораблів. Комп’ютер довільно розміщує ці одиночні кораблі у
+                  масиві по один у клітинці (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це
+                  означає, що там є корабель.) Користувач вводить номер клітинки, куди стріляє. Гра
+                  продовжується до тих пір, поки не будуть потоплені усі кораблі.
+               </p>
+
+               <script>
+                  // 1. Користувач вводить кількість клітинок та кораблі.
+                  // 2. Гра
+                  // 2.1 Формуємо масив з 0
+                  // 2.2 Рандомно розміщуємо 1 в масиві ==== [0, 1, 0, 1, 0] - з розміщеними кораблями
+                  // 3. Гра користувача
+
+                  // 2. Ігрове поле та кількість кораблів
+                  function createGameAndCheck(gameField, shipNumbers) {
+                     // Формуємо масив з 0
+                     let = arr = new Array(gameField).fill(0)
+                     // Рандомно розміщуємо 1 в масиві ==== [0, 1, 0, 1, 0] - з розміщеними кораблями
+                     for (let i = 0; i < shipNumbers; i++) {
+                        let ship
+                        // Перевірка щоб не попадали два рази
+                        do {
+                           ship = getRanShip(gameField)
+                        } while (arr[ship] === 1)
+                        arr[ship] = 1
+                     }
+                     return arr
+                  }
+                  // console.log(2 !== 1) // true
+                  function getRanShip(maxValue) {
+                     return 0 + Math.floor(Math.random() * (maxValue + 1))
+                  }
+
+                  // Гра користувача [0, 1, 0, 1, 0] - 2 кораблі
+                  function gameUser(gameField, shipNumber) {
+                     do {
+                        const userStrike = parseInt(
+                           prompt(`Зробіть постріл в межах від 0 до ${gameField.length - 1}`)
+                        )
+                        if (gameField[userStrike] === 1) {
+                           shipNumber -= 1
+                           alert("Влучили")
+                           gameField[userStrike] = 0
+                        } else alert("Промазали")
+                     } while (shipNumber > 0)
+                  }
+
+                  const userFieldGame = parseInt(prompt("Введіть кількість клітинок", "5"))
+                  const userShipNumber = parseInt(prompt("Введіть кількість кораблів", "2"))
+                  const gameField = createGameAndCheck(userFieldGame, userShipNumber)
+                  console.log(gameField)
+                  const gamePlay = gameUser(gameField, userShipNumber)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

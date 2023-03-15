@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 7</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №7</h1>
+               <p>
+                  Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+                  <br />
+                  1) за весь рік;
+                  <br />
+                  2) у першій половині року;
+                  <br />
+                  3) у другій половині року;
+                  <br />
+                  4) за літо;
+                  <br />
+                  5) за ІІ квартал;
+                  <br />
+                  6) за парні місяці (з парними номерами);
+                  <br />
+                  7) за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+               </p>
+               <script>
+                  // Отримуємо суму кількості грошей
+                  function getSummaryNumberMoney(
+                     fromMonth = 1,
+                     toMonth = 12,
+                     step = 1,
+                     arrPayments
+                  ) {
+                     let sum = 0
+                     for (let i = fromMonth; i <= toMonth; i = i + step) {
+                        sum += arrPayments[i - 1]
+                     }
+                     return sum
+                  }
+                  // отримуємо масив
+                  function inputArrayPayments() {
+                     const arr = []
+                     for (let i = 0; i < arguments.length; i++) {
+                        arr.push(arguments[i])
+                     }
+                     return arr
+                  }
+
+                  // Вводимо масив
+                  let payments = inputArrayPayments(
+                     150,
+                     200,
+                     500,
+                     300,
+                     50,
+                     10,
+                     100,
+                     150,
+                     200,
+                     500,
+                     400,
+                     100
+                  )
+                  document.write(`<p>${payments} </p>`)
+
+                  // Виводимо результат
+                  document.write(`<p>За весь рік - ${getSummaryNumberMoney(1, 12, 1, payments)}$</p>
+						<p>У першій половині року - ${getSummaryNumberMoney(1, 6, 1, payments)}$</p>
+						<p>у другій половині року - ${getSummaryNumberMoney(7, 12, 1, payments)}$</p>
+						<p>За літо - ${getSummaryNumberMoney(6, 8, 1, payments)}$</p>
+						<p>За ІІ квартал - ${getSummaryNumberMoney(1, 3, 1, payments)}$</p>
+						<p>За парні місяці (з парними номерами) - ${getSummaryNumberMoney(2, 12, 2, payments)}$</p>
+						<p>За місяці, які є початковими у сезоні (весна, літо, осінь, зима) - ${getSummaryNumberMoney(
+                     3,
+                     12,
+                     3,
+                     payments
+                  )}$</p>`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

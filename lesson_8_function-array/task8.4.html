@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 4</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №4</h1>
+               <p>
+                  Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+                  <br />
+                  • починаються на букву «А»;
+                  <br />
+                  • перша і остання літери співпадають;
+                  <br />
+                  • складаються з більше ніш 5 символів;
+               </p>
+               <script>
+                  // let firstElementArr = numbersAutomobile[0]
+                  // let lastElementArr = numbersAutomobile[numbersAutomobile.length - 1]
+                  // console.log(lastElementArr[lastElementArr.length - 1])
+                  // console.log(
+                  //    numbersAutomobile[0][
+                  //       numbersAutomobile[numbersAutomobile.length - 1].length - 1
+                  //    ]
+                  // )
+
+                  // Отримуємо кількість номерів у яких перша і остання літера
+                  function getNumberFistSymbolASimilaryLast(arrNumberAutomobile) {
+                     let counterFirstSymbolSimilaryLast = 0
+                     // let lastElementArr =
+                     //    arrNumberAutomobile[i][
+                     //       arrNumberAutomobile[arrNumberAutomobile.length - 1].length - 1
+                     //    ]
+                     for (let i = 0; i < arrNumberAutomobile.length; i++) {
+                        let fistElementInsideNumberArr = arrNumberAutomobile[i][0]
+                        let lastElementInsideNumberArr =
+                           numbersAutomobile[i][numbersAutomobile[i].length - 1]
+                        // arrNumberAutomobile[i].at(-1)
+                        if (fistElementInsideNumberArr === lastElementInsideNumberArr)
+                           counterFirstSymbolSimilaryLast++
+                     }
+                     return counterFirstSymbolSimilaryLast
+                  }
+                  // Отримуємо кількість номерів, у яких перша літера А
+                  function getNumberFirstSymbol_A(arrNumberAutomobile) {
+                     let counterFirstSymbol_A = 0
+                     for (let i = 0; i < arrNumberAutomobile.length; i++) {
+                        if (arrNumberAutomobile[i][0] === "A") counterFirstSymbol_A++
+                     }
+                     return counterFirstSymbol_A
+                  }
+                  // Отримує кількість номерів у яких кількість симболів не більше ніж 5
+                  function getNumberSymbolNotOver5(arrNumberAutomobile) {
+                     let counterSymbolNotOver5 = 0
+                     for (let i = 0; i < arrNumberAutomobile.length; i++) {
+                        if (arrNumberAutomobile[i].length <= 5) counterSymbolNotOver5++
+                     }
+                     return counterSymbolNotOver5
+                  }
+
+                  let numbersAutomobile = [`A203AA`, `A1231BX`, `B33B`, `A23A`, `A133A`]
+                  // Викликаємо функцію і Виводимо результат
+                  let resultFirstSymbolA = getNumberFirstSymbol_A(numbersAutomobile)
+
+                  let resultFirstAndLastSymbolSimilary =
+                     getNumberFistSymbolASimilaryLast(numbersAutomobile)
+
+                  let resultNumbersNotOver5 = getNumberSymbolNotOver5(numbersAutomobile)
+
+                  document.write(`<p>Кількість номерів - ${numbersAutomobile}</p>`)
+                  document.write(
+                     `<p>1) Кількість номерів які починаються на А - ${resultFirstSymbolA}</p>`
+                  )
+                  document.write(
+                     `<p>2) Кількість номерів у яких перша і остання літера співпадають - ${resultFirstAndLastSymbolSimilary}</p>`
+                  )
+                  document.write(
+                     `<p>3) Кількість номерів у яких не більше 5 символів - ${resultNumbersNotOver5}</p>`
+                  )
+                  // Останій елемент приклад
+                  // console.log(numbersAutomobile[0][numbersAutomobile[0].length - 1])
+                  // console.log(numbersAutomobile[0].at(-1))
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

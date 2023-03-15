@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 6</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №6</h1>
+               <p>
+                  Дано послідовність цін товарів та назв (у окремих масивах). Вивести на екран ті,
+                  які може собі дозволити користувач (кількість грошей задається).
+               </p>
+               <script>
+                  // Вводимо масиви цін
+                  function inputArrayPrice() {
+                     let arrScore = []
+                     for (let i = 0; i < arguments.length; i++) {
+                        arrScore.push(arguments[i])
+                     }
+                     return arrScore
+                  }
+                  // Вводимо масиви назви товар
+                  function inputArrayItemsName() {
+                     let arrScore = []
+                     for (let i = 0; i < arguments.length; i++) {
+                        arrScore.push(arguments[i])
+                     }
+                     return arrScore
+                  }
+                  // зєднуємо масив одне з одним в рядок
+                  function connectArrayItemsNameAndPrice(priceItem, itemName) {
+                     let arr = []
+                     for (let i = 0; i < priceItem.length; i++) {
+                        arr.push(`${priceItem[i]} - ${itemName[i]}`)
+                     }
+                     return arr
+                  }
+                  // Отримуємо товар який доступний для нас
+                  function getItemEnoughMoney(arrItemAndNamePrice) {
+                     const userMoney = parseFloat(prompt("Введіть кількість грошей"))
+                     const arrItem = []
+                     for (let i = 0; i < arrItemAndNamePrice.length; i++) {
+                        if (isEnoughMoney(userMoney, arrItemAndNamePrice[i]))
+                           arrItem.push(arrItemAndNamePrice[i])
+                     }
+                     return arrItem
+                  }
+                  // Перевіряє чи достатньо грошей
+                  function isEnoughMoney(money, itemPrice) {
+                     return money >= parseFloat(itemPrice)
+                  }
+
+                  // Вводимо масив цін
+                  let priceItem = inputArrayPrice(200, 150, 400, 300, 280)
+                  // Вводимо масив назв
+                  let itemName = inputArrayItemsName(
+                     "Кавун",
+                     "Яблуко",
+                     "Персик",
+                     "Диня",
+                     "Картопля"
+                  )
+
+                  // Викликаємо функцію яка зєднює масиви
+                  // Отримаємо другий масив
+                  let itemGoods = connectArrayItemsNameAndPrice(priceItem, itemName)
+                  // Виводимо
+
+                  document.write(`<p>Товар: ${itemGoods}</p> <br>
+                  <p>Товар який доступний користувачу: ${getItemEnoughMoney(itemGoods)}</p>
+						`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

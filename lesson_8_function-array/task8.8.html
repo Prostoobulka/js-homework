@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 8</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №8</h1>
+               <p>
+                  Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи
+                  заповнюються випадковим чином значеннями від -500 до 500). Надаючи користувачу
+                  можливість вибирати номери елементів (поки він не відмовиться). Знаходити сумарний
+                  виграш.
+               </p>
+
+               <script>
+                  // Користувач вводить кількість комірок
+                  function getArrNumbers(quantity) {
+                     let arr = []
+                     for (let i = 1; i <= quantity; i++) {
+                        arr.push(getRanValue())
+                     }
+                     return arr
+                  }
+
+                  // Отримуємо рандомне число від -500 до 500
+                  function getRanValue() {
+                     return Math.floor(Math.random() * 1000) - 500
+                  }
+
+                  function gameUser(arrNum) {
+                     let sum = 0
+                     let userApply
+                     // Користувач звертається за номером комірки (Поки не відмовиться)
+                     do {
+                        userApply = parseInt(
+                           prompt(`Введіть номер комірки від 0 до ${arrNum.length - 1}`, "3")
+                        )
+                        for (let i = 0; i <= arrNum.length; i++) {
+                           if (userApply === i && arrNum[i] > 0) {
+                              // Знайти сумарний виграш
+                              sum += arrNum[i]
+                           }
+                        }
+                     } while (userApply || userApply === 0)
+                     return sum
+                  }
+
+                  const user = parseInt(prompt("Введіть кількість комірок", "5"))
+                  const arrRanValues = getArrNumbers(user)
+                  console.log(arrRanValues)
+
+                  // Виводимо результат
+                  const summaryWin = gameUser(arrRanValues)
+                  console.log(summaryWin)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

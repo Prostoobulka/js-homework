@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 0</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №0</h1>
+               <p>Задачі</p>
+
+               <script>
+                  // ====================================================================
+                  //Задача. Створити функцію, яка дозволяє визначити чи вказаний місяць (1-12) є літнім (6-8)
+                  // function isSummerDay(monthNum) {
+                  // 	return 6 <= monthNum && monthNum <= 8
+                  // }
+
+                  // let numberMonth = parseInt(prompt('Введіть місяць від 1 до 12'))
+
+                  // //  1 Варіант
+                  // // if (isSummerDay(numberMonth)) document.write('Місяць літній')
+                  // // else document.write(`Місяць не є літнім`)
+
+                  // // 2 Варіант
+                  // let result = isSummerDay(numberMonth) ? `<p>Місяць літній</p>` : `<p>Місяць не є літнім</p>`
+
+                  // document.write(result)
+                  // ====================================================================
+                  //Задача. Створити функцію, яка дозволяє визначити чи є працівник пенсіонером(вік >=65)
+                  // function isAgeRetired(age) {
+                  // 	return age >= 65
+                  // }
+                  // let userAge = parseInt(prompt('Введіть вік користувача'))
+                  // let resultRetired = isAgeRetired(userAge) ? `<p>Пенсіонер</p>` : `<p>Не Пенсіонер</p>`
+                  // document.write(resultRetired)
+                  // ====================================================================
+                  // Створити функцію, яка дозволяє визначити чи є вказаний день робочим (1-5)
+                  // function isDayWorking(day) {
+                  // 	return 1 <= day && day <= 5
+                  // }
+                  // let userDay = parseInt(prompt('Введіть день від 1 до 7'))
+                  // document.write(isDayWorking(userDay) ? `<p>День Робочий</p>` : `<p>День не робочий</p>`)
+                  // ====================================================================
+                  // Створити функцію, яка дозволяє визначити за числовим значення значення оцінки (1-12) прописом
+                  // function getScoreTitle(score) {
+                  // 	let scoreTitle
+                  // 	switch (score) {
+                  // 		case 1:
+                  // 		case 2:
+                  // 		case 3: scoreTitle = `<p>Незадовільно!!!</p>`
+                  // 			break;
+                  // 		case 4:
+                  // 		case 5:
+                  // 		case 6: scoreTitle = `<p>Задовільно!!!</p>`
+                  // 			break;
+                  // 		case 7:
+                  // 		case 8:
+                  // 		case 9: scoreTitle = `<p>Добре!!!</p>`
+                  // 			break;
+                  // 		case 10:
+                  // 		case 11:
+                  // 		case 12: scoreTitle = `<p>Відмінно!!!</p>`
+                  // 			break;
+                  // 		default:
+                  // 			scoreTitle = `<p>Error</p>`
+                  // 			break;
+                  // 	}
+                  // 	return scoreTitle
+                  // }
+
+                  // const scoreUser = parseInt(prompt('Введіть оцінку від 1 до 12'))
+                  // const resultScore = getScoreTitle(scoreUser)
+                  // document.write(resultScore)
+                  // ====================================================================
+                  // Поступово генеруються R випадкових чисел у вказаному діапазоні. Знайти суму тільки парних.
+                  // function getRandomNumber(minValue, maxValue) {
+                  // 	return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+                  // }
+                  // // чи є парні числа
+                  // function isEvenNum(num) {
+                  // 	return num % 2 === 0
+                  // }
+                  // // знайти суму та згенерувати
+                  // function getEvenSumNum(R, minV, maxV) {
+                  // 	let sumEven = 0
+                  // 	// R разів
+                  // 	for (let i = 0; i < R; i++) {
+                  // 		// згенерувати рандомне число
+                  // 		let randNum = getRandomNumber(minV, maxV)
+                  // 		// якщо парне додати до суми
+                  // 		if (isEvenNum(randNum)) sumEven += randNum
+                  // 	}
+                  // 	return sumEven
+                  // }
+
+                  // const R = parseInt(prompt("Введіть R разів"))
+                  // const minV = parseInt(prompt("Введіть мінімальне значення"))
+                  // const maxV = parseInt(prompt("Введіть максимальне значення"))
+
+                  // let resultEvenNumber = getEvenSumNum(R, minV, maxV)
+
+                  // document.write(resultEvenNumber)
+                  // ====================================================================
+                  // Поступово генеруються випадкові пари чисел (R -пар).
+                  // Користувач вводить число і виграє, якщо його число співпало хоча би з одним із них.
+                  // Підрахувати кількість вгаданих чисел.
+
+                  // function getRandomNum(minV, maxV) {
+                  // 	return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  // }
+
+                  // function getGuessedNumber(R, minValue, maxValue) {
+                  // 	// рахуємо
+                  // 	let guessNumber = 0
+                  // 	// R разі - пара
+                  // 	for (let i = 0; i < R; i++) {
+                  // 		let ranNum = getRandomNum(minValue, maxValue)
+                  // 		let ranNum2 = getRandomNum(minValue, maxValue)
+                  // 		const userPick = parseInt(prompt(`Відгадайте число від ${minValue} до ${maxValue}`))
+                  // 		// якщо користувач вгадав то +1
+                  // 		if (userPick === ranNum || userPick === ranNum2) guessNumber++
+                  // 	}
+                  // 	return guessNumber++
+                  // }
+                  // const R = parseInt(prompt('Введіть кількість пар'))
+                  // const minValue = parseInt(prompt('Введіть мінімальне значення'))
+                  // const maxValue = parseInt(prompt('Введіть максимальне значення'))
+
+                  // document.write(`Кількість відгаданих = ${getGuessedNumber(R, minValue, maxValue)}<br>`)
+                  // Задача. За допомогою функцій розробити документ, який має М параграфів (заголовок і якийсь фрагмент тексту).
+                  // Також сформувати за допомогою посилань на параграфи зміст.
+                  // ----- Зміст ------
+                  //   <p>
+                  //     <a href="#p1">Paragraph 1</a>
+                  //   </p>
+                  //   <p>
+                  //     <a href="#p2">Paragraph 2</a>
+                  //   </p>
+                  //    .........................
+                  //    .........................
+                  //------ Тіло документу ----------
+                  //   <div>
+                  //     <h1 id="p1">Title 1</h1>
+                  //     <p>
+                  //       word word word word word word word word word word word word word word
+                  //       word word word word word word word word word word word word word word
+                  //       word word word word word word word word word word word word word word
+                  //       word
+                  //     </p>
+                  //   </div>
+                  //   ..........................
+                  //   ..........................
+                  // function getLinkComponent(linkId, linkTitle) {
+                  // 	return `
+                  // 	<p>
+                  // 	<a href="#${linkId}">${linkTitle}</a>
+                  // 	</p>
+                  // 	`
+                  // }
+
+                  // function getBodyComponent(bodyId, bodytitle, bodyContent) {
+                  // 	return `
+                  // 	<div>
+                  // 	<h1 id="${bodyId}">${bodytitle}</h1>
+                  // 	<p>
+                  // 		${bodyContent}
+                  // 	</p>
+                  // 	</div>
+                  // 	`
+                  // }
+
+                  // function prindDoc(numberDoc) {
+                  // 	for (let i = 1; i <= numberDoc; i++) {
+                  // 		document.write(getLinkComponent(`p${i}`, `Paragraph ${i}`))
+                  // 	}
+
+                  // 	const content = `word word word word word word word word word word word word word wor
+                  // 	       word word word word word word word word word word word word word word
+                  // 	      word word word word word word word word word word word word word word
+                  // 	      word`
+
+                  // 	for (let i = 1; i <= numberDoc; i++) {
+                  // 		document.write(getBodyComponent(`p${i}`, `Paragraph ${i}`, content))
+                  // 	}
+                  // }
+
+                  // prindDoc(5)
+
+                  //================== МАСИВИ ============================
+                  //==============================================
+                  //==============================================
+                  //==============================================
+                  //==============================================
+                  //==============================================
+                  //==============================================
+                  //==============================================
+
+                  // let userAge = []
+
+                  // for (let i = 0; i < 7; i++) {
+                  // 	userAge[i] = parseInt(prompt(`Введіть число`))
+                  // }
+                  // let maxAge = userAge[0]
+                  // for (let i = 0; i < 7; i++) {
+                  // 	if (maxAge < userAge[i+1]) maxAge = userAge[i+1]
+                  // }
+                  // console.log(maxAge);
+                  // // ---------------------------------------------
+                  // let userAge1 = parseInt(prompt(`Введіть число`))
+                  // let userAge2 = parseInt(prompt(`Введіть число`))
+                  // let userAge3 = parseInt(prompt(`Введіть число`))
+                  // let userAge4 = parseInt(prompt(`Введіть число`))
+                  // let userAge5 = parseInt(prompt(`Введіть число`))
+                  // let userAge6 = parseInt(prompt(`Введіть число`))
+                  // let userAge7 = parseInt(prompt(`Введіть число`))
+
+                  // let maxAgeUser = userAge1
+                  // if (maxAgeUser < userAge2) maxAgeUser = userAge2
+                  // if (maxAgeUser < userAge3) maxAgeUser = userAge3
+                  // if (maxAgeUser < userAge4) maxAgeUser = userAge4
+                  // if (maxAgeUser < userAge5) maxAgeUser = userAge5
+                  // if (maxAgeUser < userAge6) maxAgeUser = userAge6
+                  // if (maxAgeUser < userAge7) maxAgeUser = userAge7
+                  // console.log(maxAgeUser);
+                  // ====================================================================
+                  // Задача. Дано вартості товарів, яку купив користувач. Знайти загальну вартість усіх товарів
+
+                  // function getTotalPrice(pricesList) {
+                  // 	let sum = 0
+                  // 	for (let i = 0; i < pricesList.length; i++) {
+                  // 		sum += prices[i]
+                  // 	}
+                  // 	return sum
+                  // }
+                  // const prices = [13, 43, 21, 54, 3, 2, 2, 2, 50, 10]
+                  // let totalPrice = getTotalPrice(prices)
+                  // document.write(totalPrice);
+                  // ====================================================================
+                  // let studensNum = parseInt(prompt('Введіть кількість студентів'))
+                  // let studensAges = new Array(studensNum)
+                  // for (let i = 0; i < studensAges.length; i++) {
+                  // 	let studensAge = parseInt(prompt('Введіть кількість років студента'))
+                  // 	studensAges[i] = studensAge
+                  // }
+                  // console.log(studensAges);
+                  // ====================================================================
+                  // Задача. Дано розміри доходу магазину за кожен місяць протягом року. Знайти:
+                  // 1) загальний дохід за рік (1-12)
+                  // 2) загальний дохід за 1-ше півріччя (1-6)
+                  // 3) загальний дохід за 2-ге півріччя (7-12)
+                  // 4) загальний дохід за 2-гий квартал (4-6)
+                  // 5) загальний дохід за 2-гий і 3-тій квартал (4-9)
+                  // function inputArray(quantity) {
+                  //    let arr = []
+                  //    for (let i = 0; i < quantity; i++) {
+                  //       let priceGood = parseInt(prompt(`Введіть дохід за ${i + 1} місяць`))
+                  //       arr.push(priceGood)
+                  //    }
+                  //    return arr
+                  // }
+
+                  // function getTotalPrice(listPrices, startMonth, endMonth) {
+                  //    let totalPrice = 0
+                  //    for (let month = startMonth; month <= endMonth; month++) {
+                  //       totalPrice += listPrices[month - 1]
+                  //    }
+                  //    return totalPrice
+                  // }
+
+                  // const incomeForYear = inputArray(12)
+
+                  // const incomeYear = getTotalPrice(incomeForYear, 1, 12)
+                  // console.log(incomeYear)
+                  // const incomeFirstHalfYear = getTotalPrice(incomeForYear, 1, 6)
+                  // console.log(incomeFirstHalfYear)
+
+                  // const incomeSecondHalfYear = getTotalPrice(incomeForYear, 7, 12)
+                  // console.log(incomeSecondHalfYear)
+                  // ====================================================================
+                  //Задача. Створити функцію, яка для довільної кількості цін товарів знаходить суму цін товарів,
+                  // які більші за 100.
+                  // 1 варіант
+                  // function getSum() {
+                  //    let sum = 0
+                  //    for (let i = 0; i < arguments.length; i++) {
+                  //       if (arguments[i] > 100) sum += arguments[i]
+                  //    }
+                  //    return sum
+                  // }
+
+                  // let prices = getSum(25, 26, 25, 24, 120, 150, 130)
+                  // console.log(prices)
+
+                  // 2 варіант
+                  // function getSum(...prices) {
+                  //    let sum = 0
+                  //    for (let i = 0; i < prices.length; i++) {
+                  //       if (prices[i] > 100) sum += prices[i]
+                  //    }
+                  //    return sum
+                  // }
+
+                  // let prices = getSum(25, 26, 25, 24, 120, 150, 130)
+                  // console.log(prices)
+                  // ====================================================================
+                  //Задача. Задано деякий діапазон років.
+                  //Вивести на екран не більше ніх К парних років (від початку діапазону).
+                  // function getEvenNumber(min, max) {
+                  //    let K = []
+                  //    for (let i = min; i < max; i++) {
+                  //       if (isEven(i)) K.push(i)
+                  //    }
+                  //    return K
+                  // }
+                  // function isEven(num) {
+                  //    return num % 2 === 0
+                  // }
+
+                  // let resultEvenNumber = getEvenNumber(5, 10)
+                  // document.write(resultEvenNumber)
+                  // ====================================================================
+                  // Задано деякий діапазон років. Вивести на екран не більше ніх К парних років (від кінця діапазону)
+                  // function getEvenNumber(max, min) {
+                  //    let K = []
+                  //    // Від кінця діапазону
+                  //    for (let i = max; i > min; i--) {
+                  //       if (isEven(i)) K.push(i)
+                  //    }
+                  //    return K
+                  // }
+                  // function isEven(num) {
+                  //    return num % 2 === 0
+                  // }
+
+                  // let resultEvenNumber = getEvenNumber(10, 5)
+                  // document.write(resultEvenNumber)
+                  // ====================================================================
+                  // Задано деякий діапазон років. Вивести на екран не більше ніх К високосних років.
+                  // function getLeapNumber(min, max) {
+                  //    let K = []
+                  //    // Від кінця діапазону
+                  //    for (let i = min; i <= max; i++) {
+                  //       let randNum = 2 + Math.floor(Math.random() * 4)
+                  //       K.push(randNum)
+                  //    }
+                  //    return K
+                  // }
+                  // function isLeapYear(num) {
+                  //    return num % 4 === 0 && (num % 100 !== 0 || num % 400 === 0)
+                  // }
+
+                  // let resultEvenNumber = getLeapNumber(2023, 2030)
+                  // document.write(resultEvenNumber.length)
+                  // console.log(resultEvenNumber)
+                  // ====================================================================
+                  // Задача. Створити функцію, яка приймає рік виходу на пенсію, та довільну
+                  // кількість значень років працівників. Визначити кількість пенсіонерів.
+                  // function getNumberYearOldEmployeer(...yearOld) {
+                  // let numberYearOldOver65 = 0
+                  // for (let i = 0; i < yearOld.length; i++) {
+                  //       if (isRetiredEmployee(yearOld[i])) numberYearOldOver65++
+                  //    }
+                  //    return numberYearOldOver65
+                  // }
+
+                  // function isRetiredEmployee(num) {
+                  //    return num >= 65
+                  // }
+
+                  // let resultYearOld = getNumberYearOldEmployeer(10, 20, 50, 65, 85, 20, 78)
+                  // document.write(resultYearOld)
+
+                  // ====================================================================
+                  // function getSum(a, b, c) {
+                  //    return a + b + c
+                  // }
+                  // let arr = [3, 5, 2]
+                  // // let resultSum = getSum(3, 5, 2)
+                  // document.write(getSum(...arr))
+                  // ====================================================================
+                  // ====================================================================
+                  // ====================================================================
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

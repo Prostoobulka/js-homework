@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 2</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №2</h1>
+               <p>
+                  Дано масив, який зберігає кількість відвідувачів магазину протягом тижня. Вивести
+                  на екран:
+                  <br />
+                  <br />
+                  1) номери днів, протягом яких кількість відвідувачів була меншою за 20;
+                  <br />
+                  2) номери днів, коли кількість відвідувачів була мінімальною;
+                  <br />
+                  3) номери днів, коли кількість відвідувачів була мінімальною;
+                  <br />
+                  4) загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на
+                  вихідних.
+               </p>
+
+               <script>
+                  // Створюємо масив з кількістю відвідувачів протягом тижня
+                  function getArrayNumberVisited(day) {
+                     let arr = []
+                     for (let i = 0; i < day; i++) {
+                        const ranNum = 15 + Math.floor(Math.random() * 14)
+                        arr.push(ranNum)
+                     }
+                     return arr
+                  }
+
+                  // 1) функція яка показує номери днів у яких відвідувачів було менше 20
+                  function getDaysWhoVisitedLess20(numberVisited) {
+                     let arrLess20 = []
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (numberVisited[i] < 20) arrLess20.push(i + 1)
+                     }
+                     return arrLess20
+                  }
+
+                  // 2) функція яка показує номери днів у яких відвідувачів було мінімальною
+                  function getDaysWhoVisitedMin(numberVisited) {
+                     let arrVisitedMin = []
+                     let minNumberVisited = numberVisited[0]
+                     // Знаходить мінімальне
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (minNumberVisited > numberVisited[i]) minNumberVisited = numberVisited[i]
+                     }
+                     // Порівнює з мінімальним якщо вірно то записує в масив
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (minNumberVisited === numberVisited[i]) arrVisitedMin.push(i + 1)
+                     }
+                     return arrVisitedMin
+                  }
+
+                  // 3) функція яка показує номери днів у яких відвідувачів було максильною
+                  function getDaysWhoVisitedMax(numberVisited) {
+                     let arrVisitedMore = []
+                     let maxNumberVisited = numberVisited[0]
+                     // Знаходить максимальне
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (maxNumberVisited < numberVisited[i]) maxNumberVisited = numberVisited[i]
+                     }
+                     // Порівнює з максимальним якщо вірно то записує в масив
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (maxNumberVisited === numberVisited[i]) arrVisitedMore.push(i + 1)
+                     }
+                     return arrVisitedMore
+                  }
+
+                  // 4) загальну кількість клієнтів у робочі дні та окремо загальну кількість днів на вихідних.
+                  function getTotalNumberVisitor(numberVisited) {
+                     const workDay = 5
+                     const notWorkDay = 2
+                     let sumWorkDay = 0
+                     let sumNotWorkDay = 0
+                     // Сума робочих днів
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (i <= 4) sumWorkDay += numberVisited[i]
+                     }
+                     // Сума не робочих днів
+                     for (let i = 0; i < numberVisited.length; i++) {
+                        if (5 <= i && i <= 6) sumNotWorkDay += numberVisited[i]
+                     }
+                     return [sumWorkDay, sumNotWorkDay]
+                  }
+
+                  // Викликаємо та виводимо
+                  let numberVisited = getArrayNumberVisited(7)
+
+                  console.log(numberVisited)
+
+                  document.write(`<p>Кількість відвічувачів по дням - ${numberVisited}</p>`)
+
+                  document.write(
+                     `<p>Номери дня кількість відвідувачів менша за 20 - ${getDaysWhoVisitedLess20(
+                        numberVisited
+                     )}</p>`
+                  )
+
+                  document.write(
+                     `<p>Номери дня кількість якою була мінімальною - ${getDaysWhoVisitedMin(
+                        numberVisited
+                     )}</p>`
+                  )
+
+                  document.write(
+                     `<p>Номери дня кількість якою була максимальною - ${getDaysWhoVisitedMax(
+                        numberVisited
+                     )}</p>`
+                  )
+
+                  let totalNumberVisitor = getTotalNumberVisitor(numberVisited)
+                  document.write(
+                     `<p>Кількість у робочий день - ${totalNumberVisitor[0]}, Кількість у вихідний день - ${totalNumberVisitor[1]}</p>`
+                  )
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

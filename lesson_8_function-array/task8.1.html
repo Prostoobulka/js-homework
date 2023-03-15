@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1</h1>
+               <p>
+                  Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до
+                  якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку),
+                  хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).
+               </p>
+
+               <script>
+                  // функ-ція отримуємо масив предметів з оцінками
+                  function inputArraySubject(quantitySubjects) {
+                     let arr = []
+                     for (let i = 0; i < quantitySubjects; i++) {
+                        const score = parseInt(
+                           prompt(`Введіть оцінку №${i + 1} по пятибальній системі`)
+                        )
+                        arr.push(score)
+                     }
+                     return arr
+                  }
+
+                  // функ-ція на знаходження середнього значення оцінок
+                  function getAverageScore(arrSubjectsScore) {
+                     let sum = 0
+                     for (let i = 0; i < arrSubjectsScore.length; i++) {
+                        sum += arrSubjectsScore[i]
+                     }
+                     return sum / arrSubjectsScore.length
+                  }
+                  // ========================================
+                  // функ-ція яка визначає до якої категорії учень відносить
+                  function toCategoryScore(arrSubjectsScore) {
+                     let categorySuccess
+                     for (let i = 0; i < arrSubjectsScore.length; i++) {
+                        if (arrSubjectsScore[i] <= 4) categorySuccess = "Хорошист"
+                        else categorySuccess = "Відмінник"
+                     }
+                     let minScoreSubject = getMinScore(arrSubjectsScore)
+                     // Якщо учень має хоча б одну 2 або 3
+                     switch (minScoreSubject) {
+                        case 2:
+                           categorySuccess = "Двійочник"
+                           break
+
+                        case 3:
+                           categorySuccess = "Трійочник"
+                           break
+
+                        default:
+                           break
+                     }
+                     return categorySuccess
+                  }
+                  // функ-ція на знаходження мінімальної оцінки
+                  function getMinScore(arrSubjectsScore) {
+                     let minScoreSubject = arrSubjectsScore[0]
+                     for (let i = 0; i < arrSubjectsScore.length; i++) {
+                        // Знаходимо мінімальне значеня в масиві
+                        if (minScoreSubject > arrSubjectsScore[i])
+                           minScoreSubject = arrSubjectsScore[i]
+                     }
+                     return minScoreSubject
+                  }
+
+                  // ========================================
+                  // Викликаємо функцію та вказуємо кількість предметів inputArraySubject(K)
+                  let arrSubjectsScore = inputArraySubject(5)
+
+                  // Викликаємо функцію на знаходження середнього значення оцінкиs
+                  // Викликаємо функцію до якої категорії
+                  document.write(`
+                  Середнє значення = ${getAverageScore(arrSubjectsScore)} <br>
+                  Учень відноситься до категорії - ${toCategoryScore(arrSubjectsScore)} <br>
+                  `)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

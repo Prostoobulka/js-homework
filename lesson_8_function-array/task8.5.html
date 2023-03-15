@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 5</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №5</h1>
+               <p>
+                  Дано послідовність оцінок учня. Підрахувати кількість:
+                  <br />
+                  1) двійок
+                  <br />
+                  2) кількість хороших оцінок (добре, відмінно);
+                  <br />
+                  3) кількість оцінок, які нижче середнього.
+               </p>
+               <script>
+                  // Кількість поганих оцінок
+                  function getNumberFailingScore(scoreFail) {
+                     let counterScoreFail = 0
+                     for (let i = 0; i < scoreFail.length; i++) {
+                        if (scoreFail[i] <= 2) counterScoreFail++
+                     }
+                     return counterScoreFail
+                  }
+                  // Кількість хороших оцінок
+                  function getNumberExcellentScore(scoreGood) {
+                     let counterGoodScore = 0
+                     for (let i = 0; i < scoreGood.length; i++) {
+                        if (scoreGood[i] === 4 || scoreGood[i] === 5) counterGoodScore++
+                     }
+                     return counterGoodScore
+                  }
+                  // Кількість оцінок нижче середнього
+                  function getNumberUnderAverageScore(scoreUnderAverage) {
+                     let counterUnderAverage = 0
+                     for (let i = 0; i < scoreUnderAverage.length; i++) {
+                        if (scoreUnderAverage[i] <= getAverageScores(scoreUnderAverage))
+                           counterUnderAverage++
+                     }
+                     return counterUnderAverage
+                  }
+
+                  function getAverageScores(scorePupil) {
+                     let sum = 0
+                     for (let i = 0; i < scorePupil.length; i++) {
+                        sum += scorePupil[i]
+                     }
+                     return sum / scorePupil.length
+                  }
+
+                  // =======================
+                  function inputArrayScore() {
+                     let arrScore = []
+                     for (let i = 0; i < arguments.length; i++) {
+                        arrScore.push(arguments[i])
+                     }
+                     return arrScore
+                  }
+
+                  let scorePupil = inputArrayScore(4, 3, 2, 5, 5)
+
+                  document.write(`
+						<p>Оцінки - ${scorePupil}</p>
+					<p>Кількість Двійок - ${getNumberFailingScore(scorePupil)}</p>
+					<p>Кількість Хороших Оцінок - ${getNumberExcellentScore(scorePupil)}</p>
+					<p>Кількість нижче середнього - ${getNumberUnderAverageScore(scorePupil)}</p>
+					`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
