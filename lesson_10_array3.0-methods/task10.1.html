@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1</h1>
+               <p>Дано історію цін на цінні папери за деякий період (згенерувати від 1 до 10000)</p>
+
+               <script>
+                  // ==================================
+                  function getRanNumbers() {
+                     return 1 + Math.floor(Math.random() * 10000)
+                  }
+
+                  function getArrayNumbers(quantityElements) {
+                     return new Array(quantityElements).fill(0).map(() => getRanNumbers())
+                     // 2 Варіант
+                     // const arr = []
+                     // for (let i = 0; i < quantityElements; i++) {
+                     // 	const ranNumber = 1 + Math.floor(Math.random() * 10000)
+                     // 	arr.push(ranNumber)
+                     // }
+                  }
+                  // ==================================
+                  const arrNumber = getArrayNumbers(12)
+                  console.log(arrNumber)
+
+                  // 1) Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.
+                  const newArrayMoreThan1000 = arrNumber.filter((element) => element > 1000)
+                  console.log(newArrayMoreThan1000)
+
+                  // 2) Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+                  // 1 Варіант ----- Глобальна змінна
+                  const newArrayNumberElementsMoreThan1000 = arrNumber
+                     .map((element, index, baseArrRef) => index)
+                     .filter((element, index, baseArrRef) => arrNumber[index] > 1000)
+                  console.log(newArrayNumberElementsMoreThan1000)
+
+                  // ======== 2 Варіант
+                  let newArray = arrNumber.reduce((prevIndexList, el, i) => {
+                     if (el > 1000) prevIndexList.push(i)
+                     return prevIndexList
+                  }, [])
+                  console.log(`Масив з індексом - ${newArray}`)
+
+                  // 3) Сформувати список з тих цін, які більші за попереднє значення
+                  const newArrayMoreThanPrevious = arrNumber.filter(
+                     (element, index, arrRef) => element > arrRef[index - 1]
+                  )
+                  console.log(newArrayMoreThanPrevious)
+
+                  // 4) Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+                  // 1. Шукаємо максимальне значення
+                  const maxValue = arrNumber.reduce((prevValue, element) =>
+                     prevValue < element ? element : prevValue
+                  )
+                  // console.log(maxValue)
+
+                  // 2. Обчислюємо значення цін у відсотках
+                  const valuePricePercent = arrNumber.map((element) => (element * 100) / maxValue)
+                  console.log(valuePricePercent)
+
+                  // 5) Підрахувати кількість змін цін
+                  const quantityChangePrices = arrNumber.reduce(
+                     (preValue, element, index, arrRef) => {
+                        return element > arrRef[index - 1] || element < arrRef[index - 1]
+                           ? preValue + 1
+                           : preValue
+                     },
+                     0
+                  )
+                  console.log(`Кількість змін цін - ${quantityChangePrices}`)
+
+                  // 6) Визначити, чи є ціна, що менше 1000
+                  const isPriceLess1000 = arrNumber.some((element) => element < 1000)
+                  console.log(`Чи є Ціна меншою за 1000? - ${isPriceLess1000}`)
+
+                  // 7) Визначати, чи усі ціни більше за 1000
+                  const isAllPriceMore1000 = arrNumber.every((element) => element > 1000)
+                  console.log(`Чи усі ціни більше за 1000? - ${isAllPriceMore1000}`)
+
+                  // 8) Підрахувати кількість цін, що більше за 1000
+                  const countQuantityPricesMore1000 = arrNumber.reduce((preValue, element) => {
+                     return element > 1000 ? preValue + 1 : preValue
+                  }, 0)
+                  console.log(`Кількість цін що більше за 1000 - ${countQuantityPricesMore1000}`)
+
+                  // 9) Підрахувати суму цін, що більше за 1000
+                  const sumPricesMore1000 = arrNumber.reduce((preValue, element) => {
+                     return element > 1000 ? preValue + element : preValue
+                  }, 0)
+                  console.log(`Сума цін що більше за 1000 - ${sumPricesMore1000}`)
+
+                  // 10) Знайти першу ціну, що більше за 1000
+                  const firstPriceAmongAll = arrNumber.find((element) => element > 1000)
+                  console.log(`Перша ціна що більша за 1000 - ${firstPriceAmongAll}`)
+
+                  // 11) Знайти індекс першої ціни, що більше за 1000
+                  const indexFirstPrice = arrNumber.findIndex((element) => element > 1000)
+                  console.log(`Індекс першої ціни, що більше за 1000 - ${indexFirstPrice}`)
+
+                  // 12) Знайти останню ціну, що більше за 1000
+                  const lastPriceAmongAll = arrNumber.findLast((element) => element > 1000)
+                  console.log(`Остання ціна що більша за 1000 - ${lastPriceAmongAll}`)
+
+                  // 13)Знайти індекс останньої ціни, що більше за 1000
+                  const indexLastPrice = arrNumber.findLastIndex((element) => element > 1000)
+                  console.log(`Індекс останньої ціни, що більше за 1000 - ${indexLastPrice}`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
