@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>task 8</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+
+	<body>
+		<div class="wrapper">
+			<div class="result">
+				<div class="result__body">
+					<h1 class="result__title">Задача №8</h1>
+					<p>Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»</p>
+
+					<script>
+						// Вводимо масив
+						function inputArray(...arrNumberAutomobile) {
+							let arr = []
+							for (let i = 0; i < arrNumberAutomobile.length; i++) {
+								arr.push(arrNumberAutomobile[i])
+							}
+							return arr
+						}
+						// Функція яка знаходить масив який починається на А
+						function getElementsArrBegin_A(arr) {
+							const newArrBeginSymbolA = arrNumberAutomobile.filter(
+								(element) => element[0] === "A"
+							)
+							return newArrBeginSymbolA
+						}
+						const arrNumberAutomobile = inputArray("AH203XS", "BX591S", "A232AH")
+						console.log(getElementsArrBegin_A(arrNumberAutomobile))
+					</script>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

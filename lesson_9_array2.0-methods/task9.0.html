@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 0</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №0</h1>
+               <p>Завдання 0</p>
+
+               <script>
+                  // Конструктури Array.of()
+                  // let arr = new Array(7).fill(22)
+                  // console.log(arr)
+                  // arr.fiill(22, 1, 5)
+
+                  // Ітерований об'єкт
+                  // let arr = [23, 54, 23, 67]
+                  // 1 варіант
+                  // for (const item of arr) {
+                  //    console.log(item)
+                  // }
+                  // item = arr[3]
+                  // 2 варіант через фор
+                  // for (let i = 0; i < arr.length; i++) {
+                  // console.log(arr[i])
+                  // }
+
+                  // стрілка функція
+                  // let f = (x) => x * x
+                  // АНАЛОГ
+                  // let f = function (x) {
+                  // return x * x
+                  // }
+                  // АНАЛОГ
+                  // function calcMulti(x) {
+                  //    return x * x
+                  // }
+                  // let func1 = () => console.log("Hello")
+                  // АНАЛОГ
+                  // function func1() {
+                  //    console.log("Hello")
+                  // }
+
+                  // arr.forEach((element) => {
+                  //    if (element > 7) console.log(element)
+                  // })
+                  // ------
+                  // let arr = [1, 6, 9, 67, 2, 5]
+                  // arr.forEach((element, index, baseArrRef) => {
+                  //    if (element > 7) baseArrRef[index] = 0
+                  // })
+
+                  // // Аналог
+                  // function elementOperation(element, index, baseArrRef) {
+                  //    if (element > 7) baseArrRef[index] = 0 // arr[index] = 0
+                  // }
+
+                  // for (let i = 0; i < arr.length; i++) {
+                  //    const element = arr[i]
+                  //    const index = i
+                  //    const baseArrRef = arr
+                  //    elementOperation(element, index, baseArrRef)
+                  // }
+                  // // Вивести додатні значення температури
+                  // let temperature = [-5, 10, 40, -10, -1]
+                  // // 1 варіант
+                  // temperature.forEach((element) => {
+                  //    if (element > 0) console.log(element)
+                  // })
+                  // // 2 варіант
+                  // for (const item of temperature) {
+                  //    if (item > 0) console.log(item)
+                  // }
+
+                  // Масив цін товарів. Знайти суму цін які більше за 100
+                  // let prices = [120, 150, 50, 20, 300]
+                  // let sum = 0
+                  // 1 варіант
+                  // for (const price of prices) {
+                  //    if (price > 100) sum += price
+                  // }
+                  // 2 варіант краще не треба
+                  // prices.forEach((element) => {
+                  //    if (element > 100) sum += element
+                  // })
+                  // console.log(sum)
+
+                  // Показники температури відємні замінити на 0
+                  // let temperature = [-5, 20, 50, -60, 20]
+                  // temperature.forEach((element, index, baseArrRef) => {
+                  //    if (element < 0) baseArrRef[index] = 0
+                  // })
+                  // 2 варіант не вірний тому тут не можна ітератору привласнювати
+                  // for (let item of temperature) {
+                  // 	item = temperature[1]
+                  //    if (item < 0) item = 0
+                  // }
+                  // console.log(temperature)
+
+                  // Кожне парне число збільшити на 5
+                  // let arr = [10, 5, 2, 9, 2]
+                  // arr.forEach((element, index, baseArrRef) => {
+                  //    if (element % 2 === 0) baseArrRef[index] += 5
+                  // })
+                  // console.log(arr)
+
+                  // 2 варіант ДОВШИЙ
+                  // function elementOperation(element, index, baseArrRef) {
+                  //    if (element % 2 === 0) baseArrRef[index] += 5
+                  // }
+
+                  // for (let i = 0; i < arr.length; i++) {
+                  //    const element = arr[i]
+                  //    const index = i
+                  //    const arrRef = arr
+                  //    elementOperation(element, index, arr)
+                  // }
+
+                  // Копіювання
+                  // створити елемент на базі іншого елемента та помнижити на 3
+                  // let arr = [2, 5, 7]
+                  // 1 варіант
+                  // let arr2 = Array.from(arr, (element, index) => element * 3)
+                  // let arr2 = arr.map((element, index, baseArrRef) => element * 3)
+
+                  // console.log(arr2)
+
+                  // мій варіант
+                  // let arr3 = []
+                  // for (let i = 0; i < arr.length; i++) {
+                  //    let elementArr = arr[i] * 3
+                  //    arr3.push(elementArr)
+                  // }
+                  // console.log(arr3)
+
+                  // Варіант ВЧИТЕЛЯ
+                  // function elementOperation(element, index, arrRef) {
+                  //    return element * 3
+                  // }
+
+                  // let arr3 = []
+                  // for (let i = 0; i < arr.length; i++) {
+                  //    const element = arr[i]
+                  //    const index = i
+                  //    const arrRef = arr
+                  //    let operation = elementOperation(element, index, arrRef)
+                  //    arr3.push(operation)
+                  // }
+                  // console.log(arr3)
+
+                  // Дано масив цін. Створити новий масив додавши 20% *1.2
+                  // let prices = [200, 300, 100, 140, 160]
+                  // let prices2 = prices.map((element) => element * 1.2)
+                  // console.log(prices2)
+
+                  // Дано масив років народження працівників.Створити масив з кількістю років.
+                  // let birthEmployee = [1992, 1980, 2003, 2004]
+                  // const currentYear = 2023
+                  // let yearOldEmployee = birthEmployee.map((element) => currentYear - element)
+                  // console.log(yearOldEmployee)
+
+                  // let arr = [2, 5, 8, 20]
+                  // let removedElement = arr.splice(1, 2, 50, 100, 150)
+                  // console.log(removedElement)
+                  // arr.splice(1, 2, 100, 100, 100)
+                  // console.log(arr)
+
+                  // let arr = [100, 150, 200, 50]
+                  // let arrCopy = arr.slice(1, 3)
+                  // console.log(arr)
+                  // console.log(arrCopy)
+                  // const el = arr.filter((element, index, arrRef) => element > 100)
+                  // console.log(arr)
+                  // console.log(el)
+
+                  // Дано покази термомента за місяць. Сформувати покази тільки значень,
+                  // які знаходять між 10 і 15 градусами Цельсія
+                  const temperature = [20, 2, 10, 5, 13, 11, -10]
+                  let temp = temperature.filter((e, i, arrRef) => e > 10 && e < 15)
+                  console.log(temp)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
