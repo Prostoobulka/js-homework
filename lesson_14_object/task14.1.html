@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 14</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі №1</h1>
+               <p></p>
+               <script>
+                  const developSitesCompany = [
+                     {
+                        name: "H&H_STORE",
+                        owner: "Vladislav",
+                        sponsors: [
+                           {
+                              firstName: "Alina",
+                              secondName: "Ilonova",
+                              sumInvest: 20000,
+                           },
+                           {
+                              firstName: "Ilona",
+                              secondName: "Frankova",
+                              sumInvest: 10000,
+                           },
+                        ],
+                        yearRelease: 2005,
+                        price: 37000,
+                     },
+                     {
+                        name: "BEARD_STORE",
+                        owner: "Vasya",
+                        sponsors: [
+                           {
+                              firstName: "Cristiano",
+                              secondName: "Sorter",
+                              sumInvest: 30000,
+                           },
+                           {
+                              firstName: "Ilona",
+                              secondName: "Korni",
+                              sumInvest: 41100,
+                           },
+                        ],
+                        yearRelease: 2018,
+                        price: 47000,
+                     },
+                     {
+                        name: "Trainers_STORE",
+                        owner: "Jessica",
+                        sponsors: [
+                           {
+                              firstName: "Alina",
+                              secondName: "Ilonova",
+                              sumInvest: 10000,
+                           },
+                           {
+                              firstName: "Jany",
+                              secondName: "Loke",
+                              sumInvest: 8000,
+                           },
+                        ],
+                        yearRelease: 2022,
+                        price: 2500,
+                     },
+                     {
+                        name: "H&H_STORE",
+                        owner: "Vladislav",
+                        sponsors: [
+                           {
+                              firstName: "Kany",
+                              secondName: "Heart",
+                              sumInvest: 20000,
+                           },
+                           {
+                              firstName: "Ilona",
+                              secondName: "Frankova",
+                              sumInvest: 10000,
+                           },
+                        ],
+                        yearRelease: 2020,
+                        price: 37000,
+                     },
+                     {
+                        name: "Harry Store",
+                        owner: "Jack",
+                        sponsors: [
+                           {
+                              firstName: "Jessica",
+                              secondName: "Bottson",
+                              sumInvest: 180000,
+                           },
+                           {
+                              firstName: "Alexandro",
+                              secondName: "Makedon",
+                              sumInvest: 1020000,
+                           },
+                        ],
+                        yearRelease: 2016,
+                        price: 1000,
+                     },
+                  ]
+                  // 1) загальну вартість усіх сайтів
+                  const totalPrice = developSitesCompany.reduce(
+                     (prevSum, companyDevelop) => prevSum + companyDevelop.price,
+                     0
+                  )
+                  console.log(totalPrice)
+                  // 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+                  const numSite2000between2009 = developSitesCompany.reduce(
+                     (prevV, companyDevelop) =>
+                        companyDevelop.yearRelease > 2000 && companyDevelop.yearRelease < 2009
+                           ? prevV + 1
+                           : prevV,
+                     0
+                  )
+                  console.log(numSite2000between2009)
+                  // 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+                  const numSitesSumMore100000 = developSitesCompany.reduce(
+                     (prevV, companyDevelop) =>
+                        prevV +
+                        companyDevelop.sponsors.reduce(
+                           (preV2, sponsor) => (sponsor.sumInvest > 100000 ? preV2 + 1 : preV2),
+                           0
+                        ),
+                     0
+                  )
+                  console.log(numSitesSumMore100000)
+                  // 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+                  // ств. масив з спонсорів ["Name1", "Name2", "Name3"]
+                  // 1 Варіант
+                  const arrSponsors = []
+                  for (const company of developSitesCompany) {
+                     for (const sponsor of company.sponsors) {
+                        arrSponsors.push(sponsor.firstName + " " + sponsor.secondName)
+                     }
+                  }
+                  console.log(arrSponsors)
+                  // 2 Варіант
+                  const arrSponsors2 = developSitesCompany.map((company) =>
+                     company.sponsors.map((sponsor) => sponsor.firstName + " " + sponsor.secondName)
+                  )
+                  console.log(arrSponsors2)
+                  // 5) знайти рік, коли прибуток був найбільшим
+                  // 1 варіант
+                  // 1 крок ---- знайти прибуток максимальний серед всіх
+                  let maxPrice = 0
+                  for (const company of developSitesCompany) {
+                     if (maxPrice < company.price) maxPrice = company.price
+                  }
+                  console.log(maxPrice)
+                  // 2 крок ---- знайти рік в якому це максимальне значення
+                  let res
+                  for (const company of developSitesCompany) {
+                     if (company.price === maxPrice) res = company.yearRelease
+                  }
+                  // 3 крок ---- вивести
+                  console.log(res)
+                  // 2 варіант
+                  const yearReleaseMoreMoney = developSitesCompany.reduce((prevV, company) =>
+                     prevV.price < company.price ? company : prevV
+                  ).yearRelease
+                  console.log(yearReleaseMoreMoney)
+                  // 6) упорядкувати список за спаданням прибутку
+                  developSitesCompany.sort((obj1, obj2) => obj2.price - obj1.price)
+                  console.log(developSitesCompany)
+                  // 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+                  // Копіюємо
+                  const listSites = JSON.parse(JSON.stringify(developSitesCompany))
+                  // Фільтруємо
+                  const listSiteLess10000 = listSites.filter((site) => site.price <= 10000)
+                  const listSiteMore10000 = listSites.filter((site) => site.price >= 10000)
+                  console.log(listSiteLess10000)
+                  console.log(listSiteMore10000)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
