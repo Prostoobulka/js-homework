@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №0</h1>
+               <p>Задачі з вчителем</p>
+
+               <script>
+                  // let arr = [20, 1140, 162, 11232, -123, 0, 548, -204, 11, 93, 3332, 54]
+
+                  // Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки
+                  // arr.forEach((element, index, arrRef) => {
+                  //    if (element > 1000) arrRef[index] *= 0.7
+                  // })
+                  // console.log(arr)
+
+                  // Користувач вводить кількість елементів. Створити масив, у якому перша половина заповнена 1-цями, а друга заповнена 7-ками.
+                  // arr.fill(1, 0, Math.floor(arr.length / 2)).fill(7, Math.floor(arr.length / 2))
+                  // console.log(arr)
+
+                  // Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2
+                  // arr.forEach((element, index, arrRef) => {
+                  //    if (element > arrRef[0]) arrRef[index] *= 2
+                  // })
+                  // console.log(arr)
+
+                  // Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+                  // const arrNumAuto = ["A238V", "B2938B", "A2030B"]
+                  // const newArray = arrNumAuto.filter((element) => element[0] === "A")
+                  // console.log(newArray)
+
+                  // Дано масив імен. Сформувати масив з перших літер цих імен
+                  // let arrNames = ["John", "Alina", "Brad"]
+                  // let newArray = arrNames.map((element) => element[0])
+                  // console.log(newArray)
+
+                  // Дано випадкові значення виграшів - результати ігрового барабана (від -500 до 500)
+                  let scores = [-400, 240, 40, 232, 500, 12, 0, 378, 84, 0, -38, -298, 10, 31]
+
+                  // -2) Вивести виграшні значення (>0)
+                  // scores.forEach((element, index, arrRef) => {
+                  //    if (element > 0) console.log(arrRef[index])
+                  // })
+
+                  // -1) Від виграшних значень відняти 20% (*0,8)
+                  // scores.forEach((element, index, arrRef) => {
+                  //    if (element > 0) arrRef[index] *= 0.8
+                  // })
+                  // console.log(scores)
+
+                  // 0) Сформувати новий, перевівши їх у долари (/ курс_долара)
+                  // const newArray = scores.map((element) => (element /= 38.8))
+                  // console.log(newArray)
+
+                  // 1) Кінцеву виграшну суму (суму усіх елементів)
+                  // const totalScore = scores.reduce(
+                  //    (prevTotalScore, el, i, arrRef) => prevTotalScore + el
+                  // )
+                  // console.log(totalScore)
+
+                  // 2) Суму тільки виграшних значень (суму більших за 0)
+                  // const totalScore = scores.reduce(
+                  //    (prevTotalScore, el, i, arrRef) =>
+                  //       el > 0 ? prevTotalScore + el : prevTotalScore,
+                  //    0
+                  // )
+                  // console.log(totalScore)
+
+                  // 3) Суму тільки програшних значень (суму менших за 0)
+                  // const totalScoreNegative = scores.reduce(
+                  //    (prevTotalScore, el, i, arrRef) =>
+                  //       el < 0 ? prevTotalScore + el : prevTotalScore,
+                  //    0
+                  // )
+                  // console.log(totalScoreNegative)
+
+                  // 4) Визначити чи був 0
+
+                  // let isWas0 = scores.some((el) => el === 0)
+                  // console.log(isWas0)
+
+                  // let isWas0 = scores.includes(0)
+                  // if (isWas0) alert("Так був")
+                  // else alert("Не був")
+
+                  // 5) Підрахувати кількість нулів
+                  // let numbersZero = scores.reduce(
+                  //    (prevTotalZero, el, i, arrRef) =>
+                  //       el === 0 ? prevTotalZero + 1 : prevTotalZero,
+                  //    0
+                  // )
+                  // console.log(numbersZero)
+
+                  // 6) Підрахувати кількість виграшних значень (>0)
+                  // const winnerValue = scores.reduce(
+                  //    (prevTotalWinnerValue, el, i, arrRef) =>
+                  //       el > 0 ? prevTotalWinnerValue + 1 : prevTotalWinnerValue,
+                  //    0
+                  // )
+                  // console.log(winnerValue)
+
+                  // 7) Підрахувати кількість значень більших за 100
+                  // const totalValueMore100 = scores.reduce(
+                  //    (prevTotalValueMore100, el, i, arrRef) =>
+                  //       el > 100 ? prevTotalValueMore100 + 1 : prevTotalValueMore100,
+                  //    0
+                  // )
+                  // console.log(totalValueMore100)
+
+                  // 8) Сформувати список тільки виграшних результатів (>0)
+                  // const listWinnerRes = scores.filter((el) => el > 0)
+                  // console.log(listWinnerRes)
+
+                  // 9) Сформувати список тільки програшних результатів (<0)
+                  // const listDefendRes = scores.filter((el) => el < 0)
+                  // console.log(listDefendRes)
+
+                  // 10) Сформувати список тих, які були після першого нуля (<0)
+                  // Знаходимо перший нуль (індекс)
+                  // const indexFirstZero = scores.indexOf(0)
+                  // console.log(indexFirstZero)
+                  // let newArray
+                  // if (indexFirstZero === -1) newArray = []
+                  // else newArray = scores.slice(indexFirstZero + 1)
+
+                  // console.log(newArray)
+
+                  // 11) Сформувати список тих, які були після останнього нуля (<0)
+                  // const indexLastZero = scores.lastIndexOf(0)
+                  // let newArray
+                  // if (indexLastZero === -1) newArray = []
+                  // else newArray = scores.slice(indexLastZero + 1)
+                  // console.log(newArray)
+
+                  // 12) Видалити ті, які є меншими за 20
+                  // const deleteLess20 = scores.filter((el) => el < 20)
+                  // console.log(deleteLess20)
+
+                  // 13) Видалити нулі
+                  // scores = scores.filter((el) => el !== 0)
+                  // console.log(scores)
+                  // 14) Видалити перше нульове значення
+                  // const firstZeroIndex = scores.indexOf(0)
+                  // if (firstZeroIndex !== -1) scores.splice(firstZeroIndex, 1)
+                  // console.log(scores)
+
+                  // 15) Упорядквати за зростанням
+                  // scores.sort((el1, el2) => {
+                  //    if (el1 < el2) return -1
+                  //    else if (el1 > el2) return 1
+                  //    else return 0
+                  // })
+                  // console.log(scores)
+
+                  // let arr = [
+                  //    [35, 65, 98],
+                  //    [294, 123, 534],
+                  //    [2984, 3299, 4444],
+                  // ]
+                  // let sum = 0
+                  // for (let i = 1; i <= 2; i++) {
+                  //    for (let j = 1; j <= 2; j++) {
+                  //       sum += arr[i][j]
+                  //    }
+                  // }
+                  // console.log(sum)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

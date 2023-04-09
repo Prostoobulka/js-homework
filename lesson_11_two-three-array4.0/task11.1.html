@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1</h1>
+               <p>Знайти суми елементів у вказаній області</p>
+               <div class="result__img" style="text-align: center">
+                  <img src="img/01.png" alt="Tasks" />
+               </div>
+               <script>
+                  // 1)
+                  // Генеруємо масив
+                  // 0.1 Генерація рандомних значень
+                  function getRanNum(minV, maxV) {
+                     return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  }
+                  // 0.2 Генеруємо одновимірний масив (рядок)
+                  function getArray(quantityElemArr, minV, maxV) {
+                     let arr = []
+                     for (let i = 0; i < quantityElemArr; i++) {
+                        const ranNum = getRanNum(minV, maxV)
+                        arr.push(ranNum)
+                     }
+                     return arr
+                  }
+
+                  // 0.3 Генеруємо двовимірний масив
+                  function getTableArray(quantityString, quantityElemArr, minV, maxV) {
+                     let table = []
+                     for (let i = 0; i < quantityString; i++) {
+                        const arr = getArray(quantityElemArr, minV, maxV)
+                        table.push(arr)
+                     }
+                     return table
+                  }
+
+                  const tableArr = getTableArray(4, 4, 1, 10)
+                  // const tableArr = getTableArray(4, 4, 1, 10)
+
+                  console.log(tableArr)
+
+                  // Копія №1
+                  // console.log(JSON.parse(JSON.stringify(tableArr)))
+                  // Копія №2
+                  // let newArrTable = []
+                  // for (let i = 0; i < tableArr.length; i++) {
+                  // 	let arr = []
+                  // 	for (let j = 0; j < tableArr[i].length; j++) {
+                  // 		arr.push(tableArr[i][j])
+                  // 	}
+                  // 	newArrTable.push(arr)
+                  // }
+                  // console.log(newArrTable)
+                  // Копія №3
+                  // let newTable = []
+                  // for (const row of tableArr) {
+                  // 	newTable.push(row)
+                  // }
+                  // console.log(newTable)
+
+                  // 1) - 4)
+                  function getSumSpecifiedElements(
+                     table,
+                     rowStart,
+                     rowEnd,
+                     colStart,
+                     colEnd,
+                     stepRow = 1,
+                     stepCol = 1
+                  ) {
+                     let sumElements = 0
+                     // Як буде змінюватись рядок
+                     for (let row = rowStart - 1; row < rowEnd; row = row + stepRow) {
+                        // Як буде змінюватись стовпчик
+                        for (let col = colStart - 1; col < colEnd; col = col + stepCol) {
+                           // Що будемо робити
+                           sumElements += table[row][col]
+                        }
+                     }
+                     return sumElements
+                  }
+                  // Вважаємо що даний масив є ПРЯМОКУТНИМ
+                  // 1 Варіант ---------------
+                  // 1)
+                  console.log(
+                     getSumSpecifiedElements(
+                        tableArr,
+                        1,
+                        tableArr.length / 2,
+                        1,
+                        tableArr.length / 2
+                     )
+                  ) //
+                  // 2)
+                  console.log(
+                     getSumSpecifiedElements(
+                        tableArr,
+                        1,
+                        tableArr.length / 2,
+                        tableArr.length / 2 + 1,
+                        4
+                     )
+                  )
+                  // Вважаємо що ми знаємо кількість рядків та стовпців
+                  // 2 Варіант ---------------
+                  // 3)
+                  console.log(getSumSpecifiedElements(tableArr, 3, 4, 1, 2))
+                  // 4)
+                  console.log(getSumSpecifiedElements(tableArr, 3, 4, 3, 4))
+
+                  // 5) Знайти суму парних рядків
+                  console.log(
+                     getSumSpecifiedElements(tableArr, 2, tableArr.length, 1, tableArr.length, 2)
+                  )
+
+                  // 6) Знайти суму не парних стопців
+                  console.log(
+                     getSumSpecifiedElements(tableArr, 1, tableArr.length, 1, tableArr.length, 1, 2)
+                  )
+
+                  // 7) У парних рядках – непарні стовпці, у непарних – парні
+                  console.log(
+                     getSumSpecifiedElements(tableArr, 1, tableArr.length, 2, tableArr.length, 2, 2)
+                  )
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 2</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №10</h1>
+               <p>
+                  Морський бій. Випадковим чином на двовимірному полі розміром 6*6 розташовується 5
+                  кораблів. Користувач стріляє вказуючи координати. Гра продовжується поки не
+                  потоплено усі кораблі або у користувача не закінчаться снаряди.
+               </p>
+               <script>
+                  function columnGameField(num) {
+                     return new Array(num).fill(0)
+                  }
+                  function rowGameField(num) {
+                     const arr = []
+                     for (let i = 0; i < num; i++) {
+                        const columnField = columnGameField(num)
+                        arr.push(columnField)
+                     }
+                     return arr
+                  }
+                  function gameFieldWithShip(sizeField, shipNumber) {
+                     const gameField = rowGameField(sizeField)
+                     let quantityShips = shipNumber
+                     for (let i = 0; i < gameField.length; i++) {
+                        // рандомна кількість кораблів в рядку
+                        const ranMaxShips = 1 + Math.floor(Math.random() * 3)
+                        for (let j = 0; j < ranMaxShips; j++) {
+                           // рандомне розташування
+                           const ranShip = 0 + Math.floor(Math.random() * sizeField)
+                           while (gameField[i][ranShip] !== 1 && quantityShips > 0) {
+                              gameField[i][ranShip] = 1
+                              quantityShips--
+                           }
+                        }
+                     }
+                     return gameField
+                  }
+
+                  // гра користувача
+                  function gamePlay(gameField, shipNumber) {
+                     let quantityShip = shipNumber
+                     do {
+                        let userRow = parseInt(prompt("Введіть номер рядка", "1 - 6"))
+                        let userColumn = parseInt(prompt("Введіть номер стовпця", "1 - 6"))
+                        if (gameField[userRow - 1][userColumn - 1] === 1) {
+                           --quantityShip
+                           gameField[userRow - 1][userColumn - 1] = 0
+                           alert(`Вітаю ви влучили, залишилося ${quantityShip} кораблів!!!`)
+                        } else {
+                           alert(`Не влучили, спробуйте ще!!!`)
+                        }
+                     } while (quantityShip > 0)
+                  }
+
+                  let gameField = gameFieldWithShip(6, 5)
+                  console.log(gameField)
+                  console.log(gamePlay(gameField, 5))
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
