@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 13</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1 - №2</h1>
+               <p></p>
+               <script>
+                  // Задача 4. З використанням замикань розробити ітератор, тобто функцію,
+                  // що буде поступово за окремими викликами видавати по одну букву наперед заданого слова.
+                  // З використанням нього розробити гру «Перекладач».
+                  // Виводимо для користувача опис цього слова і по одну букву користувач вводить переклад цього слова.
+                  // Підрахувати кількість вгаданих букв.
+                  function getOneLetterFromWord(word) {
+                     let wordList = 0
+                     let lengthWord = word.length
+                     function getLetter() {
+                        let elementOfWord
+                        if (wordList < lengthWord) {
+                           elementOfWord = word[wordList]
+                           wordList++
+                        } else {
+                           wordList = 0
+                           elementOfWord = word[wordList]
+                           wordList++
+                        }
+                        return elementOfWord
+                     }
+                     return getLetter
+                  }
+
+                  const wordForUser = prompt("Задайте користувачу англійське слово")
+
+                  function gameTranslator() {
+                     let correctAnswer = 0
+                     let incorrectAnswer = 0
+                     let user
+                     let wordLengthTry = wordForUser.length
+                     do {
+                        user = prompt(`Слово - Їжа. Кількість спроб - ${wordLengthTry}`)
+                        user === wordToGuess() ? correctAnswer++ : incorrectAnswer++
+                        wordLengthTry--
+                     } while (!isFinite(user) && wordLengthTry !== 0)
+                     return [correctAnswer, incorrectAnswer]
+                  }
+                  const wordToGuess = getOneLetterFromWord(wordForUser)
+                  const [correct, incorrect] = gameTranslator()
+                  document.write(`<p>Кількість відгаданих - ${correct} <br></p>`)
+                  document.write(`Кількість не вгаданих - ${incorrect}`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

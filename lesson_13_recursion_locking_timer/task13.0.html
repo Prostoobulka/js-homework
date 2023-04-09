@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 13</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №0</h1>
+               <p></p>
+               <script>
+                  // function externalFunc(param1) {
+                  //    function innerFunc(param2) {
+                  //       console.log(param2)
+                  //    }
+
+                  //    innerFunc(2)
+                  //    console.log(param1)
+                  // }
+                  // externalFunc(1)
+                  // Рекурсія
+                  // function factorial(n) {
+                  //    if (n === 1) return 1
+                  //    else return factorial(n - 1) * n
+                  // }
+                  // let f3 = factorial(3)
+                  // console.log(f3)
+
+                  // Числа Фібоначчі
+                  // function fibonacchi(n) {
+                  //    if (n === 1 || n === 2) return 1
+                  //    else return fibonacchi(n - 1) + fibonacchi(n - 2)
+                  // }
+                  // const res = fibonacchi(4)
+                  // console.log(res)
+
+                  // Нерекурсивний
+
+                  // function fibonacchi(n) {
+                  //    if (n === 1 || n === 2) return 1
+                  //    else {
+                  //       let f_n_1 = (f_n_2 = 1)
+                  //       let f_n
+                  //       for (let i = 3; i <= n; i++) {
+                  //          f_n = f_n_1 + f_n_2
+
+                  //          f_n_2 = f_n_1
+                  //          f_n_1 = f_n
+                  //       }
+                  //       return f_n
+                  //    }
+                  // }
+                  // Замикання
+                  // function counter(value) {
+                  //    function increment() {
+                  //       return ++value
+                  //    }
+                  //    return increment
+                  // }
+
+                  // let cntr1 = counter(0)
+                  // console.log(cntr1())
+                  // console.log(cntr1())
+                  // console.log(cntr1())
+
+                  // TIMER
+
+                  //
+                  // let TimeID = setTimeout(() => alert("Hi!"), 2000)
+                  // console.log(TimeID)
+                  // let i
+                  // for (i = 1; i < 5; i++) {
+                  //    setTimeout(() => alert(i), 2000)
+                  // }
+
+                  // let num = 0
+                  // let myTimer = setInterval(() => {
+                  //    if (num === 5) {
+                  //       alert("Stop")
+                  //       clearInterval(myTimer)
+                  //    } else alert(num++)
+                  // }, 1000)
+                  // 1 варіант
+                  // Кожної секунди (не точно) буде добавлятися 0, 1, 2, 3, 4, і 5 зупиниться
+
+                  function myFunc(num) {
+                     setTimeout(() => {
+                        if (num < 5) {
+                           alert(num)
+                           myFunc(num + 1)
+                        }
+                     }, 2000)
+                  }
+
+                  myFunc(1)
+                  // Виконання буде від 1 до 4 через (точно) секунду
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
