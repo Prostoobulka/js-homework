@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №5</h1>
+               <p>
+                  Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити,
+                  чи є у масиві ім’я «Olga» і під яким індексом.
+               </p>
+
+               <script>
+                  const arrRanValue = ["John", "Vasyl", "Jack", "Olga"]
+                  console.log(arrRanValue)
+                  arrRanValue.sort()
+                  console.log(arrRanValue)
+                  // Бінарний пошук
+                  function binarySearch(arr, searchEl) {
+                     let firstIndex = 0
+                     let lastIndex = arr.length - 1
+                     while (firstIndex <= lastIndex) {
+                        let middleEl = Math.floor((firstIndex + lastIndex) / 2)
+                        if (arr[middleEl] === searchEl) return true
+                        // Індекс
+                        if (arr[middleEl] === searchEl) return middleEl
+                        if (arr[middleEl] < searchEl) firstIndex = middleEl + 1
+                        if (arr[middleEl] > searchEl) lastIndex = middleEl - 1
+                     }
+                     return false
+                  }
+                  console.log(binarySearch(arrRanValue, "Olga"))
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1</h1>
+               <p>
+                  Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+                  сортування бульбашкою отримуємо рандомне значення
+               </p>
+
+               <script>
+                  // отримуємо рандомне значення
+                  function getRanNum(minV, maxV) {
+                     return minV + Math.floor(Math.random() * (maxV - minV))
+                  }
+                  // отримуємо масив рандомних значеннь значення
+                  function getArray(num, minV, maxV) {
+                     return new Array(num).fill().map(() => getRanNum(minV, maxV))
+                  }
+                  // упорядковуємо БУЛЬБАШКОЮ
+                  function sortBubbles(arr) {
+                     // [2, 5, 3, 2, 1]
+                     // виконуємо до поки є зміни
+                     let changes
+                     let cntrTimes = 0
+                     do {
+                        changes = false
+                        // для від 1 до кінця
+                        for (let i = 1; i < arr.length; i++) {
+                           // якщо поточний елемент менше за попередній swap і кажемо що зміна здійнилася
+                           if (arr[i] < arr[i - 1]) {
+                              const temp = arr[i]
+                              arr[i] = arr[i - 1]
+                              arr[i - 1] = temp
+                              changes = true
+                              cntrTimes++
+                           }
+                        }
+                     } while (changes)
+                     return cntrTimes
+                  }
+                  const arrRanValue = getArray(30, 1, 50)
+
+                  document.write(`Кількість змін = ${sortBubbles(arrRanValue)}`)
+                  console.log(arrRanValue)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

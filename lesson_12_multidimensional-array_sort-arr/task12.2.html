@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №2</h1>
+               <p>
+                  Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+                  сортування змішуванням.
+               </p>
+
+               <script>
+                  // отримуємо рандомне значення
+                  function getRanNum(minV, maxV) {
+                     return minV + Math.floor(Math.random() * (maxV - minV))
+                  }
+                  // отримуємо масив рандомних значеннь значення
+                  function getArray(num, minV, maxV) {
+                     return new Array(num).fill().map(() => getRanNum(minV, maxV))
+                  }
+
+                  // поки лівий та правий індекс не наближиться одне до одного
+                  // сортуємо зліва на право
+                  // для поч 1 до кінця
+                  // якщо поточний менше за попердній то свепаємо
+                  // для кінець
+                  // правий індекс зменшиться на один тому що відсортували одне число в право
+
+                  // сортуємо справа на ліво
+                  // для від кінця до поч
+                  // кінцевий порівнюємо з попереднім то свепаємо
+                  // для кінець
+                  // лівий збільшуємо на один
+                  // поки кінець
+                  function swap(arr, i, j) {
+                     let temp = arr[i]
+                     arr[i] = arr[j]
+                     arr[j] = temp
+                  }
+                  function shakeSort(arr) {
+                     let leftIndex = 0
+                     let rightIndex = arr.length - 1
+                     let cntrChanges = 0
+                     while (leftIndex < rightIndex) {
+                        for (let left = 1; left <= rightIndex; left++)
+                           if (arr[left] < arr[left - 1]) {
+                              swap(arr, left, left - 1)
+                              cntrChanges++
+                           }
+                        rightIndex--
+
+                        for (let right = rightIndex; right > leftIndex; right--)
+                           if (arr[right] < arr[right - 1]) {
+                              swap(arr, right, right - 1)
+                              cntrChanges++
+                           }
+                        leftIndex++
+                     }
+                     return cntrChanges
+                  }
+
+                  const arrRanValue = getArray(30, 1, 50)
+                  console.log(arrRanValue)
+                  const sortShake = shakeSort(arrRanValue)
+                  console.log(arrRanValue)
+                  document.write(`Кількість змін = ${sortShake}`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

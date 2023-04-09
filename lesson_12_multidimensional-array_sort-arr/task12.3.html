@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №3</h1>
+               <p>
+                  Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час
+                  сортування включеннями.
+               </p>
+
+               <script>
+                  // отримуємо рандомне значення
+                  function getRanNum(minV, maxV) {
+                     return minV + Math.floor(Math.random() * (maxV - minV))
+                  }
+                  // отримуємо масив рандомних значеннь значення
+                  function getArray(num, minV, maxV) {
+                     return new Array(num).fill().map(() => getRanNum(minV, maxV))
+                  }
+
+                  function sortInsertion(arr) {
+                     let i, currentElement
+                     let cntrChanges = 0
+                     for (let k = 1; k < arr.length; k++) {
+                        currentElement = arr[k]
+                        i = k - 1
+                        while (i >= 0 && arr[i] > currentElement) {
+                           arr[i + 1] = arr[i]
+                           i = i - 1
+                           cntrChanges++
+                        }
+                        arr[i + 1] = currentElement
+                     }
+                     return cntrChanges
+                  }
+                  const arrRanValue = getArray(30, 1, 50)
+                  console.log(arrRanValue)
+                  const insertionSort = sortInsertion(arrRanValue)
+                  console.log(arrRanValue)
+                  document.write(`Кількість змін = ${insertionSort}`)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

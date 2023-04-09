@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №0</h1>
+               <p>Задачі з вчителем</p>
+
+               <script>
+                  // Упорядкувати так, щоб спочатку були нулі, потім відємні потім додатні
+                  // let r = [23, 4, 12, 0, 0, -2, -4, 2]
+                  // r.sort((el1, el2) => {
+                  //    if (el1 === 0 && el2 === 0) return 0
+                  //    if (el1 !== 0 && el2 === 0) return 1
+                  //    if (el1 === 0 && el2 !== 0) return -1
+                  //    if (el1 < 0 && el2 < 0) return 0
+                  //    if (el1 > 0 && el2 < 0) return 1
+                  //    if (el1 < 0 && el2 > 0) return -1
+                  //    return 0
+                  // })
+                  // console.log(r)
+
+                  // Упорядкувати так щоб спочатку були більша за 200 а потім всі інші
+                  // let r = [53, 32, 203, 231, 869, 12, -12, 43]
+                  // r.sort((el1, el2) => {
+                  //    if (el1 > 200 && el2 < 200) return -1
+                  //    if (el1 < 200 && el2 > 200) return 1
+                  //    if (el1 > 200 && el2 > 200) return 0
+                  // })
+                  // console.log(r)
+
+                  // Упорядкувати так щоб спочатку були виграші/програші(Тобто по модулю) < 10, < 100 - <=500
+                  // let r = [
+                  //    53, 32, 400, 300, 312, -320, 387, 392, -203, 231, -212, 500, 100, -12, 43,
+                  // ]
+                  // r.sort((el1, el2) => {
+                  //    let a = Math.abs(el1)
+                  //    let b = Math.abs(el2)
+                  //    return b - a
+                  // })
+                  // console.log(r)
+
+                  //Задача. Дано масив імен користувачів
+                  // let names = [
+                  //    "John",
+                  //    "Paul",
+                  //    "Olga",
+                  //    "Andrew",
+                  //    "Abrams",
+                  //    "Peter",
+                  //    "Tina",
+                  //    "Olga",
+                  //    "Jack",
+                  //    "Peter",
+                  // ]
+                  // 1) Упорядкувати масив за зростанням
+                  // 2) Упорядкувати масив за спаданням
+                  // 1 Варіант
+                  // names.sort().reverse()
+
+                  // 2 Варіант
+                  // names.sort((el1, el2) => {
+                  //    if (el1 > el2) return -1
+                  //    if (el1 < el2) return 1
+                  //    return 0
+                  // })
+                  // console.log(names)
+
+                  // 3) Упорядкувати масив за першою літерою за зростанням
+                  // names.sort((el1, el2) => {
+                  //    if (el1[0] > el2[0]) return 1
+                  //    if (el1[0] < el2[0]) return -1
+                  //    return 0
+                  // })
+                  // console.log(names)
+                  // 4) Упорядкувати масив за першою літерою за зростанням
+                  // names.sort((el1, el2) => {
+                  //    if (el1[0] > el2[0]) return 1
+                  //    if (el1[0] < el2[0]) return -1
+                  //    return 0
+                  // })
+                  // console.log(names)
+
+                  // 5) Упорядкувати масив за зросростанням довжин імен
+                  // names.sort((el1, el2) => {
+                  //    if (el1.length > el2.length) return 1
+                  //    if (el1.length < el2.length) return -1
+                  //    return 0
+                  // })
+                  // console.log(names)
+
+                  // 6) Упорядкувати масив за cпаданням довжин імен
+                  // names.sort((el1, el2) => {
+                  //    if (el1.length > el2.length) return -1
+                  //    if (el1.length < el2.length) return 1
+                  //    return 0
+                  // })
+                  // console.log(names)
+
+                  // 7) Упорядкувати масив так щоб спочатку були Peter, потім всі інші
+                  // names.sort((el1, el2) => {
+                  //    if (el1 === "Peter" && el2 !== "Peter") return -1
+                  //    if (el1 !== "Peter" && el2 === "Peter") return 1
+                  //    return 0
+                  // })
+                  // console.log(names)
+                  // 8) Упорядкувати масив так щоб спочатку були Peter, в кінці Olga потім всі інші
+                  // names.sort((el1, el2) => {
+                  //    if (el1 === "Peter" && el2 !== "Peter") return -1
+                  //    if (el1 !== "Peter" && el2 === "Peter") return 1
+                  //    if (el1 === "Peter" && el2 === "Peter") return 0
+                  //    if (el1 === "Olga" && el2 !== "Olga") return 1
+                  //    if (el1 !== "Olga" && el2 === "Olga") return -1
+                  // })
+                  // console.log(names)
+
+                  // У місті є K шкіл по 11кл. у кожній. Відомі величини зросту учнів.
+                  // Знайти найвищого
+                  // function getRandomValue(minV, maxV) {
+                  //    return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  // }
+                  // // Формування одновимірного масиву учні
+                  // function getPupil(arrPupilLength, minV, maxV) {
+                  //    // return new Array(numberEl).fill().map(() => getRandomValue(minV, maxV))
+                  //    const arr = []
+                  //    for (let i = 0; i < arrPupilLength; i++) {
+                  //       const randNum = getRandomValue(minV, maxV)
+                  //       arr.push(randNum)
+                  //    }
+                  //    return arr
+                  // }
+                  // // Формування двовимірного масиву класи
+                  // function getClassOfSchool(arrPupilLength, arrClassLength, minV, maxV) {
+                  //    const table = []
+                  //    for (let i = 0; i < arrClassLength; i++) {
+                  //       const arr = getPupil(arrPupilLength, minV, maxV)
+                  //       table.push(arr)
+                  //    }
+                  //    return table
+                  // }
+
+                  // // Формування тривимірного масиву школи
+                  // function getSchool(K, arrPupilLength, arrClassLength, minV, maxV) {
+                  //    const school = []
+                  //    for (let i = 0; i < K; i++) {
+                  //       const table = getClassOfSchool(arrPupilLength, arrClassLength, minV, maxV)
+                  //       school.push(table)
+                  //    }
+                  //    return school
+                  // }
+
+                  // const schools = getSchool(2, 12, 3, 110, 250)
+                  // console.log(schools)
+
+                  // function getTallPupil(schools) {
+                  //    let max = schools[0][0][0]
+                  //    // 1 варіант
+                  //    // for (let school = 0; school < schools.length; school++) {
+                  //    //    for (let class_ = 0; class_ < schools[school].length; class_++) {
+                  //    //       for (let pupil = 0; pupil < schools[school][class_].length; pupil++) {
+                  //    //          if (schools[school][class_][pupil] > max)
+                  //    //             max = schools[school][class_][pupil]
+                  //    //       }
+                  //    //    }
+                  //    // }
+
+                  //    // 2 варіант
+                  //    for (const school of schools) {
+                  //       for (const class_ of school) {
+                  //          for (const pupil of class_) {
+                  //             if (pupil > max) max = pupil
+                  //          }
+                  //       }
+                  //    }
+                  //    return max
+                  // }
+                  // console.log(getTallPupil(schools))
+
+                  //  Дано величини прибутку від кожного працівника рекламної компанії, що складається з К філіалів.
+                  // У кожному філіалі є певна кількість працівників (у кожному філіалі кількість працівників може бути різною).
+                  // Знайти загальний прибуток та прибуток у кожному із філіалів.
+                  function getRanNum(minV, maxV) {
+                     return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  }
+
+                  function getEmployee(minV, maxV) {
+                     const arr = []
+                     arr.push(getRanNum(minV, maxV))
+                     return arr
+                  }
+
+                  function getBranchOne(minV, maxV) {
+                     const arr = []
+                     const ranNumberEmployee = 17 + Math.floor(Math.random() * 33)
+                     for (let i = 0; i < ranNumberEmployee; i++) {
+                        const employeerOne = getEmployee(minV, maxV)
+                        arr.push(employeerOne)
+                     }
+                     return arr
+                  }
+
+                  function getBranches(quantityBranches, minV, maxV) {
+                     const arr = []
+                     for (let i = 0; i < quantityBranches; i++) {
+                        const branchOne = getBranchOne(minV, maxV)
+                        arr.push(branchOne)
+                     }
+                     return arr
+                  }
+                  // [[  [32] [41] [31] [5223]  ]]
+                  const numEmployee = 8 + Math.floor(Math.random() * 23)
+                  const arrBranches = getBranches(5, 100, 200)
+                  console.log(arrBranches)
+
+                  // Загальний прибуток
+                  // for (let branches = 0; branches < arrBranches.length; branches++) {
+                  //    let sum = 0
+                  //    for (
+                  //       let branchOne = 0;
+                  //       branchOne < arrBranches[branches].length;
+                  //       branchOne++
+                  //    ) {
+                  //       for (
+                  //          let employeer = 0;
+                  //          // Працівник
+                  //          employeer < arrBranches[branches][branchOne].length;
+                  //          employeer++
+                  //       ) {
+                  //          sum += arrBranches[branches][branchOne][0]
+                  //       }
+                  //    }
+                  //    document.write(`Загальний прибуток ${branches + 1}-го філіалу = ${sum} <br>`)
+                  // }
+
+                  // for (const branch of arrBranches) {
+                  //    let sum = 0
+                  //    for (const employeer of branch) {
+                  //       for (const item of employeer) {
+                  //          sum += item
+                  //       }
+                  //    }
+                  //    document.write(`<p>${sum}</p>`)
+                  // }
+
+                  // -------- Алгоритми сортування
+                  // БУЛЬБАШКОЮ
+                  // [3, 5, 2, 1, 4]
+                  // (3, 5)
+                  // (5, 2) => (2, 5) - [3, 2, 5, 1, 4]
+                  // (5, 1) => (1, 5) - [3, 2, 1, 5, 4]
+                  // (5, 4) => (4, 5) - [3, 2, 1, 4, 5]
+
+                  // (3, 2) => (2, 3) - [2, 3, 1, 4, 5]
+                  // (3, 1) => (1, 3) - [2, 1, 3, 4, 5]
+                  // (2, 1) => (1, 2) - [1, 2, 3, 4, 5]
+                  // a[0] > a[1] temp = ar[0], ar[0] = ar[1], ar[1] = temp
+                  // let arr = [3, 5, 2, 1, 4]
+                  // let changes
+                  // #1
+                  // иdo {
+                  //    // Незмінюються хиба
+                  //    changes = false
+                  //    // Проходимося по масиву від 1 до кінця
+                  //    for (let i = 1; i < arr.length; i++) {
+                  //       // Якщо попередній елемент більше за поточний то міняємо сторонами
+                  //       if (arr[i - 1] > arr[i]) {
+                  //          // Міняємо місцями
+                  //          // ---- 1
+                  //          let temp = arr[i]
+                  //          arr[i] = arr[i - 1]
+                  //          arr[i - 1] = temp
+                  //          // ---- 2
+                  //          // let change = ([arr[i], arr[i - 1]] = [arr[i - 1], arr[i]])
+                  //          // Зміна істина
+                  //          changes = true
+                  //       }
+                  //    }
+                  //    // до поки є якісь зміни
+                  // } while (changes)
+                  // // Закічується тоді коли масив без змін сортирування
+                  // console.log(arr)
+
+                  // поки виконується перестановка тоді виконуємо
+                  // changes = false
+                  // для i = 1 до кінця
+                  // якщо arr[i-1] < arr[i] swap і добавляти що ми змінили change = true
+
+                  // #2 Модифікований алгоритм сортування(бульбашкою) - змішаний(Shake)
+                  //	функція swap
+                  // function swap(arr, el1, el2) {
+                  //    const temp = arr[el2]
+                  //    arr[el2] = arr[el1]
+                  //    arr[el1] = temp
+                  // }
+                  // function getShakeSort(arr) {
+                  //    let leftIndex = 0
+                  //    let rightIndex = arr.length - 1
+                  //    while (leftIndex < rightIndex) {
+                  //       // зліва на право від 0 до останнього елемента(вільного)
+                  //       for (let leftIndex = 0; leftIndex < rightIndex; leftIndex++) {
+                  //          if (arr[leftIndex] > arr[leftIndex + 1])
+                  //             swap(arr, leftIndex, leftIndex + 1)
+                  //       }
+                  //       rightIndex--
+                  //       // [3, 5, 2, 1] => [3, 2, 5, 1] => [3, 2, 1, 5]
+                  //       // [1, 3, 2, 5] => [1, 2, 3, 5]
+                  //       // справа на ліво до першого елемента (вільного)
+                  //       for (let right = rightIndex; right > leftIndex; right--) {
+                  //          if (arr[right] < arr[right - 1]) swap(arr, right, right - 1)
+                  //       }
+                  //       leftIndex++
+                  //    }
+                  // [3, 2, 1, 5] => [3, 1, 2, 5] => [1, 3, 2, 5]
+
+                  // поки лівий індекс менше за правий
+                  // сортування зліва на право
+                  // для від i = лівий індекс до правого
+                  // якщо лівий елемент більше за правий i + 1 то міняємо
+                  // кінець для
+                  // Зменшуємо на одиницю лівий індекс
+                  // rightIndex--
+                  // сортування справа на ліво
+                  // для від i = лівий індекс до правого
+                  // якщо правий елемент менще за лівий i - 1 то міняємо
+                  // кінець для
+                  // Збільшуємо на одиницю правий індекс
+                  // leftIndex++
+                  // }
+                  // getShakeSort(arr)
+                  // console.log(arr)
+
+                  // #3 Сортування Включенням
+                  //			  0  1  2  3  4
+                  // let arr = [3, 5, 2, 1, 4]
+                  // [3,  , 5]
+                  // [2, 3, 5]
+                  // 2
+                  // [2, 3, 5, 1, 4]
+                  // [2, 3, 5,  , 4]
+                  // [2, 3,  , 5]
+                  // [2,  ,  3, 5]
+                  // [1, 2,  3, 5, 4]
+                  //	1
+                  // [1, 2, 3, 5,  ,]
+                  // [1, 2, 3,  ,  5]
+                  // 4
+
+                  // let currentElement, i
+                  // // 1, 2, 3, 4
+                  // // для дозволяє проходитись по масиву зліваа на право
+                  // for (let k = 1; k < arr.length; k++) {
+                  //    // самий елемент який беремо собі щоб порівнювати і
+                  //    currentElement = arr[k] // 5, 2, 1, 4
+                  //    i = k - 1 // i = 0, 1, 2, 3
+                  //    // 2 = 5  > 2, 3 = 5 > 1, 5 > 4
+                  //    // цикл проходить справа на ліво
+                  //    // key = arr[i + 1]
+                  //    while (i >= 0 && arr[i] > currentElement) {
+                  //       // посуваємо той елемент який менше вліво і далі снову перевіряємо умову якщо воно
+                  //       // задовільно то снову перевіряємо два елемента і міняємо
+                  //       arr[i + 1] = arr[i]
+                  //       // до тих пір коли індекс буде в межах від arr[i] до 0 але це тру = arr[i] > key
+                  //       i = i - 1
+                  //    }
+                  //    // взяли і поставили в масив
+                  //    arr[i + 1] = currentElement
+                  // }
+                  // console.log(arr)
+
+                  // Бінарний пошук
+                  // 0, 1, 2, 3
+                  let arr = [1, 4, 7, 12]
+                  function includes_binarySearch(arr, searchElement) {
+                     let start = 0
+                     let end = arr.length - 1
+                     while (start <= end) {
+                        // Знаходимо мідл
+                        const middle = Math.floor((start + end) / 2)
+                        // якщо елемент знайшовся то тру
+                        if (arr[middle] === searchElement) return true
+                        // якщо елемент менше за шуканий
+                        if (arr[middle] < searchElement) start = middle + 1
+
+                        if (arr[middle] > searchElement) end = middle - 1
+                     }
+                     return false
+                  }
+                  console.log(includes_binarySearch(arr, 1))
+
+                  function findIndex_binarySearch(arr, searchElement) {
+                     let start = 0
+                     let end = arr.length - 1
+                     while (start <= end) {
+                        // Знаходимо мідл
+                        const middle = Math.floor((start + end) / 2)
+                        // якщо елемент знайшовся то повертаємо індекс
+                        if (arr[middle] === searchElement) return middle
+                        // якщо елемент менше за шуканий
+                        if (arr[middle] < searchElement) start = middle + 1
+
+                        if (arr[middle] > searchElement) end = middle - 1
+                     }
+                     return -1
+                  }
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
