@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 15</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №6</h1>
+               <p>Розробити клас MultChecker для перевірки таблиці множення</p>
+               <script>
+                  class MultChecker {
+                     constructor(multTable) {
+                        // Поля
+                        // Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+                        // Кількість правильних відповідей
+                        // Кількість неправильних відповідей
+                        this.multTable = multTable
+                        this.correctAnswer = 0
+                        this.incorrectAnswer = 0
+                     }
+
+                     // Методи
+                     // Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+                     getExecise() {
+                        // checkCorrect(execise)
+                        let user
+                        do {
+                           // Генеруємо число від 1 до 10
+                           const ranNum = 1 + Math.floor(Math.random() * 10)
+                           // Ств приклад (6 * 2)
+                           const execise = this.multTable * ranNum
+                           user = parseInt(prompt(`${this.multTable} * ${ranNum} =`))
+                           // Перевірити на правильність
+                           this.checkCorrect(execise, user)
+                        } while (confirm("Далі?"))
+                     }
+                     // Перевірка правильності вказаної відповіді
+                     checkCorrect(execise, user) {
+                        return execise === user ? this.correctAnswer++ : this.incorrectAnswer++
+                     }
+                     // render - виведення інформації про тестування на екран
+                     toString() {
+                        return `
+                  		Таблиця множення на ${this.multTable} <br>
+                  		Кількість правильний - ${this.correctAnswer} <br>
+                  		Кількість неправильних - ${this.incorrectAnswer}
+                  		`
+                     }
+                  }
+                  let mult = new MultChecker(7)
+                  mult.getExecise()
+                  document.write(mult)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

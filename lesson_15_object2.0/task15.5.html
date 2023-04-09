@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 15</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №6</h1>
+               <p>Розробити клас Baner</p>
+               <script>
+                  // class Baner {
+                  //    // Поля
+                  //    // Масив об’єктів ( графічних зображень та посилань на сайти)
+                  //    constructor() {
+                  //       this.arrObj = [
+                  //          {
+                  //             graphImg: "img/01.jpg",
+                  //             linkSite:
+                  //                "https://www.google.com/webhp?hl=ru&sa=X&ved=0ahUKEwi2rq-vj5D-AhUohf0HHfZaBfIQPAgI",
+                  //          },
+
+                  //          {
+                  //             graphImg: "img/02.jpg",
+                  //             linkSite: "https://www.youtube.com/",
+                  //          },
+
+                  //          {
+                  //             graphImg: "img/03.jpg",
+                  //             linkSite: "https://www.facebook.com/",
+                  //          },
+                  //       ]
+                  //    }
+                  //    // Методи
+                  //    // Метод випадкового вибору об’єкта (графічного зображення та посилання)
+                  //    getRanObj() {
+                  //       const randomIndex = 0 + Math.floor(Math.random() * this.arrObj.length)
+                  //       return this.arrObj[randomIndex]
+                  //    }
+                  //    getValueObj() {
+                  //       const graphObj = Object.values(this.getRanObj())
+                  //       return graphObj
+                  //    }
+                  //    // Метод виведення випадкового банера
+                  //    toString() {
+                  //       const [pathImg, link] = this.getValueObj()
+                  //       return `<img width="200px" style= "display: block"  src="${pathImg}" alt="Images"> <a target="_blank" href="${link}">Link</a>`
+                  //    }
+                  // }
+                  // let baner = new Baner()
+
+                  // document.write(baner)
+                  // document.write(baner)
+                  // document.write(baner)
+
+                  // 2 спосіб
+                  class Baner {
+                     // Поля
+                     // Масив об’єктів ( графічних зображень та посилань на сайти)
+                     constructor(arr) {
+                        this.arrObj = arr
+                     }
+                     // Методи
+                     // Метод випадкового вибору об’єкта (графічного зображення та посилання)
+                     getRanObj() {
+                        const randomIndex = 0 + Math.floor(Math.random() * this.arrObj.length)
+                        return this.arrObj[randomIndex]
+                     }
+                     getValueObj() {
+                        return Object.values(this.getRanObj())
+                     }
+                     // Метод виведення випадкового банера
+                     toString() {
+                        const [pathImg, link] = this.getValueObj()
+                        return `<img width="200px" style= "display: block"  src="${pathImg}" alt="Images"> <a target="_blank" href="${link}">Link</a>`
+                     }
+                  }
+
+                  const img = [
+                     "https://images.freeimages.com/images/previews/ac9/railway-hdr-1361893.jpg",
+                     "https://static.vecteezy.com/packs/media/photos/term-bg-3-f6a12264.jpg",
+                     "https://cdn.theatlantic.com/media/img/photo/2018/10/images-of-the-season-fall-is-in-the/f02_RTX6EJJJ-1/original.jpg",
+                  ]
+                  const link = [
+                     "https://www.facebook.com/",
+                     "https://www.youtube.com/",
+                     "https://www.google.com/webhp?hl=ru&sa=X&ved=0ahUKEwi2rq-vj5D-AhUohf0HHfZaBfIQPAgI",
+                  ]
+                  function generateArrObjs(pathImg, linkSite) {
+                     const arr = []
+                     for (let i = 0; i < pathImg.length; i++) {
+                        const random = 0 + Math.floor(Math.random() * pathImg.length)
+                        const img = pathImg[random]
+                        const link = linkSite[random]
+                        arr.push({
+                           graphImg: img,
+                           graphLink: link,
+                        })
+                     }
+                     return arr
+                  }
+                  let arrObjs = generateArrObjs(img, link)
+                  console.log(arrObjs)
+                  let baner = new Baner(arrObjs)
+
+                  document.write(baner)
+                  document.write(baner)
+                  document.write(baner)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

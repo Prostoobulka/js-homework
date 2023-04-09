@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 15</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача Вчитель №0</h1>
+               <p></p>
+               <script>
+                  // const auto = {
+                  //    model: "Audi",
+                  //    owner: "Alina",
+                  //    showIsWhoOwn: function () {
+                  //       return `Власником ${this.model} є ${this.owner}`
+                  //    },
+                  // }
+                  // console.log(auto.showIsWhoOwn())
+
+                  // const pupil = {
+                  //    name: "Alina",
+                  //    class_: 8,
+                  //    marks: [3, 5, 7],
+
+                  //    getAverage: function () {
+                  //       let sum = 0
+                  //       for (let i = 0; i < this.marks.length; i++) {
+                  //          sum += this.marks[i]
+                  //       }
+                  //       return sum / this.marks.length
+                  //    },
+                  // }
+                  // document.write(pupil.toString())
+                  // console.log(pupil.getAverage())
+
+                  // let product = {
+                  //    // === Властивості характеристики ===
+                  //    title: "LapTop",
+                  //    price: 25000,
+                  //    count: 5,
+                  //    paymentPerDay: 80,
+                  //    // === Методи (функ можливості) ===
+                  //    // Визначення наявної кількості одиниць
+                  //    getTotalPrice: function () {
+                  //       return this.price * this.count
+                  //    },
+                  //    // Визначити вартість зберігання для заданої кількості днів
+                  //    getPricePaymentForDays: function (day) {
+                  //       return day * this.paymentPerDay
+                  //    },
+                  //    // Перезаписати
+                  //    // Зменшення ціни на вказану кількість відсотків
+                  //    reducePrice: function (percent) {
+                  //       this.price = this.price * (percent / 100)
+                  //    },
+                  //    // Збільшення ціни на вказану кількість відсотків
+                  //    increasePrice: function (percent) {
+                  //       this.price = this.price + this.price * (percent / 100)
+                  //    },
+
+                  //    toString: function () {
+                  //       return `${this.title} коштує ${this.price} грн`
+                  //    },
+                  //    valueOf: function () {
+                  //       return this.price
+                  //    },
+                  // }
+                  // console.log(product.getPricePaymentForDays(10))
+                  // product.reducePrice(50)
+                  // product.increasePrice(100)
+                  // console.log(product)
+                  // document.write(product)
+                  // console.log(product * 3)
+                  // let invoices = [
+                  //    {
+                  //       // Властивості харки
+                  //       invoiceNumber: 123,
+                  //       completedTask: ["Created game", "added btn", "updatedSomething"],
+                  //       money: 2000,
+                  //       // Методи
+                  //       toString: function () {
+                  //          return `Номер інвойса - ${this.invoiceNumber} <br>
+                  // 		Робіт - ${this.completedTask.length} <br>
+                  // 		Сума грошей - ${this.money}
+                  // 		`
+                  //       },
+                  //       valueOf: function () {
+                  //          return this.money
+                  //       },
+                  //    },
+                  //    {
+                  //       // Властивості харки
+                  //       invoiceNumber: 133,
+                  //       completedTask: ["Created game", "added btn", "updatedSomething"],
+                  //       money: 3000,
+                  //       // Методи
+                  //       toString: function () {
+                  //          return `Номер інвойса - ${this.invoiceNumber} <br>
+                  // 		Робіт - ${this.completedTask.length} <br>
+                  // 		Сума грошей - ${this.money}
+                  // 		`
+                  //       },
+                  //       valueOf: function () {
+                  //          return this.money
+                  //       },
+                  //    },
+                  //    {
+                  //       // Властивості харки
+                  //       invoiceNumber: 321,
+                  //       completedTask: ["Created game", "added btn", "updatedSomething"],
+                  //       money: 5000,
+                  //       // Методи
+                  //       toString: function () {
+                  //          return `Номер інвойса - ${this.invoiceNumber} <br>
+                  // 		Робіт - ${this.completedTask.length} <br>
+                  // 		Сума грошей - ${this.money}
+                  // 		`
+                  //       },
+                  //       valueOf: function () {
+                  //          return this.money
+                  //       },
+                  //    },
+                  // ]
+                  // // document.write(invoices)
+                  // document.write(`<ol>`)
+                  // for (const invoice of invoices) {
+                  //    document.write(`<li>${invoice}</li>`)
+                  // }
+                  // document.write(`</ol>`)
+                  // // /  та знайти загальну вартість використовуючи метод перетворення об’єкта у число
+                  // let s = invoices.reduce((prevNum, invoice) => prevNum + invoice, 0)
+                  // console.log(s)
+                  // function TestConstructor(val) {
+                  //    this.value = val
+                  // }
+                  // TestConstructor.prototype.value2 = 70
+                  // let t1 = new TestConstructor(11)
+                  // let t2 = new TestConstructor(22)
+                  // t1.value2 = 44
+                  // console.log(t1)
+                  // console.log(t1.value2)
+                  // console.log(t2)
+                  // console.log(t2.value2)
+
+                  //       Приклад. Гра «Рулетка»
+                  // ----- Властивості -------
+                  // кількість полів рулетки
+                  // мінімальне значення балів
+                  // максимальне значення балів
+                  // список згенерованих значень
+
+                  // ----- Методи ----------
+                  // генерування полів рулетки
+                  // виведення списку згенерованих значень
+                  // приведення до рядка
+                  // крутити рулетку (отримання випадкового балу)
+                  // метод гри (користувач крутить рулетку поки не відмовиться)
+                  //           поки користувач хоче крутити
+                  //                визначаємо рандомне значення рулетки
+                  //                додаємо до загальної суми
+                  //                повідомляємо користувача про результат та загальну кількість балів
+                  // function Roulette(scoresNumber, minScore, maxScore) {
+                  //    this.minScore = minScore
+                  //    this.maxScore = maxScore
+                  //    this.scores = this.getScoresList(scoresNumber)
+                  // }
+                  // // Методи
+                  // Roulette.prototype.getRanNum = function (minV, maxV) {
+                  //    return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  // }
+                  // Roulette.prototype.getScoresList = function (scoresNumber) {
+                  //    let scoresList = []
+                  //    for (let i = 0; i < scoresNumber; i++) {
+                  //       const ranNum = this.getRanNum(this.minScore, this.maxScore)
+                  //       scoresList.push(ranNum)
+                  //    }
+                  //    return scoresList
+                  // }
+                  // Roulette.prototype.printScores = function () {
+                  //    document.write(this.scores)
+                  // }
+                  // Roulette.prototype.toString = function () {
+                  //    return `Roulette (${(this.minScore, this.maxScore)} )`
+                  // }
+                  // Roulette.prototype.getRanScore = function () {
+                  //    let randomIndex = this.getRanNum(0, this.scores.length - 1)
+                  //    return this.scores[randomIndex]
+                  // }
+                  // Roulette.prototype.playGame = function () {
+                  //    let sum = 0
+                  //    while (confirm("Будете крутити")) {
+                  //       const ranScore = this.getRanScore()
+                  //       sum += ranScore
+                  //       alert(
+                  //          `Ваш поточний виграш/програш - ${ranScore}. Загальний виграш - ${sum}`
+                  //       )
+                  //    }
+                  //    alert(`Остаточний виграш - ${sum}`)
+                  // }
+                  // let r1 = new Roulette(10, -100, 100)
+                  // r1.playGame()
+
+                  // Специфікація this
+                  // function getSomething() {
+                  //    let myVar = 0
+                  //    console.log(this)
+                  //    console.log(this.myVar)
+                  // }
+                  // var myVar = 22
+                  // getSomething()
+
+                  // Приклад. Дано функцію без формальних параметрів. Знайти суму усіх аргументів, які буде передано у функцію,
+                  // використатавши reduce стосовно arguments
+                  // function getSum() {
+                  //    return [].reduce.call(arguments, (prevSum, el) => prevSum + el)
+                  // }
+                  // const numSum = getSum(20, 20, 20)
+                  // console.log(numSum)
+
+                  // Приклад. Розробити клас «Передбачувач». Дозволяє кожні вказані кількість секунд отримувати передбачення
+
+                  class Predictor {
+                     constructor(predictionList, interval) {
+                        // Властивості :
+                        //      масив можливоих передбачень,
+                        this.predictionList = predictionList
+                        //      інтервал між передбаченнями
+                        this.interval = interval
+                     }
+
+                     // Методи:
+                     //      вибір випадкового передбачення
+                     getRanIndex() {
+                        const randomIndex =
+                           0 + Math.floor(Math.random() * this.predictionList.length)
+                        return this.predictionList[randomIndex]
+                     }
+                     //      метод run, що ініціює запуск таймера і генерування передбачень
+                     runPredictor() {
+                        let func = this.getRanIndex.bind(this)
+                        setInterval(function () {
+                           // const predict = this.getRanIndex()
+                           alert(func())
+                        }, this.interval * 1000)
+                     }
+                  }
+                  let p1 = new Predictor(["Love", "Money", "Victory", "Peace"], 2)
+                  p1.runPredictor()
+
+                  // Функція ФАБРИКА
+                  // function getObj(initTitle, initPrice, initCount) {
+                  //    return {
+                  //       title: initTitle,
+                  //       price: initPrice,
+                  //       count: initCount,
+                  //    }
+                  // }
+                  // const laptop = getObj("Laptop", 25000, 10)
+                  // const laptop2 = getObj("Laptop2", 235000, 102)
+                  // console.log(laptop)
+                  // console.log(laptop2)
+
+                  // Конструктор Обєктів
+                  // 1 спосіб
+                  // Описати обєкт реальної дійсності --Діапазон чисел--
+                  // function Range(defaultMin, defaultMax) {
+                  //    this.min = defaultMin
+                  //    this.max = defaultMax
+
+                  //    this.isInRange = function (value) {
+                  //       return value >= this.min && value <= this.max
+                  //    }
+                  //    this.getRanNum = function () {
+                  //       return this.min + Math.floor(Math.random() * (this.max - this.min + 1))
+                  //    }
+                  //    this.checkRange = function () {
+                  //       if (this.isInRange(this.getRanNum())) console.log("Належить")
+                  //       else console.log("Не належить")
+                  //    }
+                  // }
+                  // let r1 = new Range(1, 10)
+                  // r1.checkRange()
+                  // 2 спосіб Prototype
+                  // function Roulette(scoresNumber, minScore, maxScore) {
+                  //    this.minScore = minScore
+                  //    this.maxScore = maxScore
+                  //    this.scores = this.getScoresList(scoresNumber)
+                  // }
+                  // // Методи
+                  // Roulette.prototype.getRanNum = function (minV, maxV) {
+                  //    return minV + Math.floor(Math.random() * (maxV - minV + 1))
+                  // }
+                  // Roulette.prototype.getScoresList = function (scoresNumber) {
+                  //    let scoresList = []
+                  //    for (let i = 0; i < scoresNumber; i++) {
+                  //       const ranNum = this.getRanNum(this.minScore, this.maxScore)
+                  //       scoresList.push(ranNum)
+                  //    }
+                  //    return scoresList
+                  // }
+                  // Roulette.prototype.printScores = function () {
+                  //    document.write(this.scores)
+                  // }
+                  // Roulette.prototype.toString = function () {
+                  //    return `Roulette (${(this.minScore, this.maxScore)} )`
+                  // }
+                  // Roulette.prototype.getRanScore = function () {
+                  //    let randomIndex = this.getRanNum(0, this.scores.length - 1)
+                  //    return this.scores[randomIndex]
+                  // }
+                  // Roulette.prototype.playGame = function () {
+                  //    let sum = 0
+                  //    while (confirm("Будете крутити")) {
+                  //       const ranScore = this.getRanScore()
+                  //       sum += ranScore
+                  //       alert(
+                  //          `Ваш поточний виграш/програш - ${ranScore}. Загальний виграш - ${sum}`
+                  //       )
+                  //    }
+                  //    alert(`Остаточний виграш - ${sum}`)
+                  // }
+                  // let r1 = new Roulette(10, -100, 100)
+                  // r1.playGame()
+
+                  // this
+                  // function getSum() {
+                  //    let a = 5
+                  //    let b = 3
+                  //    console.log(this.a + this.b)
+                  // }
+                  // var a = 10
+                  // getSum()
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

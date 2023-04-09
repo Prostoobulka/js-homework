@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 15</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №3</h1>
+               <p>Створити об’єкт «Авто».</p>
+               <script>
+                  function Auto(
+                     initModel,
+                     initSizeTank,
+                     initAvailableLiter,
+                     initNumsOfSeats,
+                     initnumsOfPassengers
+                  ) {
+                     // Властивості ха-р-ки
+                     // Марка
+                     // Розмір бака
+                     // Кількість наявних літрів
+                     // Кількість місць
+                     // Кількість пасажирів
+                     ;(this.model = initModel),
+                        (this.sizeTank = initSizeTank),
+                        (this.availableLiter = initAvailableLiter),
+                        (this.numOfSeats = initNumsOfSeats),
+                        (this.numOfPassengers = initnumsOfPassengers)
+                  }
+
+                  // Методи
+                  // Заправка на вказану кількість літрів
+                  Auto.prototype.fillUpCar = function (userFillUp) {
+                     // 1 спосіб
+                     let leftRefuel = this.sizeTank - this.availableLiter
+                     alert(`Вам доступно - ${leftRefuel} літр.`)
+                     if (leftRefuel < userFillUp)
+                        // alert("Не можемо заправити, бак буде повним!!!")
+                        throw new "Не можемо заправити, бак буде повним!!!"()
+                     else {
+                        alert(`Ви заправили на ${userFillUp} літр.`)
+                        leftRefuel -= userFillUp
+                        this.availableLiter += userFillUp
+                        alert(`Ви ще можете заправити на ${leftRefuel} літр.`)
+                     }
+                     // 2 спосіб
+                     // // Дізнатися скільки в машину ще можна залити
+                     // let leftRefuel = this.sizeTank - this.availableLiter
+                     // // Поки користувач буде заправляти
+                     // let userFillUpCar
+                     // do {
+                     //    // Виводимо користувачеві скільки літрів є в наявності
+                     //    alert(`В топливому баку - ${leftRefuel} літр.`)
+                     //    // вказує кількість літрів скільки потрібно дозаправити
+                     //    userFillUpCar = parseFloat(prompt("Скільки потрібно дозаправити?"))
+                     //    // Робимо перевірку якщо користувач вводить більше то кажемо що не можемо заправити тому що бензин вийде на верх
+                     //    if (userFillUpCar > leftRefuel)
+                     //       alert("Не можемо заправити, бак буде повним")
+                     //    else {
+                     //       alert(`Ви заправили на ${userFillUpCar} літр`)
+                     //       // віднімаємо від leftRefuel ту кількість яку заправили
+                     //       leftRefuel -= userFillUpCar
+                     //    }
+                     // } while (isFinite(userFillUpCar))
+                     // alert("Дякуємо за користування нашими послугами!!!")
+                  }
+                  // Виведення кількості пасажирів
+                  Auto.prototype.printNumOfPassangers = function () {
+                     document.write(`Кількість пасажирів - ${this.numOfPassengers}`)
+                  }
+                  // Додавання пасажирів
+                  Auto.prototype.addNumOfPassangers = function (userPassengers) {
+                     // доступна кількість в машині - наявна кількість
+                     let leftSeatsPassangers = this.numOfSeats - this.numOfPassengers
+                     if (leftSeatsPassangers < userPassengers)
+                        // alert("Вам не вистачає місця!!!")
+                        throw new "Вам не вистачає місця"()
+                     else {
+                        alert(`Ви здійснили посадку - ${userPassengers} пасажирів`)
+                        leftSeatsPassangers -= userPassengers
+                        this.numOfPassengers += userPassengers
+                     }
+                  }
+                  // Висадка пасажирів
+                  Auto.prototype.leftNumsOfPassengers = function (userLeftPassengers) {
+                     if (this.numOfPassengers < userLeftPassengers)
+                        // alert("У вас такої кількості пасажирів немає")
+                        throw new "У вас такої кількості пасажирів немає"()
+                     else {
+                        alert(`Ви робите висадку із ${userLeftPassengers}`)
+                        this.numOfPassengers -= userLeftPassengers
+                     }
+                  }
+                  let servicesAuto = new Auto("Audi", 10, 5, 4, 0)
+                  servicesAuto.fillUpCar(3)
+                  servicesAuto.addNumOfPassangers(4)
+                  servicesAuto.printNumOfPassangers()
+                  servicesAuto.leftNumsOfPassengers(2)
+                  console.log(servicesAuto)
+
+                  // 2 метод (Опису)
+                  // function Auto(
+                  //    initModel,
+                  //    initSizeTank,
+                  //    initAvailableLiter,
+                  //    initNumsOfSeats,
+                  //    initNumsOfPassengers
+                  // ) {
+                  //    this.model = initModel
+                  //    this.sizeTank = initSizeTank
+                  //    this.availableLiter = initAvailableLiter
+                  //    this.numsOfSeats = initNumsOfSeats
+                  //    this.numsOfPassengers = initNumsOfPassengers
+
+                  //    // Методи
+                  //    // Заправка на вказану кількість літрів
+                  //    this.fillUpCar = function (userFillUp) {
+                  //       // 1 спосіб
+                  //       let leftRefuel = this.sizeTank - this.availableLiter
+                  //       alert(`Вам доступно - ${leftRefuel} літр.`)
+                  //       if (leftRefuel < userFillUp)
+                  //          // alert("Не можемо заправити, бак буде повним!!!")
+                  //          throw new "Не можемо заправити, бак буде повним!!!"()
+                  //       else {
+                  //          alert(`Ви заправили на ${userFillUp} літр.`)
+                  //          leftRefuel -= userFillUp
+                  //          this.availableLiter += userFillUp
+                  //          alert(`Ви ще можете заправити на ${leftRefuel} літр.`)
+                  //       }
+                  //       // 2 спосіб
+                  //       // // Дізнатися скільки в машину ще можна залити
+                  //       // let leftRefuel = this.sizeTank - this.availableLiter
+                  //       // // Поки користувач буде заправляти
+                  //       // let userFillUpCar
+                  //       // do {
+                  //       //    // Виводимо користувачеві скільки літрів є в наявності
+                  //       //    alert(`В топливому баку - ${leftRefuel} літр.`)
+                  //       //    // вказує кількість літрів скільки потрібно дозаправити
+                  //       //    userFillUpCar = parseFloat(prompt("Скільки потрібно дозаправити?"))
+                  //       //    // Робимо перевірку якщо користувач вводить більше то кажемо що не можемо заправити тому що бензин вийде на верх
+                  //       //    if (userFillUpCar > leftRefuel)
+                  //       //       alert("Не можемо заправити, бак буде повним")
+                  //       //    else {
+                  //       //       alert(`Ви заправили на ${userFillUpCar} літр`)
+                  //       //       // віднімаємо від leftRefuel ту кількість яку заправили
+                  //       //       leftRefuel -= userFillUpCar
+                  //       //    }
+                  //       // } while (isFinite(userFillUpCar))
+                  //       // alert("Дякуємо за користування нашими послугами!!!")
+                  //    }
+                  //    // Виведення кількості пасажирів
+                  //    this.printNumOfPassangers = function () {
+                  //       document.write(`Кількість пасажирів - ${this.numsOfPassengers}`)
+                  //    }
+                  //    // Додавання пасажирів
+                  //    this.addNumOfPassangers = function (userPassengers) {
+                  //       // доступна кількість в машині - наявна кількість
+                  //       let leftSeatsPassangers = this.numOfSeats - this.numsOfPassengers
+                  //       if (leftSeatsPassangers < userPassengers)
+                  //          // alert("Вам не вистачає місця!!!")
+                  //          throw new "Вам не вистачає місця"()
+                  //       else {
+                  //          alert(`Ви здійснили посадку - ${userPassengers} пасажирів`)
+                  //          leftSeatsPassangers -= userPassengers
+                  //          this.numsOfPassengers += userPassengers
+                  //       }
+                  //    }
+                  //    // Висадка пасажирів
+                  //    this.leftNumsOfPassengers = function (userLeftPassengers) {
+                  //       if (this.numsOfPassengers < userLeftPassengers)
+                  //          // alert("У вас такої кількості пасажирів немає")
+                  //          throw new "У вас такої кількості пасажирів немає"()
+                  //       else {
+                  //          alert(`Ви робите висадку із ${userLeftPassengers}`)
+                  //          this.numsOfPassengers -= userLeftPassengers
+                  //       }
+                  //    }
+                  // }
+                  // let servicesAuto = new Auto("Audi", 10, 5, 4, 0)
+                  // servicesAuto.fillUpCar(3)
+                  // servicesAuto.addNumOfPassangers(4)
+                  // servicesAuto.printNumOfPassangers()
+                  // servicesAuto.leftNumsOfPassengers(2)
+                  // console.log(servicesAuto)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
