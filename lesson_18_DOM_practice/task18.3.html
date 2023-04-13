@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 3</h1>
+               <p>Користувач задає рік народження. Визначити кількість років користувача.</p>
+            </div>
+            <div class="birth-date container">
+               <div class="birth-date__block">
+                  <label for="inp1">Дата народження</label>
+                  <input id="inp1" type="text" />
+               </div>
+               <div class="birth-date__block">
+                  <button class="birth-date__action">Отримати дату</button>
+               </div>
+               <hr />
+               <div class="birth-date__block">
+                  <label for="inp2">Результат</label>
+                  <input class="input__locked" id="inp2" type="text" />
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function birth() {
+            const currentDate = new Date().getFullYear()
+            const userDate = document.getElementById("inp1").value
+
+            const res = currentDate - userDate
+
+            document.getElementById("inp2").value = res
+         }
+         document.querySelector(".birth-date__action").onclick = birth
+      </script>
+   </body>
+</html>

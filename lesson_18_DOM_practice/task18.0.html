@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <script>
+         function func1() {
+            // const name = prompt("User name")
+            // alert(`Hello - ${name}`)
+
+            // const userName = document.querySelector("input").value
+            // alert("hello " + userName)
+
+            const num1 = parseInt(document.getElementById("first").value)
+            const num2 = parseInt(document.getElementById("second").value)
+            const sum = num1 + num2
+            document.getElementById("result").value = sum
+         }
+      </script>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі Вчитель</h1>
+               <p>Задачі</p>
+               <p id="First" class="edge">Hello Hello Hello Hello Hello Hello Hello Hello</p>
+               <p id="First" class="edge">Hello Hello Hello Hello Hello Hello Hello Hello</p>
+               <p id="MyTitle2">From From From From From From</p>
+               <p id="MyTitle2" class="middle">From From From From From From</p>
+               <p id="MyTitle2" class="middle">From From From From From From</p>
+               <p id="MyTitle3" class="end">From From From From From From</p>
+               <p id="MyTitle3" class="end">From From From From From From</p>
+               <p id="MyTitle3" class="end">From From From From From From</p>
+               <p id="MyTitle3" class="end">From From From From From From</p>
+               <h1>Jack Hi</h1>
+               <div id="container">
+                  <p>Some child</p>
+                  <label>
+                     first number
+                     <input
+                        id="first"
+                        type="text"
+                        placeholder="Type first number heere"
+                        value="0"
+                     />
+                  </label>
+                  <label>
+                     second number
+                     <input
+                        id="second"
+                        type="text"
+                        placeholder="Type first number heere"
+                        value="0"
+                     />
+                  </label>
+                  <label>
+                     Sum
+                     <input
+                        id="result"
+                        type="text"
+                        placeholder="Type first number heere"
+                        value="0"
+                     />
+                  </label>
+                  <div class="container1">
+                     <button type="button" onclick="func1()">go</button>
+                  </div>
+               </div>
+
+               <script>
+                  // document.getElementById("First").style.color = "red"
+                  // document.getElementById("MyTitle2").style.backgroundColor = "green"
+                  // const itemsList = document.getElementsByClassName("middle")
+                  // console.log(itemsList)
+                  // for (const item of itemsList) {
+                  //    item.style.backgroundColor = "brown"
+                  // }
+                  // // document.querySelector("h1").style.backgroundColor = "blue"
+                  // const h1List = document.querySelectorAll("h1")
+                  // for (const item of h1List) {
+                  //    item.style.backgroundColor = "blue"
+                  // }
+                  // document.querySelector(".end").style.backgroundColor = "orange"
+                  // let d = document.createElement("div")
+                  // d.innerHTML = "<strong>Hello!</strong>"
+                  // d.innerText = "<strong>Hello!</strong>"
+                  // let con = document.getElementById("container")
+                  // con.append(d)
+
+                  // Створити 2 діви з рандомними числами
+                  // let d1 = document.createElement("div")
+                  // let d2 = document.createElement("div")
+                  // function getRanNum() {
+                  //    return 1 + Math.floor(Math.random() * 20)
+                  // }
+                  // d1.innerText = getRanNum()
+                  // d2.innerText = getRanNum()
+                  // con.append(d1)
+                  // con.append(d2)
+
+                  // Маніпуляція з класами
+
+                  // let con = document.getElementById("container")
+                  // con.classList.toggle("_active")
+                  // setInterval(() => {
+                  //    con.classList.toggle("_active")
+                  // }, 2000)
+
+                  // власні класи
+                  // let con = document.getElementById("container")
+                  // con.setAttribute("my", 23)
+
+                  // Події
+                  // ...
+                  // 			function func1() {
+                  //    // const name = prompt("User name")
+                  //    // alert(`Hello - ${name}`)
+
+                  //    // const userName = document.querySelector("input").value
+                  //    // alert("hello " + userName)
+
+                  //    const num1 = parseInt(document.getElementById("first").value)
+                  //    const num2 = parseInt(document.getElementById("first").value)
+                  //    const sum = num1 + num2
+                  //    document.getElementById("result").value = sum
+                  // }
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

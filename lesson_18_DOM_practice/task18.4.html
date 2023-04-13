@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 4</h1>
+               <p>
+                  Наперед задано у скрипті масив зі списком бажань. Після завантаження сторінки
+                  випадковим чином вибираються 3 і відображаються у окремих div (їх треба створити і
+                  додати на сторінку)
+               </p>
+            </div>
+            <div class="container wishes">
+               <h2 class="wishes__title">Побажання:</h2>
+               <div class="wishe__item"></div>
+            </div>
+         </div>
+      </div>
+      <script>
+         let arrWishes = ["Health", "Power", "Happiness", "Rich", "Success"]
+         const containerWishes = document.querySelector(".wishes")
+         for (let i = 0; i < 3; i++) {
+            const ranWish = Math.floor(Math.random() * arrWishes.length)
+            const elementArr = arrWishes[ranWish]
+            const createEl = document.createElement("div")
+            createEl.innerHTML = elementArr
+            containerWishes.append(createEl)
+         }
+      </script>
+   </body>
+</html>

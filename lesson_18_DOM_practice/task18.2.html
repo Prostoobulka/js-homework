@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 2</h1>
+               <p>Зробити конвертер валют (курси валют – константи у скрипті)</p>
+            </div>
+            <div class="container converter">
+               <div class="converter__basis">
+                  <div class="converter__block">
+                     <label for="inp1">Сума в гривнях</label>
+                     <input
+                        id="inp1"
+                        class="converter__input"
+                        id="inp1"
+                        placeholder="0"
+                        type="text"
+                     />
+                  </div>
+                  <button type="button" class="converter__action">Конвертувати</button>
+               </div>
+               <hr />
+               <div class="converter__basis">
+                  <div class="converter__block">
+                     <label for="inp2">Сума в євро</label>
+                     <input
+                        id="inp2"
+                        class="converter__input converter__input--locked"
+                        id="inp2"
+                        placeholder="0"
+                        type="text"
+                     />
+                  </div>
+                  <div class="converter__block">
+                     <label for="inp3">Сума в доларах</label>
+                     <input
+                        id="inp3"
+                        class="converter__input converter__input--locked"
+                        id="inp3"
+                        placeholder="0"
+                        type="text"
+                     />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function converter() {
+            const inputGrivny = document.getElementById("inp1").value
+            const courseEuro = 40
+            const courseDollar = 38
+
+            const convertToEuro = inputGrivny / courseEuro
+            const convertToDollar = inputGrivny / courseDollar
+
+            document.getElementById("inp2").value = convertToEuro.toFixed(2)
+            document.getElementById("inp3").value = convertToDollar.toFixed(2)
+         }
+
+         document.querySelector(".converter__action").onclick = converter
+      </script>
+   </body>
+</html>

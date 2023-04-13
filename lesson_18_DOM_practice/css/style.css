@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,");
+body {
+   font-family: "Roboto", sans-serif;
+   background: #202020;
+   font-size: 24px;
+   font-weight: 500;
+   color: #fff;
+}
+
+h2 {
+   color: #168db5;
+}
+input {
+   width: 100%;
+}
+.wrapper {
+   min-height: 100%;
+   overflow: hidden;
+   max-width: 1030px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
+.result {
+}
+
+.result__body {
+   padding-top: 20px;
+   margin-bottom: 50px;
+}
+.result__body *:not(:last-child) {
+}
+.result__title {
+   font-size: 38px;
+}
+
+.table {
+   margin: 0 auto;
+   border: 1px solid #fff;
+}
+.table__body {
+}
+.table__row-cell {
+}
+.table__title {
+   border: 1px solid #fff;
+   margin-bottom: 20px;
+}
+.table__cell {
+   border: 1px solid #fff;
+}
+._active {
+   color: greenyellow;
+}
+.container {
+   margin: 0 auto;
+   max-width: 500px;
+   background: rgb(57, 57, 57);
+   padding: 20px;
+}
+/* Calculator */
+.calc {
+}
+.calc__basis {
+   margin-bottom: 20px;
+}
+.calc__block {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   margin-bottom: 10px;
+}
+.calc__result {
+   pointer-events: none;
+}
+.calc__label {
+}
+.calc__input {
+}
+.calc__actions {
+   display: flex;
+   justify-content: space-between;
+   gap: 5px;
+}
+.calc__item-actions {
+   padding: 5px;
+   background: #1e1e1e;
+   transition: background 0.3s ease 0s;
+}
+.calc__item-actions:hover {
+   background: #2c2c2c;
+}
+.calc__add {
+}
+.calc__subtract {
+}
+.calc__mult {
+}
+.calc__divide {
+}
+
+/* Сonverter */
+.converter {
+}
+.converter__basis:not(:last-child) {
+   margin-bottom: 20px;
+}
+.converter__block {
+   display: flex;
+   flex-direction: column;
+   gap: 5px;
+   margin-bottom: 5px;
+}
+.converter__action {
+   background: #202020;
+   padding: 5px;
+}
+hr {
+   outline: 1px solid #fff;
+}
+.converter__input {
+   height: 35px;
+   padding: 0 5px;
+}
+.converter__input--locked {
+   pointer-events: none;
+}
+
+/* birth-day */
+.birth-date {
+}
+.birth-date__block {
+   display: flex;
+   flex-direction: column;
+}
+.birth-date__block label {
+   margin-bottom: 10px;
+   display: inline-block;
+}
+.birth-date__action {
+   background: #16b566;
+   margin: 10px 0;
+}
+.input__locked {
+   pointer-events: none;
+}
+/* get-sum */
+.container {
+}
+.get-sum {
+}
+.get-sum__block {
+   display: flex;
+   flex-direction: column;
+}
+.get-sum__label {
+}
+.get-sum__btn {
+   background: rgb(36, 36, 36) 00;
+   padding: 5px;
+   transition: background 0.3s ease 0s;
+}
+.get-sum__btn:hover {
+   background: rgb(7, 7, 7) 00;
+}
+.get-sum__table {
+}
+.get-sum__input {
+   height: 35px;
+   margin-bottom: 10px;
+   padding: 0px 5px;
+}
+/* Travel */
+.travel {
+}
+.travel__block {
+   display: grid;
+   place-items: center;
+}
+.travel__block:not(:last-child) {
+   margin-bottom: 10px;
+}
+.travel__label {
+}
+.travel__select {
+   height: 35px;
+}
+.travel__checkboxes {
+   margin-bottom: 20px;
+}
+.travel__item-checkbox {
+}
+.travel__radio {
+}
+.travel__btn {
+   background: #212121;
+   width: 100%;
+   padding: 5px;
+   transition: all 0.3s ease 0s;
+}
+.travel__btn:hover {
+   background: #0f0f0f;
+}

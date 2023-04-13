@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 1</h1>
+               <p>Розробити калькулятор</p>
+            </div>
+            <div class="container calc">
+               <div class="calc__basis">
+                  <div class="calc__block">
+                     <label for="inp1" class="calc__label">First number</label>
+                     <input class="calc__input" id="inp1" type="text" placeholder="0" />
+                  </div>
+                  <div class="calc__block">
+                     <label for="inp2" class="calc__label">Second number</label>
+                     <input class="calc__input" id="inp2" type="text" placeholder="0" />
+                  </div>
+                  <div class="calc__block">
+                     <label for="inp2" class="calc__label">Result</label>
+                     <input
+                        class="calc__input calc__result"
+                        id="inp3"
+                        type="text"
+                        placeholder="0"
+                     />
+                  </div>
+               </div>
+               <div class="calc__actions">
+                  <button type="button" class="calc__item-actions calc__add">Додати</button>
+                  <button type="button" class="calc__item-actions calc__subtract">Відняти</button>
+                  <button type="button" class="calc__item-actions calc__mult">Помножити</button>
+                  <button type="button" class="calc__item-actions calc__divide">Поділити</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function sum() {
+            const valueFirstNumberInput = parseFloat(document.getElementById("inp1").value)
+            const valueSecondNumberInput = parseFloat(document.getElementById("inp2").value)
+            const sum = valueFirstNumberInput + valueSecondNumberInput
+            document.getElementById("inp3").value = sum
+         }
+         function subract() {
+            const valueFirstNumberInput = parseFloat(document.getElementById("inp1").value)
+            const valueSecondNumberInput = parseFloat(document.getElementById("inp2").value)
+            const subtract = valueFirstNumberInput - valueSecondNumberInput
+            document.getElementById("inp3").value = subtract
+         }
+         function mult() {
+            const valueFirstNumberInput = parseFloat(document.getElementById("inp1").value)
+            const valueSecondNumberInput = parseFloat(document.getElementById("inp2").value)
+            const mult = valueFirstNumberInput * valueSecondNumberInput
+            document.getElementById("inp3").value = mult
+         }
+         function divide() {
+            const valueFirstNumberInput = parseFloat(document.getElementById("inp1").value)
+            const valueSecondNumberInput = parseFloat(document.getElementById("inp2").value)
+            const divide = valueFirstNumberInput / valueSecondNumberInput
+            document.getElementById("inp3").value = divide
+         }
+         document.querySelector(".calc__add").onclick = sum
+         document.querySelector(".calc__subtract").onclick = subract
+         document.querySelector(".calc__mult").onclick = mult
+         document.querySelector(".calc__divide").onclick = divide
+      </script>
+   </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 6</h1>
+               <p>
+                  Користувач задає кількість оцінок і натискає на кнопку «get table». В результаті
+                  формується таблиця з input, куди користувач вводить оцінки. Після цього натискає
+                  на кнопку “get sum” і знаходить середнє значення.
+               </p>
+            </div>
+            <div class="container get-sum">
+               <div class="get-sum__block">
+                  <label for="inp1" class="get-sum__label">Price number</label>
+                  <input class="get-sum__input" type="text" id="inp1" placeholder="0" />
+               </div>
+               <div class="get-sum__block">
+                  <button class="get-sum__btn get-sum__btn--table">get table</button>
+               </div>
+               <hr />
+               <div class="get-sum__table"></div>
+               <hr />
+               <div class="get-sum__block">
+                  <button type="button" class="get-sum__btn get-sum__btn--average">
+                     get average
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function getTable() {
+            const inputInTable = document.getElementById("inp1").value
+            const containerForTable = document.querySelector(".get-sum__table")
+            const table = document.createElement("table")
+            containerForTable.append(table)
+            for (let i = 0; i < inputInTable; i++) {
+               const tableTd = document.createElement("td")
+               for (let j = 0; j < 1; j++) {
+                  const tableTr = document.createElement("tr")
+                  tableTd.append(tableTr)
+                  tableTr.innerHTML = `
+					<input class="get-sum__input get-sum__input--element" type="text" id="inp1" placeholder="0" />
+					`
+               }
+               table.append(tableTd)
+            }
+         }
+
+         function getAverage() {
+            const inputsElementsAverage = document.querySelectorAll(".get-sum__input--element")
+            // let sum = 0
+            // for (const itemInput of inputsElementsAverage) {
+            //    sum += parseFloat(itemInput.value)
+            // }
+            let sum = [].reduce.call(
+               inputsElementsAverage,
+               (prevSum, inp) => parseInt(inp.value) + prevSum,
+               0
+            )
+            const divResult = document.createElement("div")
+            const btnAverage = document.querySelector(".get-sum__btn--average")
+            divResult.innerHTML = `Average = ${sum / inputsElementsAverage.length}`
+            btnAverage.after(divResult)
+         }
+         document.querySelector(".get-sum__btn--table").onclick = getTable
+         document.querySelector(".get-sum__btn--average").onclick = getAverage
+      </script>
+   </body>
+</html>

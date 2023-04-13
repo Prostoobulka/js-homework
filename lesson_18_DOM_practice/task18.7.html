@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 18. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача 7</h1>
+               <p>
+                  Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з
+                  видів транспорту (авто, автобус, літак - випадаючий список), харчування (сніданок,
+                  обід, вечеря – checkbоx) та одного з 3-х гідів(використати - radio buttons). Ціни
+                  визначте самі. Підрахувати загальну вартість.
+               </p>
+            </div>
+            <div class="container travel">
+               <div class="travel__block">
+                  <label class="travel__label">Виберіть транспорт</label>
+                  <select class="travel__select">
+                     <option selected value="200">Автобус</option>
+                     <option value="500">Авто</option>
+                     <option value="1000">Літак</option>
+                  </select>
+               </div>
+               <div class="travel__checkboxes">
+                  <label class="travel__label">Виберіть харчування</label>
+                  <div class="travel__block">
+                     <label for="it1">Сніданок</label>
+                     <input
+                        type="checkbox"
+                        value="25"
+                        class="travel__item-checkbox"
+                        name=""
+                        id="it1"
+                     />
+                  </div>
+                  <div class="travel__block">
+                     <label for="it2">Обід</label>
+                     <input
+                        type="checkbox"
+                        value="30"
+                        class="travel__item-checkbox"
+                        name=""
+                        id="it2"
+                     />
+                  </div>
+                  <div class="travel__block">
+                     <label for="it3">Вечеря</label>
+                     <input
+                        type="checkbox"
+                        value="50"
+                        class="travel__item-checkbox"
+                        name=""
+                        id="it3"
+                     />
+                  </div>
+               </div>
+               <div class="travel__ratio">
+                  <label>Виберіть 1 із 3-х гідів</label>
+                  <div class="travel__block">
+                     <label for="rt1">1 гід - Кам'янця - Подільський</label>
+                     <input class="travel__radio" type="radio" id="rt1" name="gids" value="300" />
+                  </div>
+                  <div class="travel__block">
+                     <label for="rt2">2 гід - Київ</label>
+                     <input class="travel__radio" type="radio" id="rt2" name="gids" value="500" />
+                  </div>
+                  <div class="travel__block">
+                     <label for="rt3">3 гід - Крим</label>
+                     <input class="travel__radio" type="radio" id="rt3" name="gids" value="100" />
+                  </div>
+               </div>
+               <div class="travel__block">
+                  <button class="travel__btn">get sum</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script>
+         function getSums(params) {
+            const selectOptions = document.getElementsByTagName("option")
+            const checkboxes = document.querySelectorAll(".travel__item-checkbox")
+            const radioInputs = document.querySelectorAll(".travel__radio")
+            const btn = document.querySelector(".travel__btn")
+            let sum = 0
+
+            for (const opt of selectOptions) {
+               if (opt.selected) sum += parseInt(opt.value)
+            }
+
+            for (const checkbox of checkboxes) {
+               if (checkbox.checked) sum += parseInt(checkbox.value)
+            }
+
+            for (const radio of radioInputs) {
+               if (radio.checked) sum += parseInt(radio.value)
+            }
+            const div = document.createElement("div")
+            div.innerText = `sum = ${sum}`
+            btn.after(div)
+         }
+         document.querySelector(".travel__btn").onclick = getSums
+      </script>
+   </body>
+</html>
