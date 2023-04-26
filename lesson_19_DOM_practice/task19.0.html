@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача Вчитель</h1>
+               <p></p>
+            </div>
+            <div id="container"></div>
+         </div>
+      </div>
+
+      <script>
+         // class RangeInput {
+         //    constructor(title, minV, maxV) {
+         //       this.title = title
+         //       this.minV = minV
+         //       this.maxV = maxV
+         //    }
+         //    changeBackground() {
+         //       const currentValue = this.inp.value
+         //       if (currentValue >= this.minV && currentValue <= this.maxV)
+         //          this.inp.style.backgroundColor = "green"
+         //       else this.inp.style.backgroundColor = "red"
+         //    }
+         //    render(containerID) {
+         //       const label = document.createElement("label")
+         //       label.innerText = this.title
+
+         //       this.inp = document.createElement("input")
+         //       label.append(this.inp)
+
+         //       this.inp.oninput = this.changeBackground.bind(this)
+         //       const container = document.getElementById(containerID)
+         //       container.append(label)
+         //    }
+         // }
+         // let range = new RangeInput("Вік користувача", 18, 65)
+         // range.render("container")
+         // let range2 = new RangeInput("Вік учня", 6, 17)
+         // range2.render("container")
+
+         // CRAZY BUTTON
+         class CrazyButton {
+            constructor(title) {
+               this.title = title
+            }
+            getRandomColor() {
+               const randomColorList = ["red", "green", "brown", "yellow", "blue"]
+               const ranIndex = Math.floor(Math.random() * randomColorList.length)
+               return randomColorList[ranIndex]
+            }
+            getRandomCoordinate() {
+               return 50 + Math.floor(Math.random() * (200 - (-50 + 1)))
+            }
+            onhover() {
+               // this.btn.style.backgroundColor = this.getRandomColor()
+
+               // this.btn.style.left = this.getRandomCoordinate() + "px"
+               // const left = parseInt(this.btn.style.left) + 30 + "px"
+               // const top = parseInt(this.btn.style.top) + 30 + "px"
+
+               this.btn.style.left = left
+               this.btn.style.top = top
+            }
+            onleave() {
+               this.btn.style.backgroundColor = "#020329"
+            }
+            render(containerID) {
+               this.btn = document.createElement("button")
+               this.btn.innerText = this.title
+               this.btn.onmouseover = this.onhover.bind(this)
+               this.btn.onmouseleave = this.onleave.bind(this)
+               this.btn.className = "position-btn"
+
+               this.btn.style.left = "0px"
+               this.btn.style.top = "0px"
+
+               const targetContainer = document.getElementById(containerID)
+               targetContainer.append(this.btn)
+            }
+         }
+         let btn = new CrazyButton("Hi from Ukraine!!!!")
+         btn.render("container")
+
+         // class Tester {
+         //    constructor(questionList) {
+         //       this.questionList = questionList
+         //       this.currentQuestion = null
+         //       this.history = []
+         //    }
+
+         //    getRandomQuestion() {
+         //       const ranIndex = Math.floor(Math.random() * this.questionList.length)
+         //       const questionObj = this.questionList[ranIndex]
+         //       this.questionList.splice(ranIndex, 1)
+         //       return questionObj
+         //    }
+         //    optclick(optID) {
+         //       alert(optID === this.currentQuestion.correctAnswerId)
+
+         //       const userAnswer = this.currentQuestion.options.find(
+         //          (item) => item.id === optID
+         //       ).text
+
+         //       const correctAnswer = this.currentQuestion.options.find(
+         //          (item) => item.id === this.currentQuestion.correctAnswerId
+         //       ).text
+
+         //       this.history.push({
+         //          question: this.currentQuestion.question,
+         //          userAnswer,
+         //          correctAnswer,
+         //       })
+         //       this.next()
+         //       // console.log(this.history)
+         //       // console.log(this.currentQuestion)
+         //       // console.log(userAnswer)
+         //       // console.log(correctAnswer)
+         //    }
+         //    renderQuestionForm() {
+         //       const questionContainer = document.createElement("div")
+         //       questionContainer.className = "question-container"
+
+         //       const questionTextContainer = document.createElement("h3")
+         //       questionTextContainer.innerText = this.currentQuestion.question
+         //       questionContainer.append(questionTextContainer)
+
+         //       const optionsContainer = document.createElement("ol")
+         //       questionContainer.append(optionsContainer)
+
+         //       for (const el of this.currentQuestion.options) {
+         //          const li = document.createElement("li")
+         //          li.innerText = el.text
+         //          li.onclick = this.optclick.bind(this, el.id)
+         //          optionsContainer.append(li)
+         //       }
+
+         //       return questionContainer
+         //    }
+         //    // 2)
+         //    getTabelRow(dataArray, elTag = "td") {
+         //       const tr = document.createElement("tr")
+         //       for (const el of dataArray) {
+         //          const td = document.createElement(elTag)
+         //          td.innerText = el
+         //          tr.append(td)
+         //       }
+         //       return tr
+         //    }
+         //    renderResultTable() {
+         //       const table = document.createElement("table")
+         //       const header = this.getTabelRow(
+         //          ["Запитання", "Відповідь", "Правильна відповідь"],
+         //          "th"
+         //       )
+         //       table.append(header)
+
+         //       for (const testRes of this.history) {
+         //          const row = this.getTabelRow([
+         //             testRes.question,
+         //             testRes.userAnswer,
+         //             testRes.correctAnswer,
+         //          ])
+         //          table.append(row)
+         //       }
+
+         //       return table
+         //    }
+         //    // 3)
+         //    render(containerID) {
+         //       const testerContainer = document.createElement("div")
+
+         //       this.questionFormContainer = document.createElement("div")
+         //       this.historyContainer = document.createElement("div")
+         //       testerContainer.append(this.questionFormContainer)
+         //       testerContainer.append(this.historyContainer)
+
+         //       const targetContainer = document.getElementById(containerID)
+         //       targetContainer.append(testerContainer)
+         //       this.next()
+         //    }
+         //    next() {
+         //       if (this.questionList.length) {
+         //          this.currentQuestion = this.getRandomQuestion()
+         //          this.questionFormContainer.innerHTML = ""
+         //          this.questionFormContainer.append(this.renderQuestionForm())
+         //       } else {
+         //          this.questionFormContainer.innerHTML = "Тестування закінчено"
+         //       }
+         //       this.historyContainer.innerHTML = ""
+         //       this.historyContainer.append(this.renderResultTable())
+         //    }
+         // }
+         // const testSet = [
+         //    {
+         //       question: "Де найкращий шовдарь?",
+         //       options: [
+         //          {
+         //             id: 1,
+         //             text: "Закарпаття",
+         //          },
+         //          {
+         //             id: 2,
+         //             text: "Чернівці",
+         //          },
+         //          {
+         //             id: 3,
+         //             text: "Львів",
+         //          },
+         //       ],
+         //       correctAnswerId: 1,
+         //    },
+         //    {
+         //       question: "Хто є найбільш надійною людиною?",
+         //       options: [
+         //          {
+         //             id: 1,
+         //             text: "Ілон Маск",
+         //          },
+         //          {
+         //             id: 2,
+         //             text: "Білл Гейтс",
+         //          },
+         //          {
+         //             id: 3,
+         //             text: "Сусід Іван",
+         //          },
+         //       ],
+         //       correctAnswerId: 3,
+         //    },
+         //    {
+         //       question: "Який транспортний засіб є найшвидшим?",
+         //       options: [
+         //          {
+         //             id: 1,
+         //             text: "Ракета Ілона Маска",
+         //          },
+         //          {
+         //             id: 2,
+         //             text: "Гіперзвукова ракета останньої моделі",
+         //          },
+         //          {
+         //             id: 3,
+         //             text: "Маршрутка сусіда Івана",
+         //          },
+         //       ],
+         //       correctAnswerId: 3,
+         //    },
+         //    {
+         //       question: "Який з напоїв є найбільш цінним ?",
+         //       options: [
+         //          {
+         //             id: 1,
+         //             text: "Джин з 10 роками витримки",
+         //          },
+         //          {
+         //             id: 2,
+         //             text: "Настоянка сусіда Івана",
+         //          },
+         //          {
+         //             id: 3,
+         //             text: "Вино з 25 роками витримки",
+         //          },
+         //       ],
+         //       correctAnswerId: 2,
+         //    },
+         // ]
+         // const t1 = new Tester(testSet)
+         // t1.render("container")
+      </script>
+   </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         .snow {
+            animation: rotate-snow 5s linear infinite normal running 0s;
+         }
+         @keyframes rotate-snow {
+            0% {
+               transform: rotate(0deg);
+            }
+            100% {
+               transform: rotate(-180deg);
+            }
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 3. Відобразити падаючий сніг. Сніжинка з’являється у верхній частині екрану
+                  і з випадковою швидкістю рухається вниз. Як тільки сніжинка досягає нижньої
+                  частини екрану вона знову повинна з’явитись у верхній частині екрану.
+               </p>
+            </div>
+            <div id="cnt"></div>
+         </div>
+      </div>
+      <script>
+         class SnowsFall {
+            constructor(imgSrc, imgWidth, quantitySnow, containerWidth, containerHeight) {
+               this.imgSrc = imgSrc
+               this.imgWidth = imgWidth
+               this.quantitySnow = quantitySnow
+               this.containerWidth = containerWidth
+               this.containerHeight = containerHeight
+            }
+
+            createSnowElement(numberSnow) {
+               let arr = []
+               for (let i = 0; i < numberSnow; i++) {
+                  const div = document.createElement("div")
+
+                  const img = document.createElement("img")
+                  img.src = this.imgSrc
+                  img.style.width = this.imgWidth + "px"
+
+                  div.append(img)
+
+                  arr.push(div)
+               }
+               return arr
+            }
+            getRanNum(minV, maxV) {
+               return minV + Math.floor(Math.random() * (maxV - minV))
+            }
+            falling() {
+               this.arrSnows.forEach((el) => {
+                  setInterval(() => {
+                     const currentPositionTop = parseInt(el.style.top)
+                     const stepELTop = currentPositionTop + 1
+                     el.style.top = stepELTop + "px"
+                     if (currentPositionTop >= this.containerHeight) el.style.top = "0px"
+                  }, this.getRanNum(15, 20))
+               })
+            }
+            start() {
+               this.falling()
+            }
+            render(targetId) {
+               this.container = document.createElement("div")
+               this.container.style.position = "relative"
+               this.container.style.overflow = "hidden"
+
+               this.container.style.width = this.containerWidth + "px"
+               this.container.style.backgroundColor = "#fff"
+               this.container.style.height = this.containerHeight + "px"
+
+               this.arrSnows = this.createSnowElement(this.quantitySnow)
+               this.arrSnows.forEach((el) => {
+                  el.style.position = "absolute"
+                  el.className = "snow"
+                  el.style.left = this.getRanNum(0, this.containerWidth) + "px"
+                  el.style.top = "0px"
+                  this.container.append(el)
+               })
+
+               document.getElementById(targetId).append(this.container)
+            }
+         }
+         const s1 = new SnowsFall("img/snow.png", 25, 15, 1000, 250)
+         s1.render("cnt")
+         s1.start()
+      </script>
+   </body>
+</html>

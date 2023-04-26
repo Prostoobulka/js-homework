@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 1. Відображаємо картки товарів, які користувач може вибирати. Вибраний
+                  товар має зелену рамку
+               </p>
+            </div>
+            <div id="container"></div>
+         </div>
+      </div>
+      <script>
+         class CardProduct {
+            constructor(title, price, saleLabel, pathImg, link) {
+               this.title = title
+               this.price = price
+               this.pathImg = pathImg
+               this.link = link
+               this.saleLabel = saleLabel
+            }
+
+            onclick(card) {
+               card.classList.toggle("_active")
+               // card.style.border = "5px solid green"
+            }
+
+            render(containerID) {
+               const containerCard = document.createElement("a")
+               containerCard.className = "container-card"
+               containerCard.href = this.link
+
+               // headerCard
+               const headerCard = document.createElement("div")
+               headerCard.className = "container-card__header"
+
+               const labelCard = document.createElement("label")
+               if (this.saleLabel === "Топ Продаж") labelCard.classList = "container-card__top"
+               else labelCard.classList = "container-card__share"
+               labelCard.innerText = this.saleLabel
+               headerCard.append(labelCard)
+
+               const img = document.createElement("img")
+               img.className = "container-card__img"
+               img.src = this.pathImg
+               headerCard.append(img)
+
+               containerCard.append(headerCard)
+
+               // textContainer
+               const textCard = document.createElement("div")
+               textCard.className = "container-card__text-card"
+
+               const text = document.createElement("p")
+               text.className = "container-card__paragraph"
+               text.innerText = this.title
+               textCard.append(text)
+
+               const price = document.createElement("p")
+               price.className = "container-card__price"
+               price.innerText = `${this.price} ₴`
+               textCard.append(price)
+
+               containerCard.append(textCard)
+
+               containerCard.onclick = this.onclick.bind(this, containerCard)
+
+               const insertInHTML = document.getElementById(containerID)
+               insertInHTML.append(containerCard)
+            }
+         }
+         let c1 = new CardProduct(
+            "Ноутбук Acer Aspire 7 A715-42G-R3EZ",
+            23223,
+            "Топ Продаж",
+            "img/01.webp",
+            "#visit1"
+         )
+         c1.render("container")
+         let c2 = new CardProduct(
+            "Ноутбук Lenovo IdeaPad L3 15ITL6",
+            35772,
+            "Акція",
+            "img/02.webp",
+            "#visit2"
+         )
+         c2.render("container")
+         let c3 = new CardProduct(
+            "Ноутбук Lenovo IdeaPad Gaming 3",
+            39503,
+            "Топ Продаж",
+            "img/03.webp",
+            "#visit3"
+         )
+         c3.render("container")
+      </script>
+   </body>
+</html>

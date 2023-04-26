@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 2. Дано список спортсменів. Потрібно сформувати список тих, які будуть
+                  брати участь у змаганні. При цьому є два стовпці. В одному відображені всі
+                  спортсмени, в іншому – список тих, хто був вибраний. При натисканні на зелену
+                  стрілку спортсмен переміщається у список для змагань. При натисканні на червону
+                  стрілку спортсмен переміщається у загальний список.
+               </p>
+            </div>
+            <div id="cnt"></div>
+         </div>
+      </div>
+      <script>
+         class Competition {
+            constructor(listSportsmen) {
+               this.listSportsmen = listSportsmen
+               this.listSelectedSportsmen = ["Erika"]
+            }
+
+            generalList(nameTitle) {
+               const containerCompetitionWrap = document.createElement("div")
+
+               const title = document.createElement("h3")
+               title.innerText = nameTitle
+               containerCompetitionWrap.append(title)
+
+               const list = document.createElement("ul")
+               list.classList.add("competition-container__list")
+               containerCompetitionWrap.append(list)
+
+               for (const el of this.listSportsmen) {
+                  const li = document.createElement("li")
+                  li.className = "competition-container__item-list"
+                  li.innerText = el
+                  const arrow = document.createElement("span")
+                  arrow.classList.add("competition-container__arrow", "green")
+                  arrow.onclick = this.goTolistSelected.bind(this, li)
+                  li.append(arrow)
+                  list.append(li)
+               }
+
+               return containerCompetitionWrap
+            }
+            listSelected(nameTitle) {
+               const containerCompetitionWrap = document.createElement("div")
+
+               const title = document.createElement("h3")
+               title.innerText = nameTitle
+               containerCompetitionWrap.append(title)
+
+               const list = document.createElement("ul")
+               list.classList.add("competition-container__list", "selected-list")
+               containerCompetitionWrap.append(list)
+
+               for (const el of this.listSelectedSportsmen) {
+                  const li = document.createElement("li")
+                  li.classList.add("competition-container__item-list", "selected-item-list")
+                  li.innerText = el
+                  const arrow = document.createElement("span")
+                  arrow.classList.add("competition-container__arrow", "red")
+                  arrow.onclick = this.goTolist.bind(this, li)
+                  li.append(arrow)
+                  list.append(li)
+               }
+
+               return containerCompetitionWrap
+            }
+
+            // Події
+            goTolistSelected(li) {
+               const indexEl = this.listSportsmen.indexOf(li.innerText)
+               this.listSelectedSportsmen.push(this.listSportsmen[indexEl])
+               this.listSportsmen.splice(indexEl, 1)
+               this.restartLists()
+            }
+            goTolist(li) {
+               const indexEl = this.listSelectedSportsmen.indexOf(li.innerText)
+               this.listSportsmen.push(this.listSelectedSportsmen[indexEl])
+               this.listSelectedSportsmen.splice(indexEl, 1)
+               this.restartLists()
+            }
+
+            restartLists() {
+               if (this.listSportsmen.length) {
+                  this.containerCompetition.innerHTML = ""
+                  this.containerListSportsmen = this.generalList("Загальний список")
+                  this.containerCompetition.append(this.containerListSportsmen)
+
+                  // this.containerCompetition.innerHTML = ""
+
+                  this.containerListSportsmenSelected = this.listSelected("Обраний список")
+                  this.containerCompetition.append(this.containerListSportsmenSelected)
+               } else {
+                  this.containerListSportsmen.innerHTML = "Спортсменів немає"
+               }
+
+               if (!this.listSelectedSportsmen.length) {
+                  this.containerListSportsmenSelected.innerHTML = "Спортсменів немає"
+               }
+            }
+
+            render(containerID) {
+               this.containerCompetition = document.createElement("div")
+               this.containerCompetition.className = "competition-container"
+
+               this.containerListSportsmen = this.generalList("Загальний список")
+
+               this.containerCompetition.append(this.containerListSportsmen)
+
+               this.containerListSportsmenSelected = this.listSelected("Обраний список")
+
+               this.containerCompetition.append(this.containerListSportsmenSelected)
+
+               document.getElementById(containerID).append(this.containerCompetition)
+            }
+         }
+         let list = ["Vlad", "Alina", "Jackson", "Eva"]
+         let c1 = new Competition(list)
+         c1.render("cnt")
+      </script>
+   </body>
+</html>

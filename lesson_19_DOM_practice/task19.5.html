@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         #cnt {
+            position: relative;
+            width: 1000px;
+            height: 500px;
+            overflow: hidden;
+            background-color: #fff;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 5. Байрактар. З верхньої частини екрану у випадковій позиції по горизонталі
+                  з’являються танки, які їдуть вниз. При кліку на танк він вибухає і зникає з
+                  екрану.
+               </p>
+            </div>
+            <div id="cnt"></div>
+         </div>
+      </div>
+      <script>
+         class Bayraktar {
+            constructor(imgSrc, imgWidth, imgHeight, imgTopPosition) {
+               this.imgSrc = imgSrc
+               this.imgWidth = imgWidth
+               this.imgHeight = imgHeight
+               this.imgTopPosition = imgTopPosition
+            }
+
+            getRanNum(minV, maxV) {
+               return minV + Math.floor(Math.random() * (maxV - minV + 1))
+            }
+            driveTank() {
+               const currentPositionRight = parseInt(this.img.style.right)
+               const stepEl = currentPositionRight + 1
+               this.img.style.right = stepEl + "px"
+               if (currentPositionRight > 1000) this.img.style.right = "-250%"
+            }
+            start() {
+               this.idStart = setInterval(() => {
+                  this.driveTank()
+               }, this.getRanNum(15, 30))
+            }
+            killTank() {
+               clearInterval(this.idStart)
+               this.img.src = "img/explosion.png"
+               const currentPosition = this.img.style.right
+               setTimeout(() => {
+                  this.start()
+                  this.img.src = this.imgSrc
+                  this.img.style.right = "-250%"
+               }, 1000)
+            }
+            render(targetId) {
+               this.img = document.createElement("img")
+               this.img.src = this.imgSrc
+               this.img.style.position = "absolute"
+               this.img.style.top = this.imgTopPosition + "px"
+               this.img.style.objectFit = "contain"
+               this.img.style.right = "-250%"
+               this.img.style.width = this.imgWidth + "px"
+               this.img.style.height = this.imgHeight + "px"
+               this.img.onclick = this.killTank.bind(this)
+
+               document.getElementById(targetId).append(this.img)
+            }
+         }
+         const t1 = new Bayraktar("img/tank1.png", 205, 100, 25)
+         t1.render("cnt")
+         t1.start()
+         const t2 = new Bayraktar("img/tank2.png", 225, 100, 180)
+         t2.render("cnt")
+         t2.start()
+         const t3 = new Bayraktar("img/tank3.png", 280, 100, 340)
+         t3.render("cnt")
+         t3.start()
+      </script>
+   </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 19. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         .star {
+            /* transition: width 0.3s ease 0s; */
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 4. Сяючі зорі. Вказана кількість зірочок повинна з’являтися у випадковій
+                  частині екрану. Кожна зірка з певним кроком і інтервалом збільшується від
+                  мінімального до максимального розміру. Як тільки досягнути максимального розміру
+                  зірочка повинна з’являтися у іншій випадковій позиції.
+               </p>
+            </div>
+            <div id="cnt"></div>
+         </div>
+      </div>
+      <script>
+         class ShiningStars {
+            constructor(imgSrc, quantityStars, containerWidth, containerHeight) {
+               this.imgSrc = imgSrc
+               this.quantityStars = quantityStars
+               this.containerWidth = containerWidth
+               this.containerHeight = containerHeight
+            }
+
+            getRanNum(minV, maxV) {
+               return minV + Math.floor(Math.random() * (maxV - minV))
+            }
+            createElementStar() {
+               const arrStar = []
+               for (let i = 0; i < this.quantityStars; i++) {
+                  const img = document.createElement("img")
+                  img.src = this.imgSrc
+                  img.style.width = this.getRanNum(10, 20) + "px"
+                  img.style.position = "absolute"
+                  img.className = "star"
+                  img.style.top =
+                     this.getRanNum(0, this.containerHeight - parseInt(img.style.width) - 5) + "px"
+                  img.style.left =
+                     this.getRanNum(0, this.containerWidth - parseInt(img.style.width) - 5) + "px"
+                  arrStar.push(img)
+               }
+               return arrStar
+            }
+            shining() {
+               for (const el of this.arrStar) {
+                  setInterval(() => {
+                     const currentWidth = parseInt(el.style.width)
+                     const increaseEl = currentWidth + 1
+                     el.style.transition = "width 0.3s ease 0s"
+                     el.style.width = increaseEl + "px"
+                     if (currentWidth >= 30) {
+                        el.style.transition = ""
+                        el.style.width = this.getRanNum(10, 20) + "px"
+                        el.style.top =
+                           this.getRanNum(0, this.containerHeight - parseInt(el.style.width) - 5) +
+                           "px"
+                        el.style.left =
+                           this.getRanNum(0, this.containerWidth - parseInt(el.style.width) - 5) +
+                           "px"
+                     }
+                  }, this.getRanNum(250, 500))
+               }
+            }
+            start() {
+               this.shining()
+            }
+            render(targetId) {
+               const container = document.createElement("div")
+               container.style.width = this.containerWidth + "px"
+               container.style.overflow = "hidden"
+               container.style.height = this.containerHeight + "px"
+               container.style.border = "5px solid #fff"
+               container.style.position = "relative"
+
+               this.arrStar = this.createElementStar()
+               for (const el of this.arrStar) {
+                  container.append(el)
+               }
+
+               document.getElementById(targetId).append(container)
+            }
+         }
+         const ss1 = new ShiningStars("img/star.png", 10, 1000, 350)
+         ss1.render("cnt")
+         ss1.start()
+      </script>
+   </body>
+</html>
