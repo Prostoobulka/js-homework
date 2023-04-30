@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 16. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         hr {
+            border: 1px solid #fff;
+            margin-bottom: 0 !important;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі</h1>
+               <p>
+                  Задача 4. Створити клас TBankomat, який моделює роботу банкомата. Клас повинен
+                  містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200
+                  гривень. Реалізувати методи знаходження максимальної та мінімальної сум, які може
+                  видати банкомат, та метод зняття деякої суми.
+               </p>
+               <script>
+                  class TBankomat {
+                     #nominals
+                     constructor() {
+                        this.#nominals = {
+                           "200denomination": 3,
+                           "100denomination": 13,
+                           "50denomination": 14,
+                           "20denomination": 13,
+                           "10denomination": 31,
+                           "5denomination": 121,
+                        }
+                     }
+                     get nominals() {
+                        return this.#nominals
+                     }
+                     // Методи
+                     // знаходження максимальної та мінімальної сум, які може
+                     // видати банкомат
+                     getMinSum() {
+                        let min = +Infinity
+                        for (const nominal in this.#nominals) {
+                           if (this.#nominals[nominal] > 0 && min > parseInt(nominal))
+                              min = parseInt(nominal)
+                        }
+                        return min
+                     }
+                     getMaxSum() {
+                        let maxSum = 0
+                        for (const nominal in this.#nominals) {
+                           maxSum += this.#nominals[nominal] * parseInt(nominal)
+                        }
+                        return maxSum
+                     }
+                     // зняття деякої суми
+                     withdrawMoney(sumWithdraw) {
+                        let sumOnHand = 0
+                        if (sumWithdraw <= this.getMaxSum()) {
+                           while (sumWithdraw > 0) {
+                              for (const nominal in this.#nominals) {
+                                 let denomination = parseInt(nominal)
+                                 if (sumWithdraw >= denomination && this.#nominals[nominal] > 0) {
+                                    this.#nominals[nominal] -= 1
+                                    sumOnHand += denomination
+                                    sumWithdraw -= denomination
+                                    console.log(nominal)
+                                    console.log(sumWithdraw)
+                                 }
+                              }
+                           }
+                        } else alert("Недостатньо коштів")
+                        return sumOnHand
+                     }
+                     toString() {
+                        return `<br>Мінімальна сума зняття = ${this.getMinSum()}<br>
+                        Максимальна сума зняття = ${this.getMaxSum()} <br><br>`
+                     }
+                  }
+                  const TB1 = new TBankomat()
+                  document.write(TB1)
+                  console.log(TB1)
+                  document.write(`Сума зняття = ${TB1.withdrawMoney(250)}<br>`)
+                  document.write(TB1)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

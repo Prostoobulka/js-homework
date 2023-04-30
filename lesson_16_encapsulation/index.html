@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Tasks</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         @import url("https://fonts.googleapis.com/css?family=Roboto:regular,500,700,");
+
+         body {
+            font-family: "Roboto", sans-serif;
+            background: #656565;
+            font-size: 20px;
+            font-weight: 500;
+            color: #fff;
+         }
+
+         h2 {
+            color: #168db5;
+         }
+
+         .wrapper {
+            min-height: 100%;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+            padding-bottom: 50px;
+         }
+
+         .wrapper__item:not(:last-child) {
+            margin-bottom: 30px;
+         }
+
+         .wrapper__title {
+            font-size: 40px;
+         }
+
+         .wrapper__title:not(:last-child) {
+            margin-bottom: 10px;
+         }
+
+         a {
+            text-decoration: none;
+         }
+
+         .task {
+         }
+
+         .task__body {
+            border: 1px solid #fff;
+            padding: 15px;
+         }
+
+         .task__body:not(:last-child) {
+            margin-bottom: 20px;
+         }
+
+         .task__body > *:not(:last-child) {
+            margin-bottom: 10px;
+         }
+
+         .task__title {
+            font-size: 30px;
+         }
+
+         .task__descr {
+            font-size: 25px;
+         }
+
+         .task__link {
+            color: #1528ff;
+         }
+
+         .task__link:hover {
+            color: #7dfd67;
+         }
+
+         .task__link:visited {
+            color: red;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <h1 class="wrapper__title">Lesson 16. Encapsulation</h1>
+         <div class="wrapper__item task">
+            <div class="task__body">
+               <div class="task__title">Задача №1</div>
+               <div class="task__descr">
+                  Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата
+                  представляється структурою із трьома полями. Реалізувати методи
+                  збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та
+                  виведення дати реалізувати за допомогою методу toString.
+               </div>
+               <a href="task16.1.html" class="task__link">Перейти</a>
+            </div>
+            <div class="task__body">
+               <div class="task__title">Задача №2</div>
+               <div class="task__descr">
+                  Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у
+                  вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової
+                  маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому
+                  сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+               </div>
+               <a href="task16.2.html" class="task__link">Перейти</a>
+            </div>
+            <div class="task__body">
+               <div class="task__title">Задача №3</div>
+               <div class="task__descr">Об’єкт “Фірма” (використати члени-класи)</div>
+               <a href="task16.3.html" class="task__link">Перейти</a>
+            </div>
+            <div class="task__body">
+               <div class="task__title">Задача №4</div>
+               <div class="task__descr">
+                  Створити клас TBankomat, який моделює роботу банкомата. Клас повинен містити поля
+                  для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень.
+                  Реалізувати методи знаходження максимальної та мінімальної сум, які може видати
+                  банкомат, та метод зняття деякої суми.
+               </div>
+               <a href="task16.4.html" class="task__link">Перейти</a>
+            </div>
+
+            <!-- <h2 class="wrapper__title">Додаткові задачі</h2>
+            <div class="wrapper__item task">
+               <div class="task__body">
+                  <div class="task__title">Задачі - Заповнення масива</div>
+                  <div class="task__descr">Заповнити масив різними методами</div>
+                  <a href="task10.2.html" class="task__link">Перейти</a>
+               </div>
+            </div> -->
+         </div>
+      </div>
+   </body>
+</html>

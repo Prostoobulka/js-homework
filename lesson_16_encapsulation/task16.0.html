@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі. Вчитель</h1>
+               <p></p>
+
+               <script>
+                  // class Pupil {
+                  //    // 1)
+                  //    #userName
+                  //    #age
+                  //    #class
+                  //    #averageScore
+                  //    // 4)
+                  //    constructor(
+                  //       initName,
+                  //       initClass,
+                  //       initAge,
+                  //       initAverageScore,
+                  //       minAge = 7,
+                  //       maxAge = 17
+                  //    ) {
+                  //       this.Age = initAge
+                  //       this.minAge = minAge
+                  //       this.maxAge = maxAge
+                  //       this.UserName = initName
+                  //       this.Class_ = initClass
+                  //       this.AverageScore = initAverageScore
+                  //    }
+
+                  //    // 2)
+                  //    get UserName() {
+                  //       return this.#userName
+                  //    }
+                  //    get Age() {
+                  //       return this.#age
+                  //    }
+                  //    get Class_() {
+                  //       return this.#class
+                  //    }
+                  //    get AverageScore() {
+                  //       return this.#averageScore
+                  //    }
+                  //    // 3)
+                  //    set UserName(newName) {
+                  //       if (newName.length === 0) throw new Error("Can't be empty")
+                  //       this.#userName = newName
+                  //    }
+                  //    set Age(newValueAge) {
+                  //       if (newValueAge < this.minAge || newValueAge > this.maxAge)
+                  //          throw new Error("Age is incorrect")
+                  //       this.#age = newValueAge
+                  //    }
+                  //    set Class_(newValueClass) {
+                  //       if (newValueClass < 1 || newValueClass > 11)
+                  //          throw new Error("Class is incorrect")
+
+                  //       this.#class = newValueClass
+                  //    }
+                  //    set AverageScore(newValueAverage) {
+                  //       if (newValueAverage < 0 || newValueAverage > 12)
+                  //          throw new Error("AverageScore is incorrect")
+                  //       this.#averageScore = newValueAverage
+                  //    }
+                  // }
+                  // let p1 = new Pupil("Jonh", 3, 8, 2)
+                  // p1.Age = 10
+                  // let age = p1.Age
+                  // console.log(age)
+
+                  // p1.UserName = "Vlad"
+                  // let user = p1.UserName
+                  // console.log(user)
+
+                  // p1.Class_ = 7
+                  // let class_ = p1.Class_
+                  // console.log(class_)
+
+                  // p1.AverageScore = 8
+                  // let averageScore = p1.AverageScore
+                  // console.log(averageScore)
+
+                  class Client {
+                     #accountNumber
+                     #money = 0
+                     constructor(initname, accountNumber, initMoney) {
+                        this.name = initname
+                        this.#accountNumber = accountNumber
+                        this.MoneyDollar = initMoney
+                     }
+
+                     get AccountNumber() {
+                        return this.#accountNumber // Для читання
+                     }
+                     get MoneyDollar() {
+                        return this.#money * 40
+                     }
+                     set MoneyDollar(newValue) {
+                        if (this.#money + newValue < 0)
+                           throw new Error("Немає стільки коштів на рахунку ")
+
+                        this.#money += newValue
+                     }
+                     toString() {
+                        return `${this.name}, ${this.AccountNumber}, ${this.MoneyDollar}`
+                     }
+                  }
+                  let user1 = new Client("Ivan", "31238188", 100)
+                  console.log(user1)
+                  user1.AccountNumber = "123123"
+                  console.log(user1)
+                  console.log(user1.MoneyDollar)
+                  // console.log(user1.AccountNumber)
+
+                  // у літералах
+                  let user = {
+                     firstName: "Ivan",
+                     surName: "Sirko",
+
+                     get fullName() {
+                        return this.firstName + " " + this.surName
+                     },
+
+                     set fullName(val) {
+                        let split = val.split(" ")
+                        this.firstName = split[0]
+                        this.surName = split[1]
+                     },
+                  }
+                  console.log(user.fullName)
+                  user.fullName = "John Wick"
+                  console.log(user.fullName)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

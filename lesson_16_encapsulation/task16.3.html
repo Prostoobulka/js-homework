@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 16. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         hr {
+            border: 1px solid #fff;
+            margin-bottom: 0 !important;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі</h1>
+               <p>Об’єкт “Фірма” (використати члени-класи)</p>
+
+               <script>
+                  // Поля
+                  // назва фірми;
+                  // дата заснування (рік, місяць);
+                  // послуги (назва послуги, вартість, термін виконання);
+                  // адреси філіалів (країна, місто, вулиця, номер будинку);
+
+                  // Властивості
+                  // визначення кількості років існування фірми;
+                  // виведення всіх філіалів фірми у вказаному місті;
+                  // виведення на екран послуг, що можуть бути виконані
+                  // за вказану суму грошей та вказаний термін часу;
+
+                  class Establishment {
+                     constructor({ year, month }) {
+                        this.year = year
+                        this.month = month
+                     }
+
+                     toString() {
+                        return `Дата заснування MM:${this.month}YY:${this.year}<br>`
+                     }
+                  }
+                  class Services {
+                     constructor(arrServices) {
+                        this.arrServices = arrServices
+                     }
+
+                     toString() {
+                        return `
+								Послуги<br>
+								${this.arrServices.map(
+                           (el) =>
+                              `Назва послуги - ${el.name}, Ціна - ${el.price}, Термін виконання - ${el.termOfExecution}<br>`
+                        )}
+								`
+                        // return `Назва послуги - ${this.name}, Ціна - ${this.price}, Термін виконання - ${this.termOfExecution}<br>`
+                     }
+                  }
+                  class AddressBranches {
+                     // constructor({ country, city, street, house }) {
+                     //    this.country = country
+                     //    this.city = city
+                     //    this.street = street
+                     //    this.house = house
+                     // }
+                     constructor(arrAddress) {
+                        this.arrAddress = arrAddress
+                     }
+
+                     toString() {
+                        return `
+                             <br>
+                             Адреси філіалів
+                             ${this.arrAddress.map(
+                                (el) =>
+                                   `<br>Країна - ${el.country}, Місто - ${el.city}, Вулиця - ${el.street}, Будинок - ${el.house}`
+                             )}
+                             `
+                        // return `Країна - ${this.country}, Місто - ${this.city}, Вулиця - ${this.street}, Будинок - ${this.house}`
+                     }
+                  }
+                  class Firm {
+                     constructor(initData) {
+                        this.name = initData.name
+                        this.establishment = new Establishment(initData.establishment)
+                        this.services = new Services(initData.services)
+                        this.address = new AddressBranches(initData.addressOfBranches)
+                     }
+
+                     toString() {
+                        return `Назва фірми - ${this.name} <br> ${this.establishment} ${this.services} ${this.address}`
+                     }
+                  }
+                  class OperationOverFirm {
+                     constructor(firm) {
+                        this.firm = firm
+                     }
+                     // визначення кількості років існування фірми;
+                     getYearOfExistence() {
+                        return new Date().getFullYear() - this.firm.establishment.year
+                     }
+                     // виведення всіх філіалів фірми у вказаному місті;
+                     printFilialSpecifielCity(valCity) {
+                        return this.firm.addressOfBranches.filter((el) => el.city === valCity)
+                     }
+                     // виведення на екран послуг, що можуть бути виконані
+                     // за вказану суму грошей та вказаний термін часу;
+                     printServicesSpecifielService(valMoney, valTerm) {
+                        return this.firm.services.filter(
+                           (service) =>
+                              service.price === valMoney &&
+                              parseInt(service.termOfExecution) === valTerm
+                        )
+                     }
+                  }
+
+                  const firm = {
+                     name: "Brukivka",
+                     establishment: {
+                        year: 2005,
+                        month: "07",
+                     },
+                     services: [
+                        {
+                           name: "Укладання бруківки",
+                           price: 23200,
+                           termOfExecution: "5 днів",
+                        },
+                        {
+                           name: "Продаж бруківки",
+                           price: 53000,
+                           termOfExecution: "2 днів",
+                        },
+                     ],
+                     addressOfBranches: [
+                        {
+                           country: "Україна",
+                           city: "Київ",
+                           street: "Шевченка",
+                           house: 25,
+                        },
+                        {
+                           country: "Велика Британія",
+                           city: "Лондон",
+                           street: "Чарльза",
+                           house: 8,
+                        },
+                        {
+                           country: "Сполучені Штати Америки",
+                           city: "Нью-Йорк",
+                           street: "Бенедікта",
+                           house: 1,
+                        },
+                     ],
+                  }
+                  const f1 = new Firm(firm)
+                  document.write(f1)
+                  const op1 = new OperationOverFirm(firm)
+                  console.log(op1.getYearOfExistence())
+                  console.log(op1.printFilialSpecifielCity("Київ"))
+                  console.log(op1.printServicesSpecifielService(53000, 2))
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

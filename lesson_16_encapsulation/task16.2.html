@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі</h1>
+               <p>
+                  Створити клас TMoney для роботи з грошовими сумами. Сума повинна зберігатися у
+                  вигляді доларового еквіваленту. Реалізувати методи додавання/вилучення грошової
+                  маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому
+                  сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+               </p>
+
+               <script>
+                  class TMoney {
+                     #rateDollar
+                     #userWalletDollars
+                     constructor(initRateDollar, initDollarUser) {
+                        // Поля
+                        // Курс долара зберігати в окремому полі.
+                        this.RateDollar = initRateDollar
+                        // Сума повинна зберігатися у вигляді доларового еквіваленту
+                        this.UserWalletDollars = initDollarUser
+                     }
+                     get RateDollar() {
+                        return this.#rateDollar //* this.RateDollar
+                     }
+                     set RateDollar(newRate) {
+                        if (newRate < 0) throw new Error("Rate Dollar is impossible")
+
+                        this.#rateDollar = newRate
+                     }
+                     get UserWalletDollars() {
+                        return this.#userWalletDollars
+                     }
+                     set UserWalletDollars(val) {
+                        if (val < 0) throw new Error("Wallet isn't valid")
+                        this.#userWalletDollars = val
+                     }
+                     // Методи
+                     // методи додавання/вилучення грошової маси
+                     increaseDollarInGrivny(val) {
+                        this.UserWalletDollars += val / this.RateDollar
+                     }
+                     decreaseDollarInGrivny(val) {
+                        this.UserWalletDollars -= val / this.RateDollar
+                     }
+
+                     // визначення курсу долара, при якому
+                     // сума у гривнях збільшиться на 100.
+                     get findRateDollarSumMore100() {
+                        let convertedMoney = this.RateDollar * this.UserWalletDollars
+                        return ((convertedMoney + 100) * this.RateDollar) / convertedMoney
+                     }
+
+                     toString() {
+                        return `Курс 1$ - ${this.RateDollar}, Баланс = ${
+                           this.UserWalletDollars
+                        },<br> 
+								Курс долара = ${this.findRateDollarSumMore100.toFixed(2)}, 
+								при якому сума у гривнях збільшиться на 100 <br><br>`
+                     }
+                  }
+                  let bank = new TMoney(40, 2000)
+                  document.write(bank)
+                  document.write("Збільшили суму<br>")
+                  bank.increaseDollarInGrivny(4230)
+                  document.write(bank)
+                  document.write("Зменшили суму<br>")
+                  bank.decreaseDollarInGrivny(8310)
+                  document.write(bank)
+                  bank.RateDollar = 38.4
+                  document.write(bank)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

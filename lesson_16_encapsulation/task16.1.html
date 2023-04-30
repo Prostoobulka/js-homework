@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 12. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задачі</h1>
+               <p>
+                  Створити клас TDate для роботи із датами у форматі “день.місяць.рік”. Дата
+                  представляється структурою із трьома полями. Реалізувати методи
+                  збільшення/зменшення дати на певну кількість днів, місяців чи років. Введення та
+                  виведення дати реалізувати за допомогою методу toString.
+               </p>
+
+               <script>
+                  class TDate {
+                     #year
+                     // Властивості
+                     constructor(day, month, year) {
+                        this.day = day
+                        this.month = month
+                        this.Year = year
+                     }
+
+                     get Year() {
+                        return this.#year
+                     }
+                     set Year(val) {
+                        if (val < 0) throw new Error("Year is incorrect!!!")
+                        this.#year = val
+                     }
+
+                     // Методи
+                     // збільшення/зменшення дати на певну кількість днів, місяців чи років
+                     increaseYear(val) {
+                        this.Year = ((this.Year - 1 + val) % (3000 - 1 + 1)) + 1
+                        // return ((this.Year - 1 + val) % (3000 - 1 + 1)) + 1
+                     }
+                     decreaseYear(val) {
+                        this.Year -= val
+                     }
+                     increaseMonth(val) {
+                        while (val > 12) {
+                           this.Year++
+                           val -= 12
+                        }
+                        this.month = ((this.month - 1 + val) % (12 - 1 + 1)) + 1
+                     }
+                     decreaseMonth(val) {
+                        this.month -= val
+                        while (this.month <= 0) {
+                           this.Year--
+                           this.month += 12
+                        }
+                     }
+                     increaseDay(val) {
+                        this.day += val
+                        this.increaseMonth(Math.floor(this.day / 30))
+                        this.day = this.day % 30
+                     }
+                     decreaseDay(val) {
+                        this.day -= val
+                        while (this.day <= 0) {
+                           this.month--
+                           this.day += 30
+                        }
+                        this.decreaseMonth(-this.month)
+                     }
+                     // Виведення
+                     toString() {
+                        return `${this.day} : ${this.month} : ${this.Year} <br>`
+                     }
+                  }
+                  let Date = new TDate(4, 6, 2022)
+                  document.write(Date)
+                  Date.increaseYear(2)
+                  document.write(Date)
+                  Date.decreaseYear(2)
+                  document.write(Date)
+                  Date.increaseMonth(13)
+                  document.write(Date)
+                  Date.increaseDay(400)
+                  document.write(Date)
+                  Date.decreaseMonth(21)
+                  document.write(Date)
+                  Date.decreaseDay(1223)
+                  document.write(Date)
+                  console.log(Date)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
