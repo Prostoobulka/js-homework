@@ -63,7 +63,7 @@
                      // зняття деякої суми
                      withdrawMoney(sumWithdraw) {
                         let sumOnHand = 0
-                        if (sumWithdraw <= this.getMaxSum()) {
+                        if (sumWithdraw <= this.getMaxSum() && sumWithdraw % 5 === 0) {
                            while (sumWithdraw > 0) {
                               for (const nominal in this.#nominals) {
                                  let denomination = parseInt(nominal)
@@ -87,7 +87,7 @@
                   const TB1 = new TBankomat()
                   document.write(TB1)
                   console.log(TB1)
-                  document.write(`Сума зняття = ${TB1.withdrawMoney(250)}<br>`)
+                  document.write(`Сума зняття = ${TB1.withdrawMoney(400)}<br>`)
                   document.write(TB1)
                </script>
             </div>
