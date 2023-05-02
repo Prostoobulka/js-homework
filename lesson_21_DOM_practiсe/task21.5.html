@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         .result__block {
+            margin-bottom: 10px;
+            display: grid;
+            place-items: center;
+         }
+         .result__block label {
+            display: inline-block;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 5. На формі вводять 7 числових значень (вік, зріст, вага, заробітна плата,
+                  стаж, номер відділу, порядковий номер). Додати подію обробки події click на форму
+                  і якщо клік на input, то автоматично замінювати значення його на 0.
+               </p>
+            </div>
+            <div id="cnt">
+               <div class="result__block">
+                  <label for="i1">Вага</label>
+                  <input type="text" />
+               </div>
+               <div class="result__block">
+                  <label for="i1">Зріст</label>
+                  <input type="text" />
+               </div>
+               <div class="result__block">
+                  <label for="i1">Заробітна плата</label>
+                  <input type="text" />
+               </div>
+               <div class="result__block">
+                  <label for="i1">Стаж</label>
+                  <input type="text" />
+               </div>
+               <div class="result__block">
+                  <label for="i1">Номер відділу</label>
+                  <input type="text" />
+               </div>
+               <div class="result__block">
+                  <label for="i1">Порядковий номер</label>
+                  <input type="text" />
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <script>
+         function onClickZeroInInput() {
+            const target = event.target
+            if (target.tagName === "INPUT") {
+               target.value = 0
+            }
+         }
+
+         addEventListener("click", onClickZeroInInput)
+      </script>
+   </body>
+</html>

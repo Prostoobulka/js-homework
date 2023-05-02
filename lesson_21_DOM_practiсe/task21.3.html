@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         li {
+            list-style-type: style;
+         }
+
+         ol {
+            padding-left: 10px;
+            margin-bottom: 10px;
+         }
+         button {
+            background: #16b566;
+            padding: 10px;
+            border-radius: 15px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 3. Дано 5 випадковим чином згенерованих нумерованих списків з рандомними
+                  числами (кількість елементів у списку випадкова від 1 до 10, елементи випадкові –
+                  від 1 до 100). При натисненні на кнопку нумеровані списки з парною кількістю
+                  елементів зафарбувати у зелений колір, інші у червоний.
+               </p>
+            </div>
+            <div id="cnt"></div>
+         </div>
+      </div>
+
+      <script>
+         class NumericList {
+            constructor(minV = 1, maxV = 10) {
+               this.minV = minV
+               this.maxV = maxV
+            }
+            getRanNum(minV, maxV) {
+               return minV + Math.floor(Math.random() * (maxV - minV + 1))
+            }
+            createElementList() {
+               const li = document.createElement("li")
+               li.innerText = this.getRanNum(1, 100)
+               return li
+            }
+            createNumericList() {
+               const ol = document.createElement("ol")
+               for (let i = 0; i < this.getRanNum(this.minV, this.maxV); i++) {
+                  ol.append(this.createElementList())
+               }
+               return ol
+            }
+            onClickColorList() {
+               const numericLists = document.getElementsByTagName("ol")
+               for (const ol of numericLists) {
+                  for (const li of ol.children) {
+                     if (li.innerText % 2 === 0) li.style.backgroundColor = "green"
+                     else li.style.backgroundColor = "red"
+                  }
+               }
+            }
+
+            render(targetId) {
+               const container = document.createElement("div")
+
+               for (let i = 0; i < 5; i++) {
+                  container.append(this.createNumericList())
+               }
+
+               const btn = document.createElement("button")
+               btn.innerText = "Click"
+               btn.onclick = this.onClickColorList.bind(this)
+               container.append(btn)
+               document.getElementById(targetId).append(container)
+            }
+         }
+         const nl1 = new NumericList()
+         nl1.render("cnt")
+      </script>
+   </body>
+</html>

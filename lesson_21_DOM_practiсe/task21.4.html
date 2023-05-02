@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         td {
+            padding: 10px;
+            border: 1px solid #fff;
+            cursor: pointer;
+         }
+         table {
+            border: 2px solid #ffffff;
+         }
+         #cnt {
+            padding-top: 30px;
+            display: flex;
+            gap: 10px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 4. Дано 3 таблиці розмірності 3*3 з випадковими числами. Якщо відбувається
+                  клік на якійсь із клітинок, то до відповідної таблиці додається червона рамка
+                  (спробуйте додати можливість відображення кількості кліків біля назви таблиці з
+                  використанням відповідно доданого для цього атрибута).
+               </p>
+            </div>
+            <div id="cnt">
+               <h2>Table 1</h2>
+               <table counter="0" class="result__table">
+                  <tr>
+                     <td>1</td>
+                     <td>1</td>
+                     <td>1</td>
+                  </tr>
+                  <tr>
+                     <td>1</td>
+                     <td>1</td>
+                     <td>1</td>
+                  </tr>
+                  <tr>
+                     <td>1</td>
+                     <td>1</td>
+                     <td>1</td>
+                  </tr>
+               </table>
+               <h2>Table 2</h2>
+               <table counter="0" class="result__table">
+                  <tr>
+                     <td>2</td>
+                     <td>2</td>
+                     <td>2</td>
+                  </tr>
+                  <tr>
+                     <td>2</td>
+                     <td>2</td>
+                     <td>2</td>
+                  </tr>
+                  <tr>
+                     <td>2</td>
+                     <td>2</td>
+                     <td>2</td>
+                  </tr>
+               </table>
+               <h2>Table 3</h2>
+               <table counter="0" class="result__table">
+                  <tr>
+                     <td>3</td>
+                     <td>3</td>
+                     <td>3</td>
+                  </tr>
+                  <tr>
+                     <td>3</td>
+                     <td>3</td>
+                     <td>3</td>
+                  </tr>
+                  <tr>
+                     <td>3</td>
+                     <td>3</td>
+                     <td>3</td>
+                  </tr>
+               </table>
+            </div>
+         </div>
+      </div>
+
+      <script>
+         function addValueToTable() {
+            if (event.target.tagName === "TD") {
+               const target = event.target
+               // 1 крок змінюємо каунтер
+               const parentRelativeElement = target.closest(".result__table")
+               parentRelativeElement.style.border = "2px solid red"
+               let getValAttr = parseInt(target.closest(".result__table").getAttribute("counter"))
+               getValAttr++
+               parentRelativeElement.setAttribute("counter", getValAttr)
+               // 2 крок додаємо розмітку каунтер
+               parentRelativeElement.previousElementSibling.innerText = `Table - #${getValAttr}`
+            }
+         }
+         function randomValTd() {
+            const td = document.getElementsByTagName("td")
+            for (const el of td) {
+               let ranNum = 15 + Math.floor(Math.random() * 100)
+               el.innerText = ranNum
+            }
+         }
+
+         addEventListener("load", randomValTd)
+         addEventListener("click", addValueToTable)
+      </script>
+   </body>
+</html>

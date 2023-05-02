@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         /* Однорядковий сапер */
+         td {
+            border: 1px solid #fff;
+            width: 20px;
+            height: 20px;
+         }
+         table {
+            border: 2px solid #fff;
+         }
+
+         /* ТУ ДУ Ліст */
+         button {
+            background: #1e95af;
+            border-radius: 10px;
+            padding: 5px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача Вчитель</h1>
+               <p></p>
+            </div>
+            <!-- <div class="container"></div> -->
+            <!-- Однорядковий сапер -->
+            <!-- <table>
+               <tr>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+                  <td mine="1"></td>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+               </tr>
+            </table> -->
+
+            <!-- TODO LIST -->
+            <!-- <div>
+               <h3>Нова задача</h3>
+               <div>
+                  <label>
+                     Текст задачі
+                     <input id="title" type="text" value="Task" />
+                  </label>
+               </div>
+               <div>
+                  <label>
+                     Приорітетність задачі
+                     <input id="priority" type="number" value="32" />
+                  </label>
+               </div>
+               <div>
+                  <button id="add_btn">Додати задачу</button>
+               </div>
+            </div>
+            <div>
+               <h3>Список задач</h3>
+               <div class="list">
+                  <div>
+                     <button id="clear_all">Clear</button>
+                  </div>
+                  <div id="container"></div>
+               </div>
+            </div> -->
+
+            <!-- <button id="b1">btn 1</button>
+            <button id="b2">btn 2</button> -->
+
+            <!--  <table>
+               <tr>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+               </tr>
+               <tr>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+               </tr>
+               <tr>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+                  <td mine="1"></td>
+                  <td mine="0"></td>
+                  <td mine="1"></td>
+               </tr>
+            </table> -->
+            <div id="cnt"></div>
+         </div>
+      </div>
+
+      <script>
+         // Однорядковий сапер
+         // function onTdClick() {
+         //    // this - виводить елемент // адреса елемента
+         //    let td = this
+         //    const copyTd = td
+         //    if (td.getAttribute("mine") === "1") {
+         //       td.style.backgroundColor = "red"
+         //       while (td.previousElementSibling) {
+         //          td = td.previousElementSibling
+         //          if (td.getAttribute("mine") === "0") break
+         //          td.style.backgroundColor = "red"
+         //       }
+         //       td = copyTd
+         //       while (td.nextElementSibling) {
+         //          td = td.nextElementSibling
+         //          if (td.getAttribute("mine") === "0") break
+         //          td.style.backgroundColor = "red"
+         //       }
+         //    } else {
+         //       td.style.backgroundColor = "green"
+         //       while (td.nextElementSibling) {
+         //          // адреса наступного елемента
+         //          td = td.nextElementSibling
+         //          if (td.getAttribute("mine") === "1") break
+         //          td.style.backgroundColor = "green"
+         //       }
+         //       td = copyTd
+         //       while (td.previousElementSibling) {
+         //          td = td.previousElementSibling
+         //          if (td.getAttribute("mine") === "1") break
+         //          td.style.backgroundColor = "green"
+         //       }
+         //    }
+         //    console.log(this.getAttribute("mine"))
+         // }
+         // const tr = document.querySelector("tr")
+         // for (const td of tr.children) {
+         //    td.onclick = onTdClick
+         // }
+
+         // TODO manager
+         // function onTaskDelete() {
+         //    console.log(this.parentElement)
+         //    this.parentElement.remove()
+         // }
+         // function onAddTask() {
+         //    const taskTitle = document.getElementById("title").value
+         //    const taskPriority = document.getElementById("priority").value
+
+         //    const div = document.createElement("div")
+         //    const span = document.createElement("span")
+         //    span.innerText = `${taskTitle} - ${taskPriority}`
+         //    div.append(span)
+
+         //    const btn = document.createElement("button")
+         //    btn.onclick = onTaskDelete
+         //    btn.innerText = "Delete"
+         //    div.append(btn)
+
+         //    container.append(div)
+         // }
+         // add_btn.onclick = onAddTask
+
+         // function onClearAll() {
+         //    // this.closest(".list").lastElementChild.remove()
+
+         //    this.closest(".list").lastElementChild.innerHTML = ""
+         //    console.log(this.closest(".list").lastElementChild)
+         // }
+         // clear_all.onclick = onClearAll
+
+         // Події
+
+         // function onButtonClick(event) {
+         //    console.log(event.target)
+         // }
+         // b1.onclick = onButtonClick
+         // b2.onclick = onButtonClick
+
+         // Делегування
+         // function onTdClick(event) {
+         //    if (event.target.tagName === "TD") {
+         //       let td = event.target
+         //       const copyTd = td
+         //       if (td.getAttribute("mine") === "1") {
+         //          td.style.backgroundColor = "red"
+         //          while (td.previousElementSibling) {
+         //             td = td.previousElementSibling
+         //             if (td.getAttribute("mine") === "0") break
+         //             td.style.backgroundColor = "red"
+         //          }
+         //          td = copyTd
+         //          while (td.nextElementSibling) {
+         //             td = td.nextElementSibling
+         //             if (td.getAttribute("mine") === "0") break
+         //             td.style.backgroundColor = "red"
+         //          }
+         //       } else {
+         //          td.style.backgroundColor = "green"
+         //          while (td.nextElementSibling) {
+         //             // адреса наступного елемента
+         //             td = td.nextElementSibling
+         //             if (td.getAttribute("mine") === "1") break
+         //             td.style.backgroundColor = "green"
+         //          }
+         //          td = copyTd
+         //          while (td.previousElementSibling) {
+         //             td = td.previousElementSibling
+         //             if (td.getAttribute("mine") === "1") break
+         //             td.style.backgroundColor = "green"
+         //          }
+         //       }
+         //       console.log(event.target.getAttribute("mine"))
+         //    }
+         // }
+         // document.querySelector("table").onclick = onTdClick
+
+         // Кастомні івенти(треба знати )
+         class ElementsCreator {
+            static createHTMLElement({ tag, attrs, props, events }) {
+               const el = document.createElement(tag)
+               if (attrs) {
+                  for (const attrKey in attrs) {
+                     el.setAttribute(attrKey, attrs[attrKey])
+                  }
+               }
+               if (props) {
+                  for (const propsKey in props) {
+                     el[propsKey] = props[propsKey]
+                  }
+               }
+               if (events) {
+                  for (const eventType in events) {
+                     el.addEventListener(eventType, events[eventType])
+                  }
+               }
+               return el
+            }
+            static createInputWithLabel({ labelOption, inputOption }) {
+               const inp = ElementsCreator.createHTMLElement({
+                  tag: "input",
+                  ...(inputOption ?? {}),
+               })
+               const label = ElementsCreator.createHTMLElement({
+                  tag: "label",
+                  ...(labelOption ?? {}),
+               })
+               label.append(inp)
+               return { label, inp }
+            }
+         }
+         class AddTaskForm {
+            constructor() {
+               this.el = this.createElement()
+            }
+            onAddTask() {
+               // сформували подію
+               const addEvent = new CustomEvent("add", {
+                  // обєкти для даних
+                  detail: {
+                     // Довільні параметри
+                     title: this.taskTitleInp.value,
+                     priority: this.taskPriorityInp.value,
+                  },
+               })
+               console.log(addEvent)
+               // Подію яку треба згенерувати
+               this.el.dispatchEvent(addEvent)
+            }
+            // функція для побудови розмітки
+            createElement() {
+               const container = ElementsCreator.createHTMLElement({
+                  tag: "div",
+               })
+               const h1 = ElementsCreator.createHTMLElement({
+                  tag: "h1",
+                  props: {
+                     innerText: "Нова задача",
+                  },
+               })
+               container.append(h1)
+
+               const div1 = document.createElement("div")
+               let obj1 = ElementsCreator.createInputWithLabel({
+                  labelOption: {
+                     props: {
+                        innerText: "Tекст задачі",
+                     },
+                  },
+                  inputOption: {
+                     attrs: {
+                        placeholder: "Нова задача",
+                     },
+                  },
+               })
+               div1.append(obj1.label)
+               container.append(div1)
+               this.taskTitleInp = obj1.inp
+
+               // --------------------------------------------------
+
+               const div2 = document.createElement("div")
+               let obj2 = ElementsCreator.createInputWithLabel({
+                  labelOption: {
+                     props: {
+                        innerText: "Приорітетність задачі",
+                     },
+                  },
+                  inputOption: {
+                     attrs: {
+                        placeholder: "Приорітет",
+                     },
+                     props: {
+                        type: "number",
+                     },
+                  },
+               })
+               div2.append(obj2.label)
+               this.taskPriorityInp = obj2.inp
+               container.append(div2)
+
+               const btn = ElementsCreator.createHTMLElement({
+                  tag: "button",
+                  props: {
+                     innerText: "Додати задачу",
+                  },
+                  events: {
+                     click: this.onAddTask.bind(this),
+                  },
+               })
+               container.append(btn)
+               return container
+            }
+            render(targetSelector) {
+               document.querySelector(targetSelector).append(this.el)
+            }
+         }
+         class Task {
+            constructor({ id, title, priority }) {
+               this.title = title
+               this.priority = priority
+               this.id = id
+               this.el = this.createElement()
+            }
+            onDelete() {
+               const deleteEvent = new CustomEvent("delete", {
+                  detail: {
+                     taskId: this.id,
+                  },
+               })
+               this.el.dispatchEvent(deleteEvent)
+            }
+            createElement() {
+               const container = document.createElement("div")
+
+               const span = ElementsCreator.createHTMLElement({
+                  tag: "span",
+                  props: {
+                     innerText: `${this.title} - ${this.priority}`,
+                  },
+               })
+               container.append(span)
+
+               const btn = ElementsCreator.createHTMLElement({
+                  tag: "button",
+                  props: {
+                     innerText: "Видалити",
+                  },
+                  events: {
+                     click: this.onDelete.bind(this),
+                  },
+               })
+               container.append(btn)
+               return container
+            }
+         }
+         class TaskManager {
+            constructor() {
+               this.taskList = []
+               this.el = this.createElement()
+            }
+            deleteTask(event) {
+               const taskId = event.detail.taskId
+               this.taskList = this.taskList.filter((task) => task.id !== taskId)
+               this.displayList()
+            }
+            addTask(event) {
+               const task = {
+                  id: new Date().getTime(),
+                  ...event.detail,
+               }
+               console.log(task)
+               const taskObj = new Task(task)
+               console.log(taskObj)
+               taskObj.el.addEventListener("delete", this.deleteTask.bind(this))
+               this.taskList.push(taskObj)
+               this.displayList()
+            }
+
+            displayList() {
+               this.tasksContainer.innerHTML = ""
+               this.taskList.forEach((task) => {
+                  this.tasksContainer.append(task.el)
+               })
+            }
+
+            createElement() {
+               const container = document.createElement("div")
+
+               const addForm = new AddTaskForm()
+               addForm.el.addEventListener("add", this.addTask.bind(this))
+               container.append(addForm.el)
+
+               this.tasksContainer = document.createElement("div")
+               container.append(this.tasksContainer)
+
+               return container
+            }
+
+            render(targetEl) {
+               document.querySelector(targetEl).append(this.el)
+            }
+         }
+         const manager = new TaskManager()
+         manager.render("#cnt")
+
+         // 1. поділити на окремі частини
+         // 2. в частинах зберігаємо розмітку для dispatchEvent()
+         // 3. саме в цих частинах генеруємо кастомну подію на яку можна підписатися
+         // 4. add delete
+      </script>
+   </body>
+</html>

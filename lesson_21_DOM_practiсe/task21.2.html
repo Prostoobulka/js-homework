@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         label {
+            margin-bottom: 10px;
+            display: block;
+            width: 300px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">DOM PRACTICE</h1>
+               <p>
+                  Задача 2. Дано 5 елементів input. При введенні значення у якийсь із них необхідно
+                  автоматично заповнювати інші (усі попередні у спадному порядку(кожен попередній
+                  має значення на 1 менше за наступний), усі наступні на 1 більше (кожен наступне на
+                  1 більше за попереднього)
+               </p>
+            </div>
+            <div id="task2">
+               <label>
+                  Value 1
+                  <input class="result__input" type="text" value=""
+               /></label>
+               <label>
+                  Value 2
+                  <input class="result__input" type="text" value=""
+               /></label>
+               <label>
+                  Value 3
+                  <input class="result__input" type="text" value=""
+               /></label>
+               <label>
+                  Value 4
+                  <input class="result__input" type="text" value="" />
+               </label>
+               <label>
+                  Value 5
+                  <input class="result__input" type="text" value="" />
+               </label>
+            </div>
+         </div>
+      </div>
+
+      <script>
+         // function onClickNumberElements() {
+         //    if (event.target.tagName === "INPUT") console.log(1)
+         // }
+         // addEventListener("input", onClickNumberElements)
+         function onClickNumberElements() {
+            let targetEl = this
+            let copyEl = targetEl
+            let targetNextNums = targetEl.value
+            let targetPrevNums = targetEl.value
+            while (targetEl.parentElement.nextElementSibling) {
+               targetNextNums++
+               targetEl = targetEl.parentElement.nextElementSibling.children[0]
+               targetEl.value = targetNextNums
+            }
+            while (copyEl.parentElement.previousElementSibling) {
+               targetPrevNums--
+               copyEl = copyEl.parentElement.previousElementSibling.children[0]
+               copyEl.value = targetPrevNums
+            }
+         }
+         const inputs = document.querySelectorAll(".result__input")
+         for (const inp of inputs) {
+            inp.oninput = onClickNumberElements
+         }
+      </script>
+   </body>
+</html>
