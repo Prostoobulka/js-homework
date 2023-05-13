@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         /* Однорядковий сапер */
+         td {
+            border: 1px solid #fff;
+            width: 20px;
+            height: 20px;
+         }
+         table {
+            border: 2px solid #fff;
+         }
+
+         /* ТУ ДУ Ліст */
+         button {
+            background: #1e95af;
+            border-radius: 10px;
+            padding: 5px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача Вчитель</h1>
+               <p></p>
+            </div>
+         </div>
+      </div>
+
+      <script>
+         // Привітання
+         // function getGreeting(date) {
+         //    let time = date.getHours()
+         //    let greeting
+         //    if (time <= 10) greeting = "Доброго ранку"
+         //    else if (time <= 18) greeting = "Доброго дня"
+         //    else greeting = "Доброго вечора"
+         //    return greeting
+         // }
+         // let date = new Date()
+         // console.log(getGreeting(date))
+         // Формат дати
+         // function isWorkingDay(date) {
+         //    const dayNum = date.getDay()
+         //    return dayNum !== 0 && dayNum !== 6
+         // }
+         // function getDateFormat(date) {
+         //    // switch (date.getDay()) {
+         //    let isDayOff = isWorkingDay(date) ? "Робочий" : "Не робочий"
+
+         //    return `${date.getMonth() + 1} - ${date.getFullYear()} - ${isDayOff}`
+         // }
+         // let date = new Date()
+         // console.log(getDateFormat(date))
+
+         // function getAge(year, month, day) {
+         //    const birthDate = new Day(year, month - 1, day)
+         //    const currentDate = new Date()
+         //    const diff = currentDate - birthDate
+         //    return Math.floor(diff / (1000 * 60 * 60 * 24 * 365))
+         // }
+         // let year = parseInt(prompt("Year"))
+         // let month = parseInt(prompt("Month"))
+         // let day = parseInt(prompt("Day"))
+         // let age = getAge(year, month, day)
+
+         // function getExpDate(date, rentHours) {
+         //    return new Date(date.setHours(date.getHours() + rentHours))
+         // }
+         // let rentHours = parseInt(prompt("rent hours"))
+         // let expDate = getExpDate(new Date(), rentHours)
+         // alert(expDate.toLocaleTimeString())
+
+         // ======= String =======
+
+         // let str = "Hi!"
+         // console.log(str.padStart(7, 0))
+
+         // Шаблон (особливість)
+         // const person = "Ivan"
+         // const age = 12
+         // function check(parts, name, age) {
+         //    console.log(parts)
+         //    console.log(name)
+         //    console.log(age)
+         //    return parts[0] + name.toUpperCase() + parts[1] + (age + 10) + parts[2]
+         // }
+         // let checkedTemp = check`Hello ${person}! You are ${age} years old!!!`
+         // console.log(checkedTemp)
+
+         // function getMessage(parts, sex, name, age) {
+         //    const sexLabel = sex === "woman" ? "woman" : "man"
+         //    const pensionerLabel =
+         //       (sex === "woman" && age >= 60) || (sex === "man" && age >= 65)
+         //          ? "Пенсіонер"
+         //          : "Не пенсіонер"
+         //    return `${sexLabel} ${parts[0]} ${name} ${parts[1]} ${pensionerLabel}`
+         // }
+         // let name = "Alina"
+         // let sex = "woman"
+         // let age = 61
+         // let message = getMessage`${sex} ${name} : ${age}`
+         // console.log(message)
+
+         // ======= Регулярні вирази =======
+
+         // Методи
+
+         // let str = "My little Friend, my big friend"
+         // let res = str.search(/friend/i)
+         // console.log(res)
+
+         // let res1 = /little/i.test(str)
+         // console.log(res1)
+
+         // let res2 = /friend/gi.exec(str)
+         // console.log(res2)
+
+         // let res3 = str.match(/friend/gi)
+         // console.log(res3)
+
+         // Правила
+         // let str = "Hello"
+         // console.log(/[apy]/.test(str))
+         // console.log(str.match(/[aoyl]/g))
+
+         // let str =
+         //    "Іван купив BMW, а Оленка Audi. Їх товариш купив Mercedes. На підприємстві Toyota, Nissan, Volkswagen"
+         // if (/(BWM|Audi)/.test(str)) {
+         //    alert(str.match(/(BMW|Audi|Mercedes)/g))
+         // }
+
+         // let str = "Hello my friend. Huge weapon, Jack is hjK"
+         // console.log(str.match(/H./gi))
+         // let str2 = "My number auto A2001AB ВВыфвфывфд !"
+         // console.log(str2.match(/\W/gi))
+
+         // let str = "dog say: GAAAAAW, GaaaW, cat say: meEeeew, meew"
+         // console.log(str.match(/(a+|e+)/gi))
+         // console.log(str.match(/Ga*/gi))
+
+         // let str = "ftp://test.test, http://sometest.test, https://sometest.test"
+         // if (/(hhtps|http)/.test(str)) {
+         //    let listAnswer = str.match(/(http|https)/g)
+         //    console.log(listAnswer)
+         // }
+
+         // let str = "Hello 1920. 1949 HI"
+         // console.log(str.match(/19\d{2}/g))
+      </script>
+   </body>
+</html>

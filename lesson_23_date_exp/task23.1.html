@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style></style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Time</h1>
+               <p></p>
+            </div>
+         </div>
+         <script>
+            // Задача  1. Користувач іде у відпустку на 56 днів. Визначити дату на момент його повернення.
+            function dateHisBack(shiftDay) {
+               let currentDate = new Date()
+               let shiftedDays = currentDate.setDate(currentDate.getDate() + shiftDay)
+               return new Date(shiftedDays).toDateString()
+            }
+            document.write(`Дата повернення - ${dateHisBack(56)}`)
+            // Задача 2 . Дано дата виробництва йогурта (вводимо рік, місяць, день) та кількість днів придатності.
+            // Визначити чи є він придатним на даний момент.
+
+            // const year = parseInt(prompt("Year", "2023"))
+            // const month = parseInt(prompt("Month", "3"))
+            // const day = parseInt(prompt("Day", "21"))
+            // const expirationDay = parseInt(prompt("Expiration Day", "15"))
+
+            function isExpirationDateProduct(year, month, day, expirationDay) {
+               let currentDate = new Date() // 2023/1/1 => 15`
+
+               let manufactureDate = new Date(year, month - 1, day)
+               let termOfExpiration = manufactureDate.setDate(
+                  manufactureDate.getDate() + expirationDay
+               )
+
+               document.write(
+                  `<br><br>Придатний до ${new Date(manufactureDate).toLocaleDateString()}`
+               )
+
+               if (currentDate < manufactureDate) document.write("<br><br>Придатний до вживання")
+               else document.write("<br><br>Не придатний до вживання")
+            }
+            isExpirationDateProduct(2023, 5, 1, 14)
+
+            // Задача 3. Сформувати масив з 1000 елементів від 1 до 800.
+            // Порівняти час сортування бульбашкою і вставкою.
+            const arr = []
+            for (let i = 0; i < 800; i++) {
+               const randomNum = 1 + Math.floor(Math.random() * 1200 - 1)
+               arr.push(randomNum)
+            }
+            const arr2 = [...arr]
+            // ----------------------
+            let start = new Date()
+            // ==== Sort Bubbles ====
+            let swap
+            do {
+               swap = false
+               for (let i = 1; i < arr.length; i++) {
+                  if (arr[i - 1] > arr[i]) {
+                     let temp = arr[i]
+                     arr[i] = arr[i - 1]
+                     arr[i - 1] = temp
+                     swap = true
+                  }
+               }
+            } while (swap)
+            // ==== Sort Bubbles ====
+            let end = new Date()
+            // ----------------------
+            let timeExecutionTaskBubbles = end - start
+            console.log(timeExecutionTaskBubbles)
+            console.log(arr)
+
+            // ==== Sort inclusion ====
+            start = new Date()
+            for (let k = 1; k < arr2.length; k++) {
+               let currentElement = arr2[k]
+               let i = k - 1
+               while (i >= 0 && arr2[i] > currentElement) {
+                  arr2[i + 1] = arr2[i]
+                  i--
+               }
+               arr2[i + 1] = currentElement
+            }
+            end = new Date()
+            timeExecutionTaskInclusion = end - start
+            console.log(timeExecutionTaskInclusion)
+            console.log(arr2)
+            // ==== Sort inclusion ====
+
+            if (timeExecutionTaskBubbles > timeExecutionTaskInclusion)
+               document.write("<br>Час виконання вставкою швидше ніж бульбашкою")
+            else document.write("<br>Час виконання бульбашкою швидше ніж вставкою")
+
+            // Задача 4. Задаємо користувачу задачу з додавання двох чисел.
+            // Визначити скільки секунд було використано для розв’язання задачі.
+            function getRanNum(minV, maxV) {
+               return minV + Math.floor(Math.random() * (maxV - minV))
+            }
+            function gameExersises() {
+               let start = new Date()
+
+               setTimeout(() => {
+                  const num1 = getRanNum(1, 10)
+                  const num2 = getRanNum(1, 10)
+
+                  const correctAnswer = num1 + num2
+                  const user = parseInt(prompt(`Print answer: ${num1} + ${num2} =`))
+
+                  if (user === correctAnswer) alert("Ok")
+                  else alert("Not ok")
+                  let end = new Date()
+                  console.log(
+                     `Кількість секунд, що було використано - ${new Date(
+                        end - start - 5000
+                     ).getSeconds()}сек.`
+                  )
+               }, 5000)
+            }
+            gameExersises()
+         </script>
+      </div>
+   </body>
+</html>

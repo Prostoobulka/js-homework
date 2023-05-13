@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Lesson 21. HW</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style></style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">RegExp</h1>
+               <p></p>
+            </div>
+         </div>
+         <script>
+            // 				============ String===============
+            let arrString = [
+               "Сьогодні прекрасний день, повний можливостей.",
+               "Я люблю читати книжки про фантастичні світи.",
+               "Мій улюблений напій - кава з молоком.",
+               "У парку є 5 гойдалок і 3 каруселі.",
+               "Я звик прокидатися о 7 годині ранку кожного дня.",
+               "У мене є 2 сестри і 1 брат.",
+               "Найбільша гора в світі - Еверест, вона має висоту 8,848 метрів.",
+               "Я люблю подорожувати та відкривати нові місця.",
+               "Я зазвичай їм 3 рази на день - сніданок, обід і вечерю.",
+               "Я займаюся йогою, щоб зберегти гнучкість тіла і розуму.",
+               "Я лдлв ",
+            ]
+            // Задача 1. Дано масив рядків. Вивести ті, у яких є цифри (використати метод test та регулярні вирази).
+            // for (const str of arrString) {
+            //    if (/[0-9]/.test(str)) {
+            //       console.log(str)
+            //    }
+            // }
+
+            // Задача 2. Дано масив рядків. Вивести ті, у яких немає цифр.
+            // for (const str of arrString) {
+            //    if (!/\d/.test(str)) console.log(str)
+            // }
+
+            // Задача 3. Дано масив рядків. Вивести ті, у яких є голосні літери.
+            // for (const str of arrString) {
+            //    if (/[аоуиіе]/.test(str)) console.log(str)
+            // }
+
+            // Задача 4. Дано масив рядків. Вивести ті, у яких немає голосних літер.
+            // for (const str of arrString) {
+            //    if (!/[аоуиіе]/i.test(str)) console.log(str)
+            // }
+
+            // Задача 5. Дано масив рядків. Вивести ті, у яких є або цифра 1 або цифра 3.
+            // for (const str of arrString) {
+            //    if (/(1|3)/.test(str)) console.log(str)
+            // }
+
+            // Задача 6. Дано рядок тексту, вивести усі числа, які є у тексті.
+            // let initialText = "I have friend. His = 20 years old. His birthday - 2003 year."
+            // initialText.match(/[0-9]/g).forEach((el) => {
+            //    console.log(el)
+            // })
+
+            // Задача 7. Дано рядок тексту. Знайти усі знаки пунктуації, які були використано.
+            // console.log(initialText.match(/[.,\/\-\=()'""`|]/g))
+
+            // Задача 8. Дано рядок тексту. Вивести усі складові, які розділені розділовими знаками.
+
+            // Задача 9. Дано рядок тексту. Перевірити, чи містить він дату у форматі dd.mm.yyyy (dd- день, mm- місяць, yyyy- рік).
+            // let strDate = "I have clock. And it shows 20.12.2023"
+            // if (/\d{2}.\d{2}.\d{4}/.test(strDate)) console.log("String contain date")
+            // else console.log("Not Ok")
+
+            // Задача 10. Дано рядок тексту. Підрахувати кількість двоцифрових чисел у рядку.
+            // let strDate = "I have clock. And it shows 20.05.2023"
+            // function counterTwoNums(str) {
+            //    let count = 0
+            //    let arrFoundTwoNums = str.match(/\b\d{2}\b/g)
+            //    if (arrFoundTwoNums) {
+            //       for (const el of arrFoundTwoNums) {
+            //          count++
+            //       }
+            //    } else console.log("Str don't contain numbers")
+            //    return count
+            // }
+            // console.log(counterTwoNums(strDate))
+
+            // Задача 11. Визначити чи може бути рядок тексту номером банківської картки (приклад: «4142-3433-2323-3434»). Знайти усі такі номери.
+            // let str =
+            //    "A debit card refers to a banking instrument that allows users to make cash withdrawals and cashless  payments. Number debit card starts with the following numbers: 3213-1231-5689-3212"
+            // if (/\b\d{4}-\d{4}-\d{4}-\d{4}\b/.test(str)) {
+            //    console.log(str.match(/\b\d{4}-\d{4}-\d{4}-\d{4}\b/g))
+            // } else console.log("debit card in str. Not found")
+
+            // Задача 12. Дано адресу сайту. Визначити, чи є він урядовим (містить домен “gov”)
+            // let addressSite = "https://u24.gov.ua/"
+            // let patt = /gov/
+            // console.log(patt.test(addressSite))
+            // if (patt.test(addressSite)) console.log("Site is government")
+            // else console.log("Site isn't goverment")
+            // якщо в кінці
+            // if (addressSite.endsWith("gov")) console.log("Site is government")
+            // else console.log("Site isn't goverment")
+
+            // Задача 13. Вибрати усі роки після 2021 року з отриманого
+            // let str = `On 24 February 2022, Russia invaded and occupied parts of Ukraine in a major escalation of the Russo-Ukrainian War, which had begun in 2014. The invasion has resulted in tens of thousands of deaths on both sides, and instigated Europe's largest refugee crisis since World War II. About 8 million Ukrainians were displaced within their country by June, and more than 8.2 million had fled the country by May 2023.
+            // For months before the invasion, Russian troops massed around Ukraine's borders while Russian officials repeatedly denied plans to attack Ukraine. On 24 February 2022, Russian President Vladimir Putin announced a "special military operation" to support the Russian-controlled breakaway republics of Donetsk and Luhansk, whose military forces had been fighting Ukraine in the Donbas conflict. He said the goal was to "demilitarise" and "denazify" Ukraine. Putin espoused irredentist views, challenged Ukraine's right to statehood, and falsely claimed that Ukraine was governed by neo-Nazis who persecuted the ethnic Russian minority. Minutes later, Russian air strikes and a ground invasion were launched along a northern front from Belarus towards Kyiv, a north-eastern front towards Kharkiv, a southern front from Crimea, and a south-eastern front from the Donbas. In response, Ukrainian president Volodymyr Zelenskyy enacted martial law and ordered a general mobilisation.
+            // Russian troops had retreated from the northern front by April. On the southern and south-eastern fronts, Russia captured Kherson in March and then Mariupol in May after a destructive siege. On 18 April, Russia launched a renewed battle of Donbas. Russian forces continued to bomb both military and civilian targets far from the front line, including Ukraine's energy grid throughout the winter. In late 2022, Ukraine launched counteroffensives in the south and in the east. Soon after, Russia announced the illegal annexation of four partly-occupied oblasts. In November, Ukraine retook Kherson. On 7 February 2023, Russia mobilised nearly 200,000 soldiers for a renewed offensive towards Bakhmut.
+            // The invasion has been met with widespread international condemnation. The United Nations General Assembly passed Resolution ES-11/1 condemning the invasion and demanding a full withdrawal of Russian forces. The International Court of Justice ordered Russia to suspend military operations and the Council of Europe expelled Russia. Many countries imposed sanctions on Russia, and on its ally Belarus, and provided humanitarian and military aid to Ukraine. Protests occurred around the world; those in Russia were met with mass arrests and increased media censorship. Over 1,000 companies left Russia and Belarus in response to the invasion. The International Criminal Court (ICC) opened an investigation into possible crimes against humanity, war crimes, abduction of children, and genocide during the invasion, issuing an arrest warrant for Putin in March 2023.`
+            // let years = str.match(/\d{4}/gm)
+            // years = years.filter((el) => el > 2021)
+            // console.log(years)
+
+            // Задача 14. Дано номер телефону. Перевірити, чи є цей телефон телефоном з України (починаєтсья на «+38»)
+            // let str = "+380-915-769-425"
+            // let patt = /\+?380-?\d{3}-?\d{3}-?\d{3}/
+            // if (patt.test(str)) console.log("Number is ukr")
+            // else console.log("Number isn't ukr")
+            // let patt = /\+?38\d{10}/
+
+            // Задача 15. Користувач вводить прізвище та ім’я в одному рядку через пробіл.  Замінити пробіл на дефіс.
+            // let str = "John Carter"
+            // let k = str.split(" ").join("-")
+            // console.log(k)
+
+            // Задача 16. Користувач вводить дату у форматі «день.місяць.рік». Отримати рядкове представлення дати у форматі «день/місяць/рік»
+            // let str = "25.02.2023"
+            // str = str.replaceAll(".", "/")
+            // console.log(str)
+
+            // Задача 17. Користувач вводить день (номер дня (0-6) або «sun,mon,tue,wed,thu,fri,sat»). Визначити, чи  є це день вихідним
+            // let str = "Sun"
+            // const patt = /sun|sat|0|6/i
+            // let res = patt.test(str)
+            // if (res) console.log("Вихідний")
+            // else console.log(console.log("Не вихідний"))
+            // console.log(res)
+         </script>
+      </div>
+   </body>
+</html>
