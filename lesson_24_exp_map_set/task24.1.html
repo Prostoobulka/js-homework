@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №1 - №4</h1>
+               <p>Регулярні вирази</p>
+               <script>
+                  // Задача 1. Дано масив рядкових представлень чисел (тобто масив чисел у лапках (string). З
+                  // використанням перевірки за допомогою регулярних виразів і груп підрахувати кількість тих, у яких
+                  // перша і остання літери однакові.
+                  // let arrStrNum = ["235", "848", "840", "202", "101"]
+                  // let count = 0
+                  // for (const el of arrStrNum) {
+                  //    if (el.match(/(\d{1}).*?(\1)$/)) count++
+                  // }
+                  // console.log(count)
+
+                  // Задача 2. Замінити номер розділяючи послідовності цифр дефісом згідно з форматом
+                  // 0504546626 => +380-50-45-466-26
+                  // let str = "504546626"
+                  // let reg = /(\d{2})(\d{2})(\d{3})(\d{2})/
+                  // str = str.replace(reg, "+380-$1-$2-$3-$4")
+                  // console.log(str)
+
+                  // Задача 3. Після кожного значення року після 2000 року додати «р.»
+                  // «Я народився 2001, а в школі пішов 2007»  «Я народився 2001р., а в школі пішов 2007р.»
+                  // let str = "Я народився 2001, а в школі пішов 2007»"
+                  // let reg = /2[0-9]{3}\b/g
+                  // str = str.replace(reg, "$&р.")
+                  // console.log(str)
+
+                  // Задача 4. Вводиться велике число. Кожні 3 розряди відділяти пробілом.
+                  // 7457896524 => 7 457 896 524
+                  let str = "723131457896524"
+                  let patt = /(\d{3})/g
+                  str = str.replace(patt, " $&")
+                  console.log(str)
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

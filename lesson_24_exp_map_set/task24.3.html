@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 3</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+         #btnSave {
+            display: inline-block;
+            background: #16b566;
+            padding: 10px;
+         }
+         #btnCount {
+            display: inline-block;
+            background: #16b566;
+            padding: 10px;
+         }
+         #btnStart {
+            display: inline-block;
+            background: #16b566;
+            padding: 10px;
+            border-radius: 10px;
+         }
+      </style>
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №11 - №12</h1>
+               <p>
+                  Задача №11. Користувач може змінювати колір фону, що вибирає користувач з
+                  використанням<br /><br />Зберігати цей колір і відновлювати при наступному
+                  відкритті. Також зберігати і відображати кількість змін протягом одного сеансу.
+               </p>
+
+               <input id="inpColor" type="color" />
+               <div id="times">0</div>
+               <p>
+                  Задача 12. Зберігати у пам’яті список справ, які користувачу треба виконати
+                  (зберігати у localStorage). Періодично випадковим чином вибирати якусь з справ і
+                  виводити користувачу (з використанням confirm). Якщо користувач натискає на «Ок»,
+                  то видаляти цю задачу.
+               </p>
+               <button id="btnStart">Start do affairs</button>
+               <script>
+                  function cta() {
+                     // localStorage
+                     let property = inpColor.value
+                     localStorage.setItem("color", property)
+
+                     // sessionStorage
+                     let counter = parseInt(sessionStorage.getItem("counterChange") || "0")
+                     counter++
+                     sessionStorage.setItem("counterChange", counter)
+                     times.innerText = `Кількість змін - ${counter}`
+                  }
+                  inpColor.onchange = cta
+                  inpColor.value = localStorage.getItem("color")
+
+                  times.innerText = `Кількість змін - ${
+                     sessionStorage.getItem("counterChange") ?? 0
+                  }`
+
+                  // Задача 12. Зберігати у пам’яті список справ,
+                  // які користувачу треба виконати (зберігати у localStorage).
+                  // Періодично випадковим чином вибирати якусь з справ
+                  // і виводити користувачу (з використанням confirm).
+                  // Якщо користувач натискає на «Ок», то видаляти цю задачу.
+                  function startGenerateRandomAffairs() {
+                     let arrAffairs = [
+                        "Подивитися фільм",
+                        "Погуляти з собакою",
+                        "Тренерування",
+                        "Поїсти піцу",
+                        "Купити банани",
+                     ]
+                     localStorage.setItem("Affairs", JSON.stringify(arrAffairs))
+                     let startInterval = setInterval(() => {
+                        let todoList = JSON.parse(localStorage.getItem("Affairs", arrAffairs))
+                        let randomAffair = 0 + Math.floor(Math.random() * todoList.length)
+                        if (todoList.length) {
+                           if (confirm(todoList[randomAffair])) {
+                              todoList.splice(randomAffair, 1)
+                              localStorage.setItem("Affairs", JSON.stringify(todoList))
+                              console.log(todoList)
+                           }
+                        } else {
+                           localStorage.removeItem("Affairs")
+                           clearInterval(startInterval)
+                        }
+                     }, 2000)
+                     // setTimeout(() => localStorage.removeItem("Affairs"), 12000)
+                  }
+                  btnStart.onclick = startGenerateRandomAffairs
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

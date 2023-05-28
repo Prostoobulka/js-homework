@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>task 1</title>
+      <link rel="stylesheet" href="css/reset.css" />
+      <link rel="stylesheet" href="css/style.css" />
+   </head>
+
+   <body>
+      <div class="wrapper">
+         <div class="result">
+            <div class="result__body">
+               <h1 class="result__title">Задача №5 - №10</h1>
+               <p></p>
+               <script>
+                  // Задача 5 Дано список з віком учнів. Підрахувати скільки разів кожне значення зустрічається
+                  // у списку і максимальне.
+
+                  // let arrAgePupil = [10, 10, 12, 12, 12, 3, 14]
+                  // let map = new Map()
+                  // for (const el of arrAgePupil) {
+                  //    let elCount = map.get(el) || 0
+                  //    map.set(el, elCount + 1)
+                  // }
+                  // let maxRepeat = 0
+                  // let maxKeyOfMaxRepeat = 0
+                  // map.forEach((val, key, map) => {
+                  //    if (maxRepeat < val) {
+                  //       maxRepeat = val
+                  //       maxKeyOfMaxRepeat = key
+                  //    }
+                  // })
+                  // document.write(
+                  //    `Максимальна кількість повторень в ${maxKeyOfMaxRepeat} роках складає - ${maxRepeat} раз/и`
+                  // )
+
+                  // Задача 6. Дано масив книг (назва, рік видання, автор).
+                  // Підрахувати кількість книг для кожного автора.
+                  // let arrBooks = [
+                  //    {
+                  //       name: "Людина в пошуках справжнього сенсу. Психолог у концтаборі",
+                  //       yearEstablishment: 2022,
+                  //       author: "Віктор Франкл",
+                  //    },
+                  //    {
+                  //       name: "Человек в поисках смысла",
+                  //       yearEstablishment: 2012,
+                  //       author: "Віктор Франкл",
+                  //    },
+                  //    {
+                  //       name: "Книга Фактор Черчилля. Як одна людина змінила історію",
+                  //       yearEstablishment: 2019,
+                  //       author: "Боріс Джонсон",
+                  //    },
+                  //    {
+                  //       name: "Книга Мавка. Лісова пісня",
+                  //       yearEstablishment: 2023,
+                  //       author: "Леся Українка",
+                  //    },
+
+                  //    {
+                  //       name: "Кассандра",
+                  //       yearEstablishment: 2020,
+                  //       author: "Леся Українка",
+                  //    },
+                  // ]
+                  // let map = new Map()
+                  // for (const el of arrBooks) {
+                  //    let bookCount = map.get(el.author) || 0
+                  //    map.set(el.author, bookCount + 1)
+                  // }
+                  // console.log(map)
+
+                  // Задача 7. Дано інформацію про відвідувачів деякого сайту (для кожного відвідувача зберігається
+                  // логін). Підрахувати для кожного клієнта кількість відвідувань.
+                  let visitorSite = ["user#1", "user#1", "user#2", "user#1", "user#3", "user#3"]
+                  let map = new Map()
+                  for (const el of visitorSite) {
+                     // 1 варіант
+                     // let elCount = map.get(el) || 0
+                     // map.set(el, elCount + 1)
+                     // Якщо такого не існує (undefined) то добавимо його в map
+                     // інакше додаємо один до нього
+
+                     // 2 варіант
+                     let user = map.get(el)
+                     if (user) map.set(el, user + 1)
+                     else map.set(el, 1)
+                  }
+                  console.log(map)
+
+                  // Задача 8. Дано масив студентів (піб, курс, факультет). Підрахувати кількість різних факультетів, та
+                  // кількість студентів кожного з курсів.
+                  let arrStudents = [
+                     { fullName: "Janial Jack", course: 2, faculty: "Math-Physics" },
+                     { fullName: "Michael Jordan", course: 3, faculty: "Physical-Training" },
+                     { fullName: "Cristiano Ronaldo", course: 3, faculty: "Physical-Training" },
+                     { fullName: "Cris Bumstead", course: 2, faculty: "Math-Physics" },
+                  ]
+                  let numberFaculty = new Set()
+                  let numberStudentOfCourse = new Map()
+                  for (const el of arrStudents) {
+                     numberFaculty.add(el.faculty)
+
+                     let course = numberStudentOfCourse.get(el.course)
+                     if (course) numberStudentOfCourse.set(el.course, course + 1)
+                     else numberStudentOfCourse.set(el.course, 1)
+                  }
+                  numberStudentOfCourse.forEach((val, key, map) => {
+                     console.log(`Кількість в ${key} курсі - ${val}`)
+                  })
+                  console.log(`Кількість факультетів = ${numberFaculty.size}`)
+                  // Задача 9. Дано масив показів температур. Підрахувати кількість входжень кожного із показів
+                  // Заокруглити вверх значення та підрахувати кількість різних показів.
+
+                  let temperatures = [12.4, 24.9, 10.6, 12.4, 24.9, 12.4, 10.6, 11.9]
+                  let numberEveryInputTemperature = new Map()
+                  temperatures.forEach((el, i, arrRef) => {
+                     arrRef[i] = Math.ceil(el)
+
+                     let elCount = numberEveryInputTemperature.get(arrRef[i]) || 0
+                     numberEveryInputTemperature.set(arrRef[i], elCount + 1)
+                  })
+                  let valueIsNotRepeat = new Set(temperatures)
+                  console.log(`Кількість різних значень температури - ${valueIsNotRepeat.size}`)
+                  console.log(numberEveryInputTemperature)
+
+                  // Задача 10 Дано два списки прізвищ студентів, що відвідують гуртки з
+                  // математики і історії. Підрахувати скільки студентів з гуртка з історії
+                  // також відвідують гурток з математики. Також підрахувати скільки всього
+                  // студентів відвідують хоча б один гурток.
+                  let listVisitedMath = [
+                     "Jack Vorobey",
+                     "Alina Portmane",
+                     "Kane Harry",
+                     "Nicole Kart",
+                     "Cristiano Ronaldo",
+                  ]
+                  let listVisitedHistory = ["Jack Vorobey", "Alina Portmane", "Nicole Kart"]
+                  // 1 варіант
+                  function numberStudentWorkshopHistoryVisitedMath(
+                     listVisitedHistory,
+                     listVisitedMath
+                  ) {
+                     let count = 0
+                     let set = new Set(listVisitedMath)
+                     for (const el of listVisitedHistory) {
+                        set.has(el) ? count++ : count
+                     }
+                     return `Кількість відвідувачів з гуртка історії відвідують гурток математики - ${count}`
+                  }
+                  console.log(
+                     numberStudentWorkshopHistoryVisitedMath(listVisitedHistory, listVisitedMath)
+                  )
+                  // 2 варіант
+                  // function numberStudentWorkshopHistoryVisitedMath(
+                  //    listVisitedHistory,
+                  //    listVisitedMath
+                  // ) {
+                  //    let countVisitedHistoryAndMath = 0
+                  //    for (const el of listVisitedHistory) {
+                  //       listVisitedMath.some((item) => el === item)
+                  //          ? countVisitedHistoryAndMath++
+                  //          : countVisitedHistoryAndMath
+                  //    }
+                  //    return `Кількість студентів з гуртка з історії відвідують гурток з математики - ${countVisitedHistoryAndMath}`
+                  // }
+                  // console.log(
+                  //    numberStudentWorkshopHistoryVisitedMath(listVisitedHistory, listVisitedMath)
+                  // )
+
+                  function evenOneVisitedWorkshop(list1, list2) {
+                     let set = new Set()
+                     // 1 варіант
+                     // for (const el of arguments) {
+                     //    for (const item of el) {
+                     //       set.add(item)
+                     //    }
+                     // }
+                     // 2 варіант
+                     for (const el of list1) {
+                        set.add(el)
+                     }
+                     for (const el of list2) {
+                        set.add(el)
+                     }
+                     return set.size
+                  }
+                  console.log(evenOneVisitedWorkshop(listVisitedHistory, listVisitedMath))
+               </script>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
